@@ -1,0 +1,1 @@
+{"version":3,"file":"app.css","mappings":"AAAA;EACE;EACA;AACF;;AAEA;EACE;AACF,C","sources":["webpack://minemark/./src/styles-editor/app.editor.scss"],"sourcesContent":["html, body {\n  font-size: 16px;\n  scroll-behavior: smooth;\n}\n\nbody {\n  background: #999;\n}"],"names":[],"sourceRoot":""}

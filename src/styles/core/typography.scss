@@ -1,0 +1,61 @@
+
+:root {
+  --font-size--h2: 40px;
+
+  @include mq('tablet', 'max') {
+    --font-size--h2: 30px;
+  }
+}
+
+body, html, p {
+  font-family: var(--font-primary--serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+  line-height: 156%;
+  color: #333;
+  font-weight: 300;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary--sans);
+  font-weight: 900;
+  letter-spacing: -2px;
+  display: inline-block;
+  @include position();
+
+  &:after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 2px;
+    margin-left: 0.5rem;
+    background: white;
+    vertical-align: baseline;
+  }
+}
+
+/* ----------------------------------------
+  The thin in-between header
+---------------------------------------- */
+.header-alt {
+  &__inner {
+    max-width: 1132px;
+    margin: 0 auto;
+
+    h3 {
+      font-weight: 100;
+      font-size: 48px;
+      letter-spacing: -2%;
+      color: var(--color-grey--dark);
+
+      &:after {
+        background: var(--color-primary--alt);
+        height: 1px;
+      }
+    }
+  }
+}

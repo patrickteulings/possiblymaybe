@@ -402,7 +402,7 @@ function possiblymaybe_scripts() {
 		wp_enqueue_style( 'possiblymaybe-style', get_template_directory_uri() . '/assets/css/ie.css', array(), wp_get_theme()->get( 'Version' ) );
 	} else {
 		// If not IE, use the standard stylesheet.
-		wp_enqueue_style( 'possiblymaybe-style', get_template_directory_uri() . '/style.css', array(), wp_get_theme()->get( 'Version' ) );
+		wp_enqueue_style( 'possiblymaybe-style', get_template_directory_uri() . '/dist/assets/app.css', array(), wp_get_theme()->get( 'Version' ) );
 	}
 
 	// RTL styles.

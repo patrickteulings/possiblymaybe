@@ -1,8 +1,11 @@
 const path = require('path');
+const { merge } = require('webpack-merge');
+const common = require('./webpack.common.js');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-module.exports = {
-  mode: 'development',
+
+module.exports = merge(common, {
+  mode: 'production',
   plugins: [new MiniCssExtractPlugin({ filename: 'app.css' })],
   watch: true,
   watchOptions: {
@@ -15,7 +18,7 @@ module.exports = {
   },
   output: {
     filename: 'app.js',
-    path: path.resolve(__dirname, 'dist/assets')
+    path: path.resolve(__dirname, 'dist/editor-assets')
   },
   module: {
     rules: [
@@ -44,4 +47,4 @@ module.exports = {
     ],
   },
   devtool: 'source-map',
-};
+});
