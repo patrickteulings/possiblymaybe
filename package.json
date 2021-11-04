@@ -30,6 +30,7 @@
 		"sass": "^1.34.1",
 		"stylelint": "^13.13.1",
 		"stylelint-config-recommended-scss": "^4.2.0",
+		"terser-webpack-plugin": "^5.2.4",
 		"webpack": "^5.55.0",
 		"webpack-cli": "^3.3.12",
 		"webpack-merge": "^5.8.0"
@@ -66,13 +67,14 @@
 		"lint:scss": "stylelint **/*.scss",
 		"lint-fix:scss": "stylelint **/*.scss --fix",
 		"webpack": "webpack --source-map",
-    "webpack:standard": "webpack --config webpack.dev.js --source-map",
-    "webpack:editor": "webpack --config webpack.editor.js --source-map"
+		"webpack:standard": "webpack --config webpack.config.dev.js --source-map",
+		"webpack:editor": "webpack --config webpack.config.editor.js --source-map"
 	},
 	"dependencies": {
 		"css-loader": "^6.2.0",
 		"mailchimp-api-v3": "^1.15.0",
 		"mini-css-extract-plugin": "^2.2.0",
+		"optimize-css-assets-webpack-plugin": "^6.0.1",
 		"rellax": "^1.12.1",
 		"sass-loader": "^12.1.0"
 	}

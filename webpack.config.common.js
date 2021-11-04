@@ -1,10 +1,13 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = {
   mode: 'development',
   plugins: [new MiniCssExtractPlugin({ filename: 'app.css' })],
   watch: true,
+  devtool: 'source-map',
   watchOptions: {
     poll: 1000,
     ignored: '**/node_modules',
@@ -36,5 +39,18 @@ module.exports = {
       }
     ],
   },
-  devtool: 'source-map',
+  optimization: {
+    minimizer: [
+      new OptimizeCssAssetsPlugin({
+        cssProcessorOptions: {
+          map: {
+            inline: false,
+            annotation: true,
+          },
+        },
+      }),
+      new TerserPlugin({
+      }),
+    ],
+  },
 };
