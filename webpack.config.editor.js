@@ -10,6 +10,6 @@ module.exports = merge(common, {
   },
   output: {
     filename: 'app.js',
-    path: path.resolve(__dirname, 'dist/editor-assets')
+    path: path.resolve(__dirname, 'dist/assets-editor')
   },
 });

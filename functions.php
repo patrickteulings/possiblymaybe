@@ -125,22 +125,15 @@ if ( ! function_exists( 'possiblymaybe_setup' ) ) {
 
 		// Add support for editor styles.
 		add_theme_support( 'editor-styles' );
-		$background_color = get_theme_mod( 'background_color', 'D1E4DD' );
+		$background_color = get_theme_mod( 'background_color', 'FFFFFF' );
 		if ( 127 > Twenty_Twenty_One_Custom_Colors::get_relative_luminance_from_hex( $background_color ) ) {
 			add_theme_support( 'dark-editor-style' );
 		}
 
-		$editor_stylesheet_path = './assets/css/style-editor.css';
-
-		// Note, the is_IE global variable is defined by WordPress and is used
-		// to detect if the current browser is internet explorer.
-		global $is_IE;
-		if ( $is_IE ) {
-			$editor_stylesheet_path = './assets/css/ie-editor.css';
-		}
+    $editor_stylesheet_path = '/dist/assets-editor/app.css';
 
 		// Enqueue editor styles.
-		add_editor_style( $editor_stylesheet_path );
+		add_editor_style(get_template_directory_uri() .  $editor_stylesheet_path );
 
 		// Add custom editor font sizes.
 		add_theme_support(
@@ -637,3 +630,11 @@ function possiblymaybe_add_ie_class() {
 	<?php
 }
 add_action( 'wp_footer', 'possiblymaybe_add_ie_class' );
+
+
+/**
+ * OUR CUSTOM POST TYPES
+ *
+ */
+
+require get_template_directory() . '/inc/custom-post-types/portfolio-post.php';
