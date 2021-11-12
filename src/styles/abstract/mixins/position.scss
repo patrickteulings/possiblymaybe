@@ -1,0 +1,37 @@
+/* ----------------------------------------
+  Simplifies an standardizes positioning of elements
+
+  Usage: @include position('relative', 0px, px);
+
+---------------------------------------- */
+
+@mixin position($type: relative, $left: 0, $top: 0, $right: auto, $bottom: auto) {
+  position: $type;
+  left: $left;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+}
+
+/* ----------------------------------------
+  JUST an easy way to center using flexbox
+---------------------------------------- */
+
+@mixin flex-center($direction: 'center') {
+  display: flex;
+
+  @if $direction == 'horizontal' {
+    justify-content: center;
+  }
+  @else if $direction == 'vertical' {
+    align-items: center;
+  }
+  @else if $direction == 'center' {
+    align-items: center;
+    justify-content: center;
+  }
+  @else {
+    align-items: center;
+    justify-content: center;
+  }
+}

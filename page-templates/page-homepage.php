@@ -13,6 +13,7 @@
  */
 
 get_template_part( 'template-parts/header/homepage-header' );
+get_template_part( 'template-parts/hero/homepage-hero' );
 ?>
 <h1>Hoi homepage</h1>
 <?php

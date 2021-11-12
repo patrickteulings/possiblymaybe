@@ -1,0 +1,13 @@
+/* ----------------------------------------
+  Simplifies adding a Pseudo (:before and :after) element
+
+  Usage: @include pseudo();
+
+---------------------------------------- */
+
+@mixin pseudo() {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+}

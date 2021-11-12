@@ -1,11 +1,22 @@
 
 @import
-  'abstract/fonts';
+  'abstract/fonts',
+  'abstract/mixins/a11y',
+  'abstract/mixins/mq',
+  'abstract/mixins/position',
+  'abstract/mixins/pseudo',
+  'abstract/mixins/transitions';
+
+@import
+  'layout/navigation/header',
+  'layout/hero/base-hero',
+  'layout/hero/homepage-hero';
 
 
 
 html, body {
-  font-size: 16px;
+  padding: 0;
+  margin: 0;
+  font-size: 16px; // 1rem
   scroll-behavior: smooth;
-  font-family: $inter;
 }
