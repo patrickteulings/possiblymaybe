@@ -455,8 +455,24 @@ function possiblymaybe_scripts() {
 		wp_get_theme()->get( 'Version' ),
 		true
 	);
+
+	// Register the IE11 polyfill file.
+	wp_register_script(
+		'possiblymaybe-main-script',
+		get_template_directory_uri() . '/dist/assets/app.js',
+		array(),
+		wp_get_theme()->get( 'Version' ),
+		true
+	);
+
 }
 add_action( 'wp_enqueue_scripts', 'possiblymaybe_scripts' );
+
+
+add_action( 'wp_footer', 'my_custom_script_load' );
+function my_custom_script_load(){
+  wp_enqueue_script( 'my-custom-script', get_stylesheet_directory_uri() . '/dist/assets/app.js');
+}
 
 /**
  * Enqueue block editor script.

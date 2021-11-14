@@ -1,6 +1,9 @@
 
 @import
+  'abstract/reset',
   'abstract/fonts',
+  'abstract/colors',
+  'abstract/breakpoints',
   'abstract/mixins/a11y',
   'abstract/mixins/mq',
   'abstract/mixins/position',
@@ -8,7 +11,11 @@
   'abstract/mixins/transitions';
 
 @import
-  'layout/navigation/header',
+  'components/button';
+
+@import
+  'layout/header/header',
+  'layout/header/navigation',
   'layout/hero/base-hero',
   'layout/hero/homepage-hero';
 

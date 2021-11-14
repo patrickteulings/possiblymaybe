@@ -10,17 +10,10 @@
 ?>
 
 <?php if ( has_nav_menu( 'primary' ) ) : ?>
-	<nav id="site-navigation" class="primary-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Primary menu', 'possiblymaybe' ); ?>">
-		<div class="menu-button-container">
-			<button id="primary-mobile-menu" class="button" aria-controls="primary-menu-list" aria-expanded="false">
-				<span class="dropdown-icon open"><?php esc_html_e( 'Menu', 'possiblymaybe' ); ?>
-					<?php echo possiblymaybe_get_icon_svg( 'ui', 'menu' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
-				</span>
-				<span class="dropdown-icon close"><?php esc_html_e( 'Close', 'possiblymaybe' ); ?>
-					<?php echo possiblymaybe_get_icon_svg( 'ui', 'close' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
-				</span>
-			</button><!-- #primary-mobile-menu -->
-		</div><!-- .menu-button-container -->
+	<nav id="site-navigation" class="navigation" role="navigation" data-module="NavigationToggle" data-config='{"trigger":".navigation__trigger", "target":".primary-menu-container"}' aria-label="<?php esc_attr_e( 'Primary menu', 'possiblymaybe' ); ?>">
+    <button class="navigation__trigger" aria-controls="primary-menu-list" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
 		<?php
 		wp_nav_menu(
 			array(

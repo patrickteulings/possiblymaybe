@@ -1,0 +1,18 @@
+.site-header {
+  @include position(fixed);
+  height: 7rem;
+  background: white;
+  z-index: 2;
+  width: calc(100% - 6rem);
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem;
+
+  .site-branding {
+    order: 2;
+  }
+
+  .navigation {
+    order: 1;
+  }
+}

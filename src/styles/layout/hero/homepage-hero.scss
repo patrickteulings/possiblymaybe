@@ -1,0 +1,35 @@
+.hero--homepage {
+  .hero__actions {
+    margin-left: 9rem;
+    margin-top: 3rem;
+  }
+
+  .hero__text {
+    padding-top: 6rem;
+  }
+}
+
+/* ----------------------------------------
+  ANIMATED TEXT
+---------------------------------------- */
+.hero--homepage {
+  .hero__text {
+    display: flex;
+    font-size: 2.5rem;
+  }
+
+  .animated-text--static {
+    font-family: $playfair;
+    font-weight: 900;
+    font-style: italic;
+    color: $blue-light;
+    margin-right: 0.3ch;
+  }
+
+  .animated-text--animated {
+    font-family: $inter;
+    font-weight: 900;
+    letter-spacing: -2px;
+    color: lighten($blue-dark, 10%);
+  }
+}

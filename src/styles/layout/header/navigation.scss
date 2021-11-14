@@ -1,0 +1,48 @@
+.navigation {
+  @include position;
+
+  &__trigger {
+    border: 0;
+    background: transparent;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+
+
+
+    span {
+      @include position(absolute, 0, 0);
+      @include transition;
+      width: 32px;
+      height: 1px;
+      background: $blue-dark-fresh;
+      display: block;
+
+      &:nth-child(1) {
+        top: 10px;
+        width: 24px;
+      }
+      &:nth-child(2) {
+        top: 20px;
+      }
+    }
+
+    &:hover {
+      span:nth-child(2) {
+        width: 28px;
+      }
+
+      span:nth-child(1) {
+        width: 32px;
+      }
+    }
+  }
+
+  .primary-menu-container {
+    display: none;
+
+    &.is-open {
+      display: flex;
+    }
+  }
+}
