@@ -4,6 +4,7 @@
   'abstract/fonts',
   'abstract/colors',
   'abstract/breakpoints',
+  'abstract/layout',
   'abstract/mixins/a11y',
   'abstract/mixins/mq',
   'abstract/mixins/position',
@@ -11,15 +12,20 @@
   'abstract/mixins/transitions';
 
 @import
+  'components/title-element',
   'components/button';
 
 @import
   'layout/header/header',
   'layout/header/navigation',
+  'layout/content/content',
   'layout/hero/base-hero',
   'layout/hero/homepage-hero';
 
-
+  @import
+  'sections/portfolio-list/portfolio-list',
+  'sections/portfolio-list/portfolio-highlight',
+  'sections/gigantic/gigantic';
 
 html, body {
   padding: 0;

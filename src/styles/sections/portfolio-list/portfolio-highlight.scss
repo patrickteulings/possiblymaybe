@@ -1,0 +1,75 @@
+.homepage-portfolio-highlight {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+
+  &__inner {
+    max-width: $desktop-width;
+    margin: 0 auto;
+  }
+
+  .portfolio-item {
+    &__image {
+      height: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        height: auto !important;
+      }
+    }
+    &__content-wrapper {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3rem;
+    }
+
+    &-content__inner {
+      display: flex;
+      margin-top: 2rem;
+      padding-left: 2rem;
+    }
+
+    &__title {
+
+      h3 {
+        @include position;
+        color: $blue-light;
+        font-size: 32px;
+        font-weight: 800;
+        width: calc(100% - 6rem);
+        margin: 0 auto;
+
+        &:before {
+          content: '';
+          width: 16px;
+          height: 1px;
+          background-color: $blue-light;
+          @include position(absolute, -32px, 15px);
+        }
+      }
+    }
+
+    &__content {
+      width: calc(100% - 10rem);
+      margin: 0 auto;
+    }
+
+    &__desc,
+    &__subtitle {
+      font-family: $noto;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 28px;
+      color: $blue-dark;
+      padding-right: 64px;
+    }
+
+    &__subtitle {
+      min-width: 40%;
+    }
+
+
+  }
+}

@@ -654,3 +654,91 @@ add_action( 'wp_footer', 'possiblymaybe_add_ie_class' );
  */
 
 require get_template_directory() . '/inc/custom-post-types/portfolio-post.php';
+
+
+
+function possiblymaybe_create_shortcode_portfolio_highlight(){
+  $result = '';
+  $args = array(
+                  'post_type'      => 'portfolio',
+                  'posts_per_page' => '10',
+                  'publish_status' => 'published',
+                  'p'               => '8',
+               );
+
+  $query = new WP_Query($args);
+
+  if($query->have_posts()) :
+    $result .= '<div class="homepage-portfolio-highlight">';
+    $result .= '<div class="homepage-portfolio-highlight__inner">';
+    while($query->have_posts()) :
+
+        $query->the_post() ;
+
+        $result .= '<div class="portfolio-item">';
+          $result .= '<div class="portfolio-item__image" style="background-color: '. get_field('color') . ';">' . get_the_post_thumbnail() . '</div>';
+          $result .= '<div class="portfolio-item__content-wrapper">';
+            $result .= '<div class="portfolio-item__content">';
+                $result .= '<div class="portfolio-item__title"><h3>' . get_the_title() . '</h3></div>';
+                $result .= '<div class="portfolio-item-content__inner">';
+                $result .= '<div class="portfolio-item__subtitle">' . get_field('subtitle') . '</div>';
+                $result .= '<div class="portfolio-item__desc">' . get_the_excerpt() . '</div>';
+                $result .= '</div>';
+              $result .= '</div>';
+            $result .= '<div class="portfolio-item__action"><a href="' . get_permalink() . '" class="btn">tell me more</a></div>';
+          $result .= '</div>';
+          $result .= '</div>';
+        $result .= '</div>';
+
+
+      endwhile;
+      $result .= '</div>';
+      $result .= '</div>';
+      wp_reset_postdata();
+
+  endif;
+
+  return $result;
+}
+
+add_shortcode( 'portfolio-highlight', 'possiblymaybe_create_shortcode_portfolio_highlight' );
+
+function possiblymaybe_create_shortcode_portfolio_list(){
+  $result = '';
+  $args = array(
+                  'post_type'      => 'portfolio',
+                  'posts_per_page' => '10',
+                  'publish_status' => 'published',
+               );
+
+  $query = new WP_Query($args);
+
+  if($query->have_posts()) :
+    $result .= '<div class="homepage-portfolio-list">';
+    $result .= '<div class="homepage-portfolio-list__inner">';
+    while($query->have_posts()) :
+
+        $query->the_post() ;
+
+    $result .= '<div class="portfolio-item">';
+      $result .= '<div class="portfolio-item__image" style="background-color: '. get_field('color') . ';">' . get_the_post_thumbnail() . '</div>';
+      $result .= '<div class="portfolio-item__title"><h3>' . get_the_title() . '</h3></div>';
+      $result .= '<div class="portfolio-item__content">';
+        // $result .= '<div class="portfolio-item__desc">' . get_field('subtitle') . '</div>';
+        $result .= '<div class="portfolio-item__desc">' . get_the_excerpt() . '</div>';
+        $result .= '<div class="portfolio-item__action"><a href="' . get_permalink() . '" class="btn">tell me more</a></div>';
+      $result .= '</div>';
+    $result .= '</div>';
+
+
+      endwhile;
+      $result .= '</div>';
+      $result .= '</div>';
+      wp_reset_postdata();
+
+  endif;
+
+  return $result;
+}
+
+add_shortcode( 'portfolio-list', 'possiblymaybe_create_shortcode_portfolio_list' );

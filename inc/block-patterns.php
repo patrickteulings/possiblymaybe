@@ -26,7 +26,19 @@ if ( function_exists( 'register_block_pattern_category' ) ) {
  */
 if ( function_exists( 'register_block_pattern' ) ) {
 
-	// Large Text.
+  // Portfolio highlight.
+	register_block_pattern(
+		'possiblymaybe/portfolio-highlight',
+		array(
+			'title'         => esc_html__( 'Portfolio Highlight', 'possiblymaybe' ),
+			'categories'    => array( 'possiblymaybe' ),
+			'viewportWidth' => 1440,
+			'content'       => '<!-- wp:group {"className":"portfolio-highlight"} --> <div class="wp-block-group portfolio-highlight"><!-- wp:query {"queryId":15,"query":{"perPage":3,"pages":0,"offset":0,"postType":"portfolio","categoryIds":[7],"tagIds":[],"order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false}} --> <div class="wp-block-query"><!-- wp:post-template --><!-- wp:paragraph --><p>paragraaf test</p><!-- /wp:paragraph --><!-- wp:post-featured-image /--><!-- wp:post-title {"isLink":true} /--> <!-- wp:post-date /--> <!-- wp:post-excerpt {"moreText":"tell me more"} /--> <!-- /wp:post-template --></div> <!-- /wp:query --></div> <!-- /wp:group -->',
+		)
+	);
+
+
+  // Large Text.
 	register_block_pattern(
 		'possiblymaybe/large-text',
 		array(

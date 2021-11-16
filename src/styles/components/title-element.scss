@@ -1,0 +1,20 @@
+.title-element--with-subtitle {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+
+  .wp-block-group__inner-container {
+    max-width: $desktop-width;
+    margin: 0 auto;
+  }
+
+
+  h6 {
+    font-style: italic;
+  }
+
+  h2 {
+    color: $blue-light;
+    font-family: $inter;
+    font-weight: 900;
+  }
+}

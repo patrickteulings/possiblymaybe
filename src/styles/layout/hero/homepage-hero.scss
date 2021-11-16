@@ -33,3 +33,39 @@
     color: lighten($blue-dark, 10%);
   }
 }
+
+/* ----------------------------------------
+  TEST - DELETE AFTER USE
+---------------------------------------- */
+
+.intersect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  @include position;
+
+  &__background {
+    @include position(absolute);
+    width: 100%;
+    height: 100%;
+    transform: scale(0.6);
+    transform-origin: center;
+    background: $blue-dark;
+    color: #fff;
+    @include transition(all, 1s)
+  }
+
+  .center {
+    @include position;
+    z-index: 3;
+    color: #fff;
+  }
+
+
+  &.bigger {
+    .intersect__background {
+      transform: scale(1);
+    }
+  }
+}

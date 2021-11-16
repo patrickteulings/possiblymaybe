@@ -14,8 +14,10 @@
 
 get_template_part( 'template-parts/header/homepage-header' );
 get_template_part( 'template-parts/hero/homepage-hero' );
+get_template_part( 'template-parts/header/site-nav--secondary' );
+
 ?>
-<h1>Hoi homepage</h1>
+
 <?php
 /* Start the Loop */
 while ( have_posts() ) :
@@ -25,7 +27,15 @@ endwhile; // End of the loop.
 
 ?>
 
-<!-- /test -->
+<h1>Hoi homepage</h1>
+
+<div style="height: 400px;">Spacer div</div>
+<div class="intersect grow">
+  <div class="intersect__background"></div>
+  <div class="center">
+    test for intersection observer
+  </div>
+</div>
 
 
 <?php

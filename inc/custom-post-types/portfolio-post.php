@@ -49,6 +49,7 @@ function custom_post_type_portfolio() {
     'capability_type'     => 'post',
     'menu_icon'          => 'dashicons-admin-customizer',
     'show_in_rest' => true,
+    'taxonomies'          => array( 'category' ),
   );
 
   // Registering your Custom Post Type
@@ -58,33 +59,11 @@ function custom_post_type_portfolio() {
 // Custom category (Terms) for supporters
 
 function create_taxonomies_portfolio() {
-  $labels = array(
-    'name'              => _x('Portfolio Categories', 'taxonomy general name'),
-    'singular_name'     => _x('Portfolio Category', 'taxonomy singular name'),
-    'search_items'      => __('Search Portfolio Categories'),
-    'all_items'         => __('All Portfolio Categories'),
-    'parent_item'       => __('Parent Portfolio Category'),
-    'parent_item_colon' => __('Parent Portfolio Category:'),
-    'edit_item'         => __('Edit Portfolio Category'),
-    'update_item'       => __('Update Portfolio Category'),
-    'add_new_item'      => __('Add New Portfolio Category'),
-    'new_item_name'     => __('New Portfolio Category'),
-    'menu_name'         => __('Portfolio Categories'),
-  );
-
-  $args = array(
-    'labels' => $labels,
-    'hierarchical' => true,
-    'show_in_rest' => true,
-    'query_var' => true,
-  );
-
-  register_taxonomy('portfolio_category', 'portfolio', $args);
 }
 
 
 // INIT
 add_action('init', 'custom_post_type_portfolio', 0);
-add_action('init', 'create_taxonomies_portfolio', 0);
+// add_action('init', 'create_taxonomies_portfolio', 0);
 
 ?>

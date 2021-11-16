@@ -1,0 +1,25 @@
+.gigantic {
+  height: 100vh;
+  background: radial-gradient(66.44% 135.29% at 75.45% 75.39%, #AED0D2 12.58%, #8EC5C9 31.9%, #AED0D2 58.85%, #AED0D2 100%);
+  .has-gigantic-font-size {
+    color: #fff;
+    font-family: $inter;
+    font-size: 2rem;
+    line-height: 58px !important;
+    font-weight: 800;
+    max-width: 620px;
+
+    .has-inline-color {
+      font-family: $playfair;
+      font-style: italic;
+      font-weight: 900;
+    }
+  }
+
+  .wp-block-group__inner-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

@@ -14,6 +14,47 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/scripts/utilities/Intersection.js":
+/*!***********************************************!*\
+  !*** ./src/scripts/utilities/Intersection.js ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ IntersectTest; }
+/* harmony export */ });
+
+class IntersectTest {
+  // Constructor always gets called, pass initial params here
+  constructor(_elem) {
+    this.elem = _elem || '';
+    this.initialize();
+  }
+
+  initialize() {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        const ratio = entry.intersectionRatio;
+        entry.target.dataset.test = ratio;
+
+        console.log(ratio);
+        if (entry.isIntersecting) {
+          entry.target.classList.add('bigger');
+          // entry.target.src = entry.target.dataset.src
+          // observer.unobserve(entry.target)
+        } else {
+          entry.target.classList.remove('bigger');
+        }
+      });
+    }, { rootMargin: '0px 0px 50px 0px' });
+    const el = document.querySelector('.intersect');
+    observer.observe(el);
+  }
+}
+
+/***/ }),
+
 /***/ "./src/scripts/utilities/NavigationToggle.js":
 /*!***************************************************!*\
   !*** ./src/scripts/utilities/NavigationToggle.js ***!
@@ -138,6 +179,8 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_app_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../styles/app.scss */ "./src/styles/app.scss");
 /* harmony import */ var _utilities_NavigationToggle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utilities/NavigationToggle */ "./src/scripts/utilities/NavigationToggle.js");
+/* harmony import */ var _utilities_Intersection__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utilities/Intersection */ "./src/scripts/utilities/Intersection.js");
+
 
 
 
@@ -148,6 +191,9 @@ const navigationToggles = document.querySelectorAll('[data-module="NavigationTog
 for (let navigationToggle of navigationToggles) {
   navigationToggle = new _utilities_NavigationToggle__WEBPACK_IMPORTED_MODULE_1__["default"](navigationToggle);
 }
+
+const el = new _utilities_Intersection__WEBPACK_IMPORTED_MODULE_2__["default"]();
+console.log(el);
 }();
 /******/ })()
 ;

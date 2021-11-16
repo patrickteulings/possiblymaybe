@@ -1,11 +1,12 @@
-const path = require('path');
+// const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin')
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  plugins: [new MiniCssExtractPlugin({ filename: 'app.css' })],
+  plugins: [new MiniCssExtractPlugin({ filename: 'app.css' }), new ESLintPlugin({ exclude: 'node_modules' })],
   watch: true,
   devtool: 'source-map',
   watchOptions: {
@@ -35,8 +36,8 @@ module.exports = {
       {
         test: /\.js$/,
         use: 'babel-loader',
-        exclude: /node_modules/
-      }
+        exclude: /node_modules/,
+      },
     ],
   },
   optimization: {
