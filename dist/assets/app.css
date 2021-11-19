@@ -542,6 +542,21 @@ table {
   }
 }
 
+.hero--portfolio-item {
+  display: block;
+}
+.hero--portfolio-item__image {
+  width: 50%;
+  height: 100%;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0, 0.325, 0.375, 0.915), width 0.3s cubic-bezier(0, 0.325, 0.375, 0.915);
+}
+.hero--portfolio-item__image:hover {
+  transform: translateX(0%);
+  width: 100%;
+  transition: transform 0.8s cubic-bezier(0.75, 0.02, 0.27, 1.02), width 0.8s cubic-bezier(0.75, 0.02, 0.27, 1.02);
+}
+
 .hero--homepage .hero__actions {
   margin-left: 9rem;
   margin-top: 3rem;

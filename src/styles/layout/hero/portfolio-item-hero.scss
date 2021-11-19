@@ -1,0 +1,15 @@
+.hero--portfolio-item {
+  display: block;
+  &__image {
+    width: 50%;
+    height: 100%;
+    transform: translateX(100%);
+    transition: transform 0.3s $default-easing, width 0.3s $default-easing;
+
+    &:hover {
+      transform: translateX(0%);
+      width: 100%;
+      transition: transform 0.8s $default-ease-in-out, width 0.8s $default-ease-in-out;
+    }
+  }
+}
