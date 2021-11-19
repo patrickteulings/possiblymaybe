@@ -654,8 +654,7 @@ add_action( 'wp_footer', 'possiblymaybe_add_ie_class' );
  */
 
 require get_template_directory() . '/inc/custom-post-types/portfolio-post.php';
-
-
+require get_template_directory() . '/inc/ui/buttons.php';
 
 function possiblymaybe_create_shortcode_portfolio_highlight(){
   $result = '';
@@ -679,14 +678,14 @@ function possiblymaybe_create_shortcode_portfolio_highlight(){
           $result .= '<div class="portfolio-item__image" style="background-color: '. get_field('color') . ';">' . get_the_post_thumbnail() . '</div>';
           $result .= '<div class="portfolio-item__content-wrapper">';
             $result .= '<div class="portfolio-item__content">';
-                $result .= '<div class="portfolio-item__title"><h3>' . get_the_title() . '</h3></div>';
-                $result .= '<div class="portfolio-item-content__inner">';
+              $result .= '<div class="portfolio-item__title"><h3>' . get_the_title() . '</h3></div>';
+              $result .= '<div class="portfolio-item-content__inner">';
                 $result .= '<div class="portfolio-item__subtitle">' . get_field('subtitle') . '</div>';
                 $result .= '<div class="portfolio-item__desc">' . get_the_excerpt() . '</div>';
-                $result .= '</div>';
+                $result .= '<div class="portfolio-item__action">' . possiblymaybe_button(get_permalink(), 'tell me more', 'btn--small') . '</div>';
+                // $result .= '<div class="portfolio-item__action"><a href="' . get_permalink() . '" class="btn"><i class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></i><span class="text">tell me more</span></a></div>';
               $result .= '</div>';
-            $result .= '<div class="portfolio-item__action"><a href="' . get_permalink() . '" class="btn">tell me more</a></div>';
-          $result .= '</div>';
+            $result .= '</div>';
           $result .= '</div>';
         $result .= '</div>';
 
@@ -726,7 +725,7 @@ function possiblymaybe_create_shortcode_portfolio_list(){
       $result .= '<div class="portfolio-item__content">';
         // $result .= '<div class="portfolio-item__desc">' . get_field('subtitle') . '</div>';
         $result .= '<div class="portfolio-item__desc">' . get_the_excerpt() . '</div>';
-        $result .= '<div class="portfolio-item__action"><a href="' . get_permalink() . '" class="btn">tell me more</a></div>';
+        $result .= '<div class="portfolio-item__action">' . possiblymaybe_button(get_permalink(), 'tell me more', 'btn--small') . '</div>';
       $result .= '</div>';
     $result .= '</div>';
 

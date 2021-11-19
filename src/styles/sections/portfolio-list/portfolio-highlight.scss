@@ -1,5 +1,5 @@
 .homepage-portfolio-highlight {
-  margin-top: 5rem;
+  margin-top: 3rem;
   margin-bottom: 5rem;
 
   &__inner {
@@ -26,6 +26,7 @@
 
     &-content__inner {
       display: flex;
+      align-items: center;
       margin-top: 2rem;
       padding-left: 2rem;
     }
@@ -70,6 +71,9 @@
       min-width: 40%;
     }
 
-
+    &__action {
+      text-align: right;
+      flex-grow: 2;
+    }
   }
 }

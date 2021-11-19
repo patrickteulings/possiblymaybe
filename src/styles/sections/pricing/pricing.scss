@@ -1,0 +1,102 @@
+.wp-block-group {
+  &.pricing {
+    background: $blue-light;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+
+    .wp-block-group__inner-container {
+      @include inner-container;
+
+      & > h2 {
+        margin-left: 6rem; // section heading
+        margin-right: 6rem;
+      }
+
+      & > p {
+        margin: 0 6rem;
+        @include paragraph('italic');
+
+        @include mq('tablet','min') {
+          width: 50%;
+        }
+      }
+    }
+
+    h2 {
+      color: #fff;
+      @include heading-h2;
+    }
+  }
+}
+
+/* ----------------------------------------
+  PRICING COLUMNS / CARDS
+---------------------------------------- */
+
+.wp-block-group{
+  &.pricing {
+    .wp-block-columns {
+      margin-top: 5rem;
+
+      .wp-block-column {
+        padding: 4rem 2rem 2rem 2rem;
+        background: radial-gradient(91.55% 63.07% at 75.7% 86.1%, #FFFFFF 0%, rgba(255, 243, 255, 0.854167) 29.44%, #FFFFFF 50.09%);
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+
+        .wp-block-column {
+          background: none;
+          box-shadow: none;
+        }
+
+        h3 {
+          font-family: $noto;
+          font-style: italic;
+          font-size: 24px;
+          font-weight: 400;
+          line-height: 2rem;
+          color: $blue-dark-fresh;
+          margin-bottom: 2rem;
+        }
+
+        ul {
+          li {
+            @include position;
+            @include bullet;
+            @include paragraph;
+            padding-left: 24px;
+            line-height: 32px;
+            font-size: 16;
+            font-weight: 300;
+          }
+        }
+
+        .wp-block-columns.actions {
+          align-items: center;
+          margin-bottom: 0;
+
+          .wp-block-column {
+            padding: 0;
+            color: #B0B0B0;
+            font-size: 16px;
+            font-style: italic;
+
+            &:last-child {
+              flex-grow: 2;
+              margin-left: 0;
+              text-align: right;
+            }
+            .btn--small {
+              padding-left: 2rem;
+            }
+
+            a {
+              display: block;
+              text-decoration: none;
+              color: $blue-dark-fresh;
+            }
+          }
+        }
+      }
+    }
+  }
+}

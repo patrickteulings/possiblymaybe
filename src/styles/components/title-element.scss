@@ -1,6 +1,6 @@
 .title-element--with-subtitle {
-  margin-top: 3rem;
-  margin-bottom: 2rem;
+  margin-top: 6rem;
+  margin-bottom: 0rem;
 
   .wp-block-group__inner-container {
     max-width: $desktop-width;
@@ -10,11 +10,27 @@
 
   h6 {
     font-style: italic;
+    font-size: 12px;
+    font-family: $noto;
+    font-weight: 300;
+    padding-left: 0.5rem;
+    margin-bottom: 2rem;
+    @include position;
+
+    &:before {
+      content: '';
+      @include position(absolute, -32px, 50%);
+      height: 1px;
+      width: 24px;
+      background: $blue-dark;
+    }
   }
 
   h2 {
     color: $blue-light;
     font-family: $inter;
+    font-size: 40px;
     font-weight: 900;
+    padding-left: 3rem;
   }
 }

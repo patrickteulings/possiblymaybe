@@ -1,0 +1,77 @@
+.wp-block-group {
+  &.inhouse {
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+
+    .wp-block-group__inner-container {
+      @include inner-container;
+
+      & > h2 {
+        margin-left: 6rem; // section heading
+        margin-right: 6rem;
+      }
+
+      .intro-columns.wp-block-columns {
+        padding-right: 6rem;
+        align-items: center;
+
+        .wp-block-column {
+          &:last-child {
+            max-width: 300px;
+
+            p {
+              margin: 0;
+              @include paragraph-as-button;
+
+            }
+          }
+          &:first-child {
+            flex-grow: 2;
+          }
+        }
+        p {
+          margin: 0 6rem;
+          @include paragraph('italic');
+
+          @include mq('tablet','min') {
+            // width: 50%;
+          }
+        }
+      }
+
+      & > p {
+        margin: 0 6rem;
+        @include paragraph('italic');
+
+        @include mq('tablet','min') {
+          width: 50%;
+        }
+      }
+    }
+
+    h2 {
+      color: $blue-dark-fresh;
+      @include heading-h2;
+    }
+  }
+}
+
+/* ----------------------------------------
+  INHOUSE EXAMPLE COLUMNS / CARDS
+---------------------------------------- */
+
+.wp-block-group{
+  &.inhouse {
+
+    .wp-block-columns {
+      margin-top: 5rem;
+
+      .wp-block-column {
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+.site-cta {
+  background: radial-gradient(186.18% 394.22% at 62.92% 137.34%, #F1FBFC 0%, #AED0D2 100%);
+
+  &__inner {
+    @include inner-container;
+  }
+
+  .cta {
+    &__content {
+      display: flex;
+      justify-content: center;
+
+      h2 {
+        @include heading-h2;
+        color: $blue-dark-fresh;
+      }
+
+      p {
+        @include paragraph;
+
+        &:not(:last-child) {
+          margin-bottom: 1rem;
+        }
+
+        @include mq('tablet','min') {
+          max-width: 60%;
+          margin: 0 auto;
+        }
+      }
+    }
+
+    &__actions {
+      display: flex;
+      justify-content: center;
+      margin-top: 3rem;
+
+      a:first-child {
+        margin-right: 2rem;
+      }
+    }
+  }
+}

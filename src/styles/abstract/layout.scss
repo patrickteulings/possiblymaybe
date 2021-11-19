@@ -1,1 +1,14 @@
 $desktop-width: 71rem;
+$section-inner-padding: 8rem 2rem;
+$section-inner-padding-mobile: 4rem 1rem;
+
+@mixin inner-container() {
+  max-width: $desktop-width;
+  padding: $section-inner-padding-mobile;
+  margin: 0 auto;
+
+  @include mq('tablet','min') {
+    padding: $section-inner-padding;
+  }
+}
+

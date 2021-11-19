@@ -1,0 +1,37 @@
+@mixin paragraph ($style: 'italic') {
+  font-size: 14px;
+  font-family: $noto;
+  font-weight: 400;
+  color: $blue-dark;
+  line-height: 2rem;
+
+  @if $style == 'italic' {
+    font-style: italic;
+  }
+
+  @include mq('tablet','min') {
+    font-size: 16px;
+  }
+}
+
+@mixin bullet {
+  &:before {
+    content: '';
+    width: 15px;
+    height: 15px;
+    background-image: url('./../../assets/icons/custom/bullet.svg');
+    @include position(absolute, 0, 7px);
+  }
+}
+
+@mixin paragraph-as-button (){
+  @include position;
+  padding-left: 2rem;
+  &:before {
+  }
+
+  a {
+    color: $blue-dark-fresh;
+    text-decoration: none;
+  }
+}

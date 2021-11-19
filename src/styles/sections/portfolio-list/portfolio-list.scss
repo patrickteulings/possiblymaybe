@@ -49,6 +49,7 @@
     }
     &__content {
       display: flex;
+      align-items: center;
       width: calc(100% - 10rem);
       margin: 0 auto;
       margin-top: 3rem;
@@ -67,10 +68,6 @@
       min-width: 190px;
       display: flex;
       justify-content: right;
-
-      .btn {
-        padding: 1rem 2rem;
-      }
     }
   }
 }
