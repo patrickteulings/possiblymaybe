@@ -1,3 +1,4 @@
+import anime from 'animejs/lib/anime.es.js'
 
 export default class NavigationToggle {
   // Constructor always gets called, pass initial params here
@@ -18,13 +19,42 @@ export default class NavigationToggle {
     this.addEvents()
   }
 
+  handleHover () {
+    anime({
+      targets: '.hero--portfolio-item__image',
+      translateX: 0,
+      width: '100%',
+      duration: 300,
+      easing: 'cubicBezier(0.420, 0.000, 0.580, 1.000);'
+    })
+  }
+
+  handleLeave () {
+    anime({
+      targets: '.hero--portfolio-item__image',
+      translateX: '100%',
+      width: '50%',
+      duration: 100,
+      easing: 'cubicBezier(0.420, 0.000, 0.580, 1.000);'
+    })
+  }
+
   addEvents () {
+    const image = document.querySelector('.hero--portfolio-item__image')
     this.trigger.onclick = (e) => this.toggleElement(e)
 
     window.addEventListener('keydown', (e) => {
       if (e.key.toLowerCase() === 'escape') {
         this.closeElement()
       }
+    })
+
+    image.addEventListener('mouseover', () => {
+      this.handleHover()
+    })
+
+    image.addEventListener('mouseleave', () => {
+      this.handleLeave()
     })
   }
 

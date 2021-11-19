@@ -1,15 +1,23 @@
 .hero--portfolio-item {
   display: block;
   &__image {
+    @include position(absolute);
     width: 50%;
     height: 100%;
     transform: translateX(100%);
-    transition: transform 0.3s $default-easing, width 0.3s $default-easing;
+    transition: transform 0.5s $default-easing, width 0.5s $default-easing;
+    // background-size: cover;
+    background-position: center;
+    overflow: hidden;
+
+    img {
+
+    }
 
     &:hover {
-      transform: translateX(0%);
-      width: 100%;
-      transition: transform 0.8s $default-ease-in-out, width 0.8s $default-ease-in-out;
+      // transform: translateX(0%);
+      // width: 100%;
+      // transition: transform 0.8s $default-ease-in-out, width 0.8s $default-ease-in-out;
     }
   }
 }

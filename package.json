@@ -75,6 +75,7 @@
 		"webpack:editor": "webpack --config webpack.config.editor.js --source-map"
 	},
 	"dependencies": {
+		"animejs": "^3.2.1",
 		"css-loader": "^6.2.0",
 		"mailchimp-api-v3": "^1.15.0",
 		"mini-css-extract-plugin": "^2.2.0",

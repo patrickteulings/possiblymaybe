@@ -1,5 +1,8 @@
 <div class="hero hero--portfolio-item">
-  <div class="hero--portfolio-item__image" style="background-image: url(<?= get_the_post_thumbnail_url(); ?>)"></div>
+  <!-- <div class="hero--portfolio-item__image" style="background-image: url(<?= get_field('header_image'); ?>)"> -->
+  <div class="hero--portfolio-item__image">
+    <img src="<?= get_field('header_image'); ?>">
+  </div>
   <div class="hero--portfolio-item__inner">
     <div class="hero--portfolio-item__text">
       <div class="animated-text--static">maybe</div>
