@@ -26,10 +26,6 @@ while ( have_posts() ) :
 endwhile; // End of the loop.
 
 ?>
-
-<h1>Hoi homepage</h1>
-
-<div style="height: 400px;">Spacer div</div>
 <div class="intersect grow">
   <div class="intersect__background"></div>
   <div class="center">

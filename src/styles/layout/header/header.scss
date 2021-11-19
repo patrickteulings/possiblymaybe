@@ -1,7 +1,7 @@
 .site-header {
   @include position(fixed);
   height: auto;
-  z-index: 2;
+  z-index: 999;
   width: calc(100% - 6rem);
   display: flex;
   justify-content: space-between;

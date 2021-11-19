@@ -20,6 +20,12 @@ export default class NavigationToggle {
 
   addEvents () {
     this.trigger.onclick = (e) => this.toggleElement(e)
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key.toLowerCase() === 'escape') {
+        this.closeElement()
+      }
+    })
   }
 
   toggleElement () {
