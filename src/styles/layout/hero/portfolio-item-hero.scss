@@ -1,23 +1,77 @@
 .hero--portfolio-item {
   display: block;
+  background: white;
+
+  &__inner {
+    @include inner-container;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 0px solid #000;
+    height: 100%;
+    padding: 0;
+    text-align: left;
+  }
+
+  &__content {
+    padding: 0 2rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    & > div {
+      margin-bottom: 3rem;
+    }
+  }
+
+
+  &__title {
+    font-family: $playfair;
+    font-weight: 900;
+    color: $blue-light;
+    font-size: 42px;
+    margin-left: 2rem;
+  }
+
+  &__subtitle {
+    font-family: $noto;
+    font-size: 12px;
+    font-weight: 300;
+    font-style: italic;
+    color: $pink;
+    font-size: 12px;
+  }
+
+  &__excerpt {
+    p {
+      @include paragraph;
+      margin-left: 2rem;
+    }
+  }
+
   &__image {
     @include position(absolute);
-    width: 50%;
+    width: 100%;
     height: 100%;
-    transform: translateX(100%);
-    transition: transform 0.5s $default-easing, width 0.5s $default-easing;
-    // background-size: cover;
-    background-position: center;
-    overflow: hidden;
+    clip-path: polygon(50% 0, 100% 0%, 100% 100%, 50% 100%);
+    @include transition;
 
     img {
-
+      @include position(absolute);
+      @include transition(transform, 0.5s);
+      transform: translateX(-96px);
     }
 
     &:hover {
-      // transform: translateX(0%);
-      // width: 100%;
-      // transition: transform 0.8s $default-ease-in-out, width 0.8s $default-ease-in-out;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+
+      img {
+        transform: translateX(0);
+      }
     }
   }
+}
+
+.portfolio-first-block {
+  background-color: #E9F5F5;
+  background: $blue-light;
 }

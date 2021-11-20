@@ -1409,23 +1409,25 @@ class NavigationToggle {
   }
 
   handleHover() {
-    (0,animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
-      targets: '.hero--portfolio-item__image',
-      translateX: 0,
-      width: '100%',
-      duration: 300,
-      easing: 'cubicBezier(0.420, 0.000, 0.580, 1.000);'
-    });
+    console.log(animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
+    return false;
+    // anime({
+    //   targets: '.hero--portfolio-item__image',
+    //   translateX: 0,
+    //   width: '100%',
+    //   duration: 300,
+    //   easing: 'cubicBezier(0.420, 0.000, 0.580, 1.000);'
+    // })
   }
 
   handleLeave() {
-    (0,animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
-      targets: '.hero--portfolio-item__image',
-      translateX: '100%',
-      width: '50%',
-      duration: 100,
-      easing: 'cubicBezier(0.420, 0.000, 0.580, 1.000);'
-    });
+    // anime({
+    //   targets: '.hero--portfolio-item__image',
+    //   translateX: '100%',
+    //   width: '50%',
+    //   duration: 100,
+    //   easing: 'cubicBezier(0.420, 0.000, 0.580, 1.000);'
+    // })
   }
 
   addEvents() {

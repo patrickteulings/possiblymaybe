@@ -15,11 +15,11 @@ get_template_part( 'template-parts/header/portfolio-item-header' );
 get_template_part( 'template-parts/hero/portfolio-item-hero' );
 get_template_part( 'template-parts/header/site-nav--secondary' );
 ?>
-<h1> this should already work!</h1>
+
 <?php
 /* Start the Loop */
 while ( have_posts() ) :
-	the_post();
+	// the_post();
 
 	get_template_part( 'template-parts/content/content-single-portfolio-item' );
 

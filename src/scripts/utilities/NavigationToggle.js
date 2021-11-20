@@ -20,23 +20,25 @@ export default class NavigationToggle {
   }
 
   handleHover () {
-    anime({
-      targets: '.hero--portfolio-item__image',
-      translateX: 0,
-      width: '100%',
-      duration: 300,
-      easing: 'cubicBezier(0.420, 0.000, 0.580, 1.000);'
-    })
+    console.log(anime)
+    return false
+    // anime({
+    //   targets: '.hero--portfolio-item__image',
+    //   translateX: 0,
+    //   width: '100%',
+    //   duration: 300,
+    //   easing: 'cubicBezier(0.420, 0.000, 0.580, 1.000);'
+    // })
   }
 
   handleLeave () {
-    anime({
-      targets: '.hero--portfolio-item__image',
-      translateX: '100%',
-      width: '50%',
-      duration: 100,
-      easing: 'cubicBezier(0.420, 0.000, 0.580, 1.000);'
-    })
+    // anime({
+    //   targets: '.hero--portfolio-item__image',
+    //   translateX: '100%',
+    //   width: '50%',
+    //   duration: 100,
+    //   easing: 'cubicBezier(0.420, 0.000, 0.580, 1.000);'
+    // })
   }
 
   addEvents () {
