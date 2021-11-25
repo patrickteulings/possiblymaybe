@@ -1,0 +1,76 @@
+.hero--about {
+  display: block;
+  background: $blue-dark;
+
+  color: white;
+
+  &__inner {
+    @include inner-container;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    border: 0px solid #000;
+    height: 100%;
+    padding: 0;
+    text-align: left;
+  }
+
+  &__content {
+    padding: 0 2rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    @include position;
+    z-index: 3;
+
+    & > div {
+      margin-bottom: 3rem;
+    }
+  }
+
+
+  &__title {
+    h1,
+    h1 p {
+      font-family: $playfair;
+      font-style: italic;
+      font-weight: 900;
+      color: white;
+      font-size: 42px;
+      // margin-left: 2rem;
+      line-height: 140%;
+    }
+  }
+
+  &__subtitle {
+    font-family: $noto;
+    font-size: 12px;
+    font-weight: 300;
+    font-style: italic;
+    color: white;
+    font-size: 12px;
+    @include position;
+
+    &:before {
+      @include before-line-small;
+    }
+  }
+
+  &__content {
+    > p {
+      @include paragraph;
+      color: white;
+      font-weight: 300;
+      width: 75%;
+    }
+  }
+}
+
+.logo-detail--xl {
+  background: #fff;
+  padding: 16px 0;
+
+  svg {
+    width: 100%;
+    height: auto;
+  }
+}

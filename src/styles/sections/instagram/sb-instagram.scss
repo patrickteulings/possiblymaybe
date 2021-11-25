@@ -1,0 +1,57 @@
+#sb_instagram {
+  overflow: scroll;
+  margin-top: 4rem;
+  background: white;
+  padding: 1rem;
+  padding-bottom: 1rem !important;
+}
+
+#sb_instagram #sbi_images {
+  padding: 0 !important;
+  display: flex;
+  width: 12000px;
+
+  a {
+    min-width: 350px;
+    height: 350px;
+  }
+
+  .sbi_item {
+
+    &:hover {
+      .sbi_caption {
+        opacity: 1;
+      }
+    }
+  }
+
+  .sbi_caption {
+    @include position(absolute, 0, 0, 0, 0);
+    height: 350px;
+    width: 350px;
+    background: rgba(255,255,255,0.6);
+    line-height: 140%;
+    font-family: $noto;
+    font-style: italic;
+    font-size: 14px;
+    padding: 1rem;
+    display: flex;
+    align-items: flex-end;
+    // justify-content: center;
+    opacity: 0;
+    @include transition;
+    pointer-events: none;
+  }
+}
+
+#sb_instagram.sbi_col_4 #sbi_images .sbi_item {
+  min-width: 350px;
+  height: 350px;
+  margin-right: 1rem!important;
+  padding: 0!important;
+  @include position;
+
+  a {
+    height: 350px;
+  }
+}

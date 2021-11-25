@@ -19,7 +19,7 @@ get_template_part( 'template-parts/header/site-nav--secondary' );
 <?php
 /* Start the Loop */
 while ( have_posts() ) :
-	// the_post();
+	the_post();
 
 	get_template_part( 'template-parts/content/content-single-portfolio-item' );
 

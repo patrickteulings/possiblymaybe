@@ -13,6 +13,13 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      @include transition(all, 0.5s, $default-easing, 0.3s);
+      clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+
+
+      &.is-intersected {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+      }
 
       img {
         height: auto !important;
@@ -25,7 +32,8 @@
     }
 
     &-content__inner {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 1.3fr 1fr;
       align-items: center;
       margin-top: 2rem;
       padding-left: 2rem;

@@ -11,3 +11,14 @@
   left: 0;
   top: 0;
 }
+
+@mixin before-line-small {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 50%;
+  height: 1px;
+  width: 16px;
+  background-color: $blue-dark-fresh;
+  margin-top: -1px;
+}

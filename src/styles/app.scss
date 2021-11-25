@@ -11,6 +11,7 @@
   'abstract/mixins/pseudo',
   'abstract/mixins/headings',
   'abstract/mixins/paragraph',
+  'abstract/mixins/scrollbar',
   'abstract/mixins/transitions';
 
 @import
@@ -18,12 +19,15 @@
   'components/button';
 
 @import
+  'layout/base/base',
   'layout/header/header',
   'layout/header/navigation',
   'layout/content/content',
   'layout/footer/footer',
   'layout/hero/base-hero',
   'layout/hero/portfolio-item-hero',
+  'layout/hero/about-hero',
+  'layout/hero/work-hero',
   'layout/hero/homepage-hero';
 
   @import
@@ -32,7 +36,14 @@
   'sections/pricing/pricing',
   'sections/inhouse/inhouse',
   'sections/cta/cta',
+  'sections/services/columns-list',
+  'sections/instagram/sb-instagram',
   'sections/gigantic/gigantic';
+
+  @import
+    'views/about/about',
+    'views/work/work',
+    'views/portfolio-item/portfolio-item';
 
 html, body {
   padding: 0;

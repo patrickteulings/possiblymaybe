@@ -1,0 +1,11 @@
+/* hide scrollbar but allow scrolling */
+.homepage-portfolio-list__inner,
+#sb_instagram {
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll;
+}
+
+.homepage-portfolio-list__inner::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}

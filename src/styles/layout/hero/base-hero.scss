@@ -1,10 +1,16 @@
 .hero {
-  height: calc(100vh - 9rem);
+  min-height: 100vh;
   width: 100vw;
   background: #AED0D2;
   display: flex;
   align-items: center;
   @include position;
+  @include transition(height, 0.5s, $default-easing, 0.5s);
+
+  &.make-visible {
+    height: calc(100vh - 9rem);
+  }
+
 
   &__background {
     @include position(absolute, 0, 0);

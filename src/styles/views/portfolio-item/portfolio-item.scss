@@ -1,0 +1,52 @@
+.portfolio-first-block {
+  background-color: #E9F5F5;
+  background: $blue-light;
+
+  .wp-block-group__inner-container {
+    @include inner-container;
+    height: 100%;
+
+    @include mq('tablet','min') {
+      padding-top: 12rem;
+
+    }
+  }
+
+  .wp-block-columns {
+    height: 100%;
+    align-content: stretch;
+  }
+
+  .wp-block-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    @include position;
+
+    h2 {
+      @include heading-h2;
+      padding-top: 3rem;
+      color: $pink;
+    }
+
+    p {
+      @include paragraph;
+
+      @include mq('tablet', 'min') {
+        max-width: 420px;
+      }
+    }
+  }
+
+  .wp-block-column {
+    .wp-block-image {
+      @include position(absolute);
+      top: -4rem;
+
+      img {
+        height: auto;
+      }
+    }
+  }
+}

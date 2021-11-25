@@ -24,6 +24,12 @@
       width: 24px;
       background: $blue-dark;
     }
+
+    .page-template-page-about & {
+      &:before {
+        background-color: #000;
+      }
+    }
   }
 
   h2 {
@@ -32,5 +38,11 @@
     font-size: 40px;
     font-weight: 900;
     padding-left: 3rem;
+
+    .page-template-page-about & {
+      font-family: $playfair;
+      font-style: italic;
+    }
   }
 }
+

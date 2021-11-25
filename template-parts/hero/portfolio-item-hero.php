@@ -3,6 +3,7 @@
   <div class="hero--portfolio-item__image">
     <img src="<?= get_field('header_image'); ?>">
   </div>
+  <div class="hero--portfolio-item__image-border"></div>
   <div class="hero--portfolio-item__inner">
     <div class="hero--portfolio-item__content">
       <div class="hero--portfolio-item__title">
@@ -15,7 +16,10 @@
         <?php the_excerpt(); ?>
       </div>
       <div class="hero--portfolio-item__actions">
-        <?=  possiblymaybe_button(the_field('website_url'),'visit', 'btn--small'); ?>
+        <? $link = get_field('website_url'); ?>
+        <?=
+
+          possiblymaybe_button($link, 'visit the website', 'btn--small'); ?>
       </div>
     </div>
   </div>

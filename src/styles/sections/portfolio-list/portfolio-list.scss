@@ -16,11 +16,29 @@
     margin-right: 2rem;
 
     &__image {
+      @include transition(all, 0.5s, $default-easing, 0.2s);
+    }
+
+    @for $i from 1 through 2 {
+      &:nth-child(#{$i}) {
+        .portfolio-item__image {
+          @include transition(all, 0.5s, $default-easing, calc(0.2s + #{$i * .3}s));
+        }
+      }
+    }
+
+    &__image {
       height: 496px;
       width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
+
+      clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+
+      &.is-intersected {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+      }
 
       img {
         height: auto !important;

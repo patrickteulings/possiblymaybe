@@ -17,6 +17,8 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    @include position;
+    z-index: 3;
 
     & > div {
       margin-bottom: 3rem;
@@ -27,7 +29,7 @@
   &__title {
     font-family: $playfair;
     font-weight: 900;
-    color: $blue-light;
+    color: $blue-dark;
     font-size: 42px;
     margin-left: 2rem;
   }
@@ -37,8 +39,13 @@
     font-size: 12px;
     font-weight: 300;
     font-style: italic;
-    color: $pink;
+    color: $blue-dark;
     font-size: 12px;
+    @include position;
+
+    &:before {
+      @include before-line-small;
+    }
   }
 
   &__excerpt {
@@ -51,13 +58,15 @@
   &__image {
     @include position(absolute);
     width: 100%;
-    height: 100%;
+    height: 100vh;
     clip-path: polygon(50% 0, 100% 0%, 100% 100%, 50% 100%);
+    overflow: hidden;
     @include transition;
 
     img {
       @include position(absolute);
       @include transition(transform, 0.5s);
+      height: 100vh;
       transform: translateX(-96px);
     }
 
@@ -69,9 +78,13 @@
       }
     }
   }
-}
 
-.portfolio-first-block {
-  background-color: #E9F5F5;
-  background: $blue-light;
+  &__image-border {
+    border: 8px solid white;
+    @include position(absolute);
+    width: 100vw;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+  }
 }

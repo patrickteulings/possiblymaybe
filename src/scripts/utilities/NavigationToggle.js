@@ -42,7 +42,7 @@ export default class NavigationToggle {
   }
 
   addEvents () {
-    const image = document.querySelector('.hero--portfolio-item__image')
+    // const image = document.querySelector('.hero--portfolio-item__image')
     this.trigger.onclick = (e) => this.toggleElement(e)
 
     window.addEventListener('keydown', (e) => {
@@ -51,13 +51,13 @@ export default class NavigationToggle {
       }
     })
 
-    image.addEventListener('mouseover', () => {
-      this.handleHover()
-    })
+    // image.addEventListener('mouseover', () => {
+    //   this.handleHover()
+    // })
 
-    image.addEventListener('mouseleave', () => {
-      this.handleLeave()
-    })
+    // image.addEventListener('mouseleave', () => {
+    //   this.handleLeave()
+    // })
   }
 
   toggleElement () {

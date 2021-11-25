@@ -1335,6 +1335,44 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/scripts/utilities/InstaExtention.js":
+/*!*************************************************!*\
+  !*** ./src/scripts/utilities/InstaExtention.js ***!
+  \*************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ InstaFeedExtended; }
+/* harmony export */ });
+/**
+ * Extending the SBI Instagram feed plugin
+ */
+
+class InstaFeedExtended {
+  constructor(_elem) {
+    this.feedEl = _elem;
+    this.imageContainers = this.feedEl.querySelectorAll('.sbi_item');
+    this.initialize();
+  }
+
+  initialize() {
+    if (!this.imageContainers.length) return;
+
+    for (const el of this.imageContainers) {
+      const img = el.getElementsByTagName('img')[0];
+      const alt = img.getAttribute('alt');
+      const captionElement = document.createElement('div');
+      captionElement.className = 'sbi_caption';
+      captionElement.innerHTML = alt;
+      el.appendChild(captionElement);
+      console.log(alt, alt);
+    }
+  }
+}
+
+/***/ }),
+
 /***/ "./src/scripts/utilities/Intersection.js":
 /*!***********************************************!*\
   !*** ./src/scripts/utilities/Intersection.js ***!
@@ -1356,21 +1394,43 @@ class IntersectTest {
   initialize() {
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
+        // const ratio = entry.intersectionRatio
+        // entry.target.dataset.test = ratio
+
+        // console.log(ratio)
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-intersected');
+        } else {
+          // entry.target.classList.remove('is-intersected')
+        }
+      });
+    }, { rootMargin: '-20px 0px 50px 0px' });
+
+    const el = document.querySelectorAll('.portfolio-item__image');
+
+    el.forEach(item => {
+      observer.observe(item);
+    });
+
+    const navObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
         const ratio = entry.intersectionRatio;
         entry.target.dataset.test = ratio;
 
-        console.log(ratio);
         if (entry.isIntersecting) {
-          entry.target.classList.add('bigger');
+          entry.target.classList.add('make-visible');
           // entry.target.src = entry.target.dataset.src
           // observer.unobserve(entry.target)
         } else {
-          entry.target.classList.remove('bigger');
+          entry.target.classList.remove('make-visible');
         }
       });
     }, { rootMargin: '0px 0px 50px 0px' });
-    const el = document.querySelector('.intersect');
-    observer.observe(el);
+    const navEl = document.querySelector('.hero');
+
+    if (navEl.classList.contains('hero--about')) return;
+
+    navObserver.observe(navEl);
   }
 }
 
@@ -1431,7 +1491,7 @@ class NavigationToggle {
   }
 
   addEvents() {
-    const image = document.querySelector('.hero--portfolio-item__image');
+    // const image = document.querySelector('.hero--portfolio-item__image')
     this.trigger.onclick = e => this.toggleElement(e);
 
     window.addEventListener('keydown', e => {
@@ -1440,13 +1500,13 @@ class NavigationToggle {
       }
     });
 
-    image.addEventListener('mouseover', () => {
-      this.handleHover();
-    });
+    // image.addEventListener('mouseover', () => {
+    //   this.handleHover()
+    // })
 
-    image.addEventListener('mouseleave', () => {
-      this.handleLeave();
-    });
+    // image.addEventListener('mouseleave', () => {
+    //   this.handleLeave()
+    // })
   }
 
   toggleElement() {
@@ -1540,6 +1600,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_app_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../styles/app.scss */ "./src/styles/app.scss");
 /* harmony import */ var _utilities_NavigationToggle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utilities/NavigationToggle */ "./src/scripts/utilities/NavigationToggle.js");
 /* harmony import */ var _utilities_Intersection__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utilities/Intersection */ "./src/scripts/utilities/Intersection.js");
+/* harmony import */ var _utilities_InstaExtention__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utilities/InstaExtention */ "./src/scripts/utilities/InstaExtention.js");
+
 
 
 
@@ -1552,7 +1614,13 @@ for (let navigationToggle of navigationToggles) {
   navigationToggle = new _utilities_NavigationToggle__WEBPACK_IMPORTED_MODULE_1__["default"](navigationToggle);
 }
 
+const instaFeed = document.getElementById('sb_instagram');
+if (instaFeed) {
+  const instaFeedExtended = new _utilities_InstaExtention__WEBPACK_IMPORTED_MODULE_3__["default"](instaFeed);
+  console.log(instaFeedExtended);
+}
 const el = new _utilities_Intersection__WEBPACK_IMPORTED_MODULE_2__["default"]();
+
 console.log(el);
 }();
 /******/ })()

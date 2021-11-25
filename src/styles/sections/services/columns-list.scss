@@ -1,0 +1,23 @@
+
+.wp-block-group{
+  &.block--services {
+    .wp-block-group__inner-container {
+      @include inner-container;
+
+      .wp-block-columns {
+        .wp-block-column {
+          h2 {
+            @include heading-h2;
+            color: $blue-dark-fresh;
+          }
+
+          p {
+            @include paragraph;
+            color: white;
+            font-weight: 300;
+          }
+        }
+      }
+    }
+  }
+}

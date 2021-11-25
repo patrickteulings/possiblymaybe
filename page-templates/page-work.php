@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
 
- * Template Name: Homepage template
+ * Template Name: Work template
  *
  *
  * @package WordPress
@@ -12,9 +12,8 @@
  * @since Possibly Maybe 1.0
  */
 
-get_template_part( 'template-parts/header/homepage-header' );
-get_template_part( 'template-parts/hero/homepage-hero' );
-get_template_part( 'template-parts/header/site-nav--secondary' );
+get_template_part( 'template-parts/header/work-header' );
+get_template_part( 'template-parts/hero/work-hero' );
 
 ?>
 
@@ -22,7 +21,12 @@ get_template_part( 'template-parts/header/site-nav--secondary' );
 /* Start the Loop */
 while ( have_posts() ) :
 	the_post();
-	get_template_part( 'template-parts/content/content-page' );
+	get_template_part( 'template-parts/content/content-work' );
 endwhile; // End of the loop.
+
+?>
+
+
+<?php
 
 get_footer();
