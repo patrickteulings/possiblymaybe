@@ -16,6 +16,8 @@
 
 @import
   'components/title-element',
+  'components/work/card-work',
+  'components/about/card--about',
   'components/button';
 
 @import
@@ -28,6 +30,7 @@
   'layout/hero/portfolio-item-hero',
   'layout/hero/about-hero',
   'layout/hero/work-hero',
+  'layout/hero/prices-hero',
   'layout/hero/homepage-hero';
 
   @import

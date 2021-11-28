@@ -1323,15 +1323,103 @@ anime.random = function (min, max) { return Math.floor(Math.random() * (max - mi
 
 /***/ }),
 
-/***/ "./src/styles/app.scss":
-/*!*****************************!*\
-  !*** ./src/styles/app.scss ***!
-  \*****************************/
+/***/ "./src/scripts/utilities/ImageLoader.js":
+/*!**********************************************!*\
+  !*** ./src/scripts/utilities/ImageLoader.js ***!
+  \**********************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ ImageLoader; }
+/* harmony export */ });
+function ImageLoader(rootUrl, _progressCallback, _finishedCallback) {
+  let results = null;
+  let error = null;
+  let loading = true;
+  const chunks = [];
+  const progressCallBack = _progressCallback;
+  const finishedCallback = _finishedCallback; // let controller = null; // We will get to this variable in a second
 
+  const json = async (path, options) => {
+    try {
+      const response = await fetch(path, { ...options
+      });
+
+      if (response.status >= 200 && response.status < 300) {
+        results = await _readBody(response);
+        const bb = new Blob([new Uint8Array(results)]);
+        const objectURL = URL.createObjectURL(bb);
+        console.log(objectURL);
+        return objectURL;
+      } else {
+        throw new Error('error', response.statusText);
+      }
+    } catch (err) {
+      error = err;
+      results = null;
+      return error;
+    } finally {
+      loading = false;
+    }
+  };
+
+  const _readBody = async response => {
+    const reader = response.body.getReader();
+    const length = +response.headers.get('content-length'); // Declare received as 0 initially
+
+    let received = 0; // Loop through the response stream and extract data chunks
+
+    while (loading) {
+      const {
+        done,
+        value
+      } = await reader.read();
+      const payload = {
+        detail: {
+          received,
+          length,
+          loading,
+          rootUrl
+        }
+      }; // const onProgress = new CustomEvent('fetch-progress', payload)
+      // const onFinished = new CustomEvent('fetch-finished', payload)
+
+      if (done) {
+        // Finish loading
+        loading = false; // Fired when reading the response body finishes
+        // window.dispatchEvent(onFinished)
+
+        finishedCallback(payload);
+      } else {
+        console.log('value.length', value.length); // Push values to the chunk array
+
+        chunks.push(value);
+        received += value.length; // Fired on each .read() - progress tick
+        // window.dispatchEvent(onProgress)
+
+        progressCallBack(payload);
+      }
+    } // Concat the chinks into a single array
+
+
+    let body = new Uint8Array(received); // eslint-disable-line
+
+    let position = 0; // Order the chunks by their respective position
+
+    for (const chunk of chunks) {
+      body.set(chunk, position);
+      position += chunk.length;
+    } // Decode the response and return it
+
+
+    return body;
+  };
+
+  return {
+    json
+  };
+}
 
 /***/ }),
 
@@ -1348,7 +1436,6 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Extending the SBI Instagram feed plugin
  */
-
 class InstaFeedExtended {
   constructor(_elem) {
     this.feedEl = _elem;
@@ -1369,6 +1456,7 @@ class InstaFeedExtended {
       console.log(alt, alt);
     }
   }
+
 }
 
 /***/ }),
@@ -1383,7 +1471,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ IntersectTest; }
 /* harmony export */ });
-
 class IntersectTest {
   // Constructor always gets called, pass initial params here
   constructor(_elem) {
@@ -1396,42 +1483,66 @@ class IntersectTest {
       entries.forEach(entry => {
         // const ratio = entry.intersectionRatio
         // entry.target.dataset.test = ratio
-
         // console.log(ratio)
         if (entry.isIntersecting) {
           entry.target.classList.add('is-intersected');
-        } else {
-          // entry.target.classList.remove('is-intersected')
+        } else {// entry.target.classList.remove('is-intersected')
         }
       });
-    }, { rootMargin: '-20px 0px 50px 0px' });
-
+    }, {
+      rootMargin: '-20px 0px 50px 0px'
+    });
     const el = document.querySelectorAll('.portfolio-item__image');
-
     el.forEach(item => {
       observer.observe(item);
     });
-
     const navObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         const ratio = entry.intersectionRatio;
         entry.target.dataset.test = ratio;
 
         if (entry.isIntersecting) {
-          entry.target.classList.add('make-visible');
-          // entry.target.src = entry.target.dataset.src
+          entry.target.classList.add('make-visible'); // entry.target.src = entry.target.dataset.src
           // observer.unobserve(entry.target)
         } else {
           entry.target.classList.remove('make-visible');
         }
       });
-    }, { rootMargin: '0px 0px 50px 0px' });
+    }, {
+      rootMargin: '0px 0px 50px 0px'
+    });
     const navEl = document.querySelector('.hero');
 
-    if (navEl.classList.contains('hero--about')) return;
+    if (!navEl.classList.contains('hero--about')) {
+      navObserver.observe(navEl);
+    }
+    /**
+     * WORK OVERVIEW PAGE
+     */
 
-    navObserver.observe(navEl);
+
+    const workObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        const ratio = entry.intersectionRatio;
+        entry.target.dataset.test = ratio;
+
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view'); // entry.target.src = entry.target.dataset.src
+          // observer.unobserve(entry.target)
+        } else {
+          entry.target.classList.remove('in-view');
+        }
+      });
+    }, {
+      rootMargin: '-100% 0px -100% 0px'
+    });
+    const workEl = document.querySelectorAll('.work-card--wrapper');
+    workEl.forEach(item => {
+      observer.observe(item);
+    });
+    console.log(workObserver);
   }
+
 }
 
 /***/ }),
@@ -1447,7 +1558,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": function() { return /* binding */ NavigationToggle; }
 /* harmony export */ });
 /* harmony import */ var animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! animejs/lib/anime.es.js */ "./node_modules/animejs/lib/anime.es.js");
-
 
 class NavigationToggle {
   // Constructor always gets called, pass initial params here
@@ -1470,8 +1580,7 @@ class NavigationToggle {
 
   handleHover() {
     console.log(animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
-    return false;
-    // anime({
+    return false; // anime({
     //   targets: '.hero--portfolio-item__image',
     //   translateX: 0,
     //   width: '100%',
@@ -1480,8 +1589,7 @@ class NavigationToggle {
     // })
   }
 
-  handleLeave() {
-    // anime({
+  handleLeave() {// anime({
     //   targets: '.hero--portfolio-item__image',
     //   translateX: '100%',
     //   width: '50%',
@@ -1498,12 +1606,9 @@ class NavigationToggle {
       if (e.key.toLowerCase() === 'escape') {
         this.closeElement();
       }
-    });
-
-    // image.addEventListener('mouseover', () => {
+    }); // image.addEventListener('mouseover', () => {
     //   this.handleHover()
     // })
-
     // image.addEventListener('mouseleave', () => {
     //   this.handleLeave()
     // })
@@ -1530,7 +1635,20 @@ class NavigationToggle {
     this.trigger.ariaExpanded = false;
     this.isOpen = false;
   }
+
 }
+
+/***/ }),
+
+/***/ "./src/styles/app.scss":
+/*!*****************************!*\
+  !*** ./src/styles/app.scss ***!
+  \*****************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ })
 
@@ -1601,8 +1719,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utilities_NavigationToggle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utilities/NavigationToggle */ "./src/scripts/utilities/NavigationToggle.js");
 /* harmony import */ var _utilities_Intersection__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utilities/Intersection */ "./src/scripts/utilities/Intersection.js");
 /* harmony import */ var _utilities_InstaExtention__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utilities/InstaExtention */ "./src/scripts/utilities/InstaExtention.js");
-
-
+/* harmony import */ var _utilities_ImageLoader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./utilities/ImageLoader */ "./src/scripts/utilities/ImageLoader.js");
 
 
 
@@ -1613,13 +1730,67 @@ const navigationToggles = document.querySelectorAll('[data-module="NavigationTog
 for (let navigationToggle of navigationToggles) {
   navigationToggle = new _utilities_NavigationToggle__WEBPACK_IMPORTED_MODULE_1__["default"](navigationToggle);
 }
+/**
+ * EXTEND THE instafeed plugin to add Captions
+ */
+
 
 const instaFeed = document.getElementById('sb_instagram');
+
 if (instaFeed) {
   const instaFeedExtended = new _utilities_InstaExtention__WEBPACK_IMPORTED_MODULE_3__["default"](instaFeed);
   console.log(instaFeedExtended);
 }
+
 const el = new _utilities_Intersection__WEBPACK_IMPORTED_MODULE_2__["default"]();
+/**
+ * IMAGELOADER
+ */
+
+const imageProgress = e => {
+  const {
+    received,
+    length,
+    loading
+  } = e.detail;
+  setProgressbarValue(e.detail);
+};
+
+const imageLoaded = e => {
+  setProgressbarValue(e.detail);
+  console.log('ImageLoaded', e);
+};
+
+const {
+  json
+} = new _utilities_ImageLoader__WEBPACK_IMPORTED_MODULE_4__["default"]('afb1', imageProgress, imageLoaded);
+
+const addActions = () => {
+  const progressbutton = document.getElementById('fetch-button');
+  if (!progressbutton) return; // Bind the fetch function to the button's click event
+
+  progressbutton.addEventListener('click', async () => {
+    const theBlob = await json('http://possiblymaybe.local/wp-content/uploads/2021/11/minemark-portfolio-header-image.jpg');
+    const elem = document.querySelector('.the_image');
+    elem.src = theBlob;
+    elem.dataset.src = theBlob;
+  });
+};
+
+addActions();
+
+const setProgressbarValue = payload => {
+  const {
+    received,
+    length,
+    loading
+  } = payload;
+  const value = (received / length * 100).toFixed(2);
+  const loadBar = document.querySelector('.hero--portfolio-item__image-progress');
+  loadBar.style.width = `${value}%`;
+  console.log(loading);
+  console.log(value);
+};
 
 console.log(el);
 }();

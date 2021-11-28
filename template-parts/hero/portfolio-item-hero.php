@@ -1,7 +1,8 @@
 <div class="hero hero--portfolio-item">
   <!-- <div class="hero--portfolio-item__image" style="background-image: url(<?= get_field('header_image'); ?>)"> -->
+  <div class="hero--portfolio-item__image-progress"></div>
   <div class="hero--portfolio-item__image">
-    <img src="<?= get_field('header_image'); ?>">
+    <img src="" data-url="<?= get_field('header_image'); ?>" class="the_image">
   </div>
   <div class="hero--portfolio-item__image-border"></div>
   <div class="hero--portfolio-item__inner">
@@ -20,6 +21,8 @@
         <?=
 
           possiblymaybe_button($link, 'visit the website', 'btn--small'); ?>
+        <button id="fetch-button">FETCH BUTTON</button>
+        <button id="fetch-buttonTwo">FETCH BUTTON</button>
       </div>
     </div>
   </div>

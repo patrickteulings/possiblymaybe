@@ -1,17 +1,9 @@
-.hero--about {
-  display: block;
-  background: $blue-very-dark;
-
-  color: white;
+.hero--prices {
+  background: white;
 
   &__inner {
     @include inner-container;
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    border: 0px solid #000;
-    height: 100%;
-    padding: 0;
-    text-align: left;
+    width: 100%;
   }
 
   &__content {
@@ -26,15 +18,13 @@
       margin-bottom: 3rem;
     }
   }
-
-
   &__title {
     h1,
     h1 p {
       font-family: $playfair;
       font-style: italic;
       font-weight: 900;
-      color: white;
+      color: $pink;
       font-size: 42px;
       // margin-left: 2rem;
       line-height: 140%;
@@ -46,7 +36,7 @@
     font-size: 12px;
     font-weight: 300;
     font-style: italic;
-    color: white;
+    color: $blue-dark-fresh;
     font-size: 12px;
     @include position;
 
@@ -58,19 +48,9 @@
   &__content {
     > p {
       @include paragraph;
-      color: white;
+      color: $blue-dark-fresh;
       font-weight: 300;
       width: 75%;
     }
-  }
-}
-
-.logo-detail--xl {
-  background: #fff;
-  padding: 16px 0;
-
-  svg {
-    width: 100%;
-    height: auto;
   }
 }

@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   @include position;
-  @include transition(height, 0.5s, $default-easing, 0.5s);
+  @include transition(height, 0.5s, $default-easing, 2s);
 
   &.make-visible {
     height: calc(100vh - 9rem);

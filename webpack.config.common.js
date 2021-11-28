@@ -2,7 +2,7 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin')
-const ESLintPlugin = require('eslint-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin')
 
 module.exports = {
   mode: 'development',
@@ -12,7 +12,7 @@ module.exports = {
   watchOptions: {
     poll: 1000,
     ignored: '**/node_modules',
-    followSymlinks: true,
+    followSymlinks: true
   },
   module: {
     rules: [
@@ -21,24 +21,31 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           { loader: 'css-loader', options: { url: false, sourceMap: true } },
-          { loader: 'sass-loader', options: { sourceMap: true } },
-        ],
+          { loader: 'sass-loader', options: { sourceMap: true } }
+        ]
       },
       {
         test: /\.svg$/,
         use: {
           loader: 'svg-url-loader',
           options: {
-            encoding: 'base64',
-          },
-        },
+            encoding: 'base64'
+          }
+        }
       },
       {
-        test: /\.js$/,
-        use: 'babel-loader',
-        exclude: /node_modules/,
-      },
-    ],
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              '@babel/preset-env'
+            ]
+          }
+        }
+      }
+    ]
   },
   optimization: {
     minimizer: [
@@ -46,12 +53,12 @@ module.exports = {
         cssProcessorOptions: {
           map: {
             inline: false,
-            annotation: true,
-          },
-        },
+            annotation: true
+          }
+        }
       }),
       new TerserPlugin({
-      }),
-    ],
-  },
-};
+      })
+    ]
+  }
+}

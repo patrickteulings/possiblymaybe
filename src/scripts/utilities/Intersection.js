@@ -43,8 +43,34 @@ export default class IntersectTest {
     }, { rootMargin: '0px 0px 50px 0px' })
     const navEl = document.querySelector('.hero')
 
-    if (navEl.classList.contains('hero--about')) return
+    if (!navEl.classList.contains('hero--about')) {
+      navObserver.observe(navEl)
+    }
 
-    navObserver.observe(navEl)
+    /**
+     * WORK OVERVIEW PAGE
+     */
+
+    const workObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        const ratio = entry.intersectionRatio
+        entry.target.dataset.test = ratio
+
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view')
+          // entry.target.src = entry.target.dataset.src
+          // observer.unobserve(entry.target)
+        } else {
+          entry.target.classList.remove('in-view')
+        }
+      })
+    }, { rootMargin: '-100% 0px -100% 0px' })
+    const workEl = document.querySelectorAll('.work-card--wrapper')
+
+    workEl.forEach((item) => {
+      observer.observe(item)
+    })
+
+    console.log(workObserver)
   }
 }

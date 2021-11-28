@@ -1,5 +1,5 @@
 <?php ?>
-<a href="<? the_field('website_url'); ?>">
+<a href="<? the_permalink(); ?>" class="work-card--wrapper" title="View case: <?php the_title();?>">
 <div class="work-card">
   <div class="work-card__image">
     <img src="<? the_field('header_image'); ?>" />

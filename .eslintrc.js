@@ -7,10 +7,11 @@ module.exports = {
     'standard'
   ],
   parserOptions: {
-    ecmaVersion: 6,
+    ecmaVersion: 12,
     sourceType: 'module'
   },
   ignorePatterns: ['node_modules/'],
   rules: {
+    'no-unused-vars': 'off'
   }
 }
