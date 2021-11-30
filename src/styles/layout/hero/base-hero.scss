@@ -1,11 +1,11 @@
 .hero {
-  min-height: 100vh;
+  height: 100vh;
   width: 100vw;
   background: #AED0D2;
   display: flex;
   align-items: center;
   @include position;
-  @include transition(height, 0.5s, $default-easing, 2s);
+  @include transition(all, 0.5s, $default-easing);
 
   &.make-visible {
     height: calc(100vh - 9rem);

@@ -67,7 +67,7 @@
 ---------------------------------------- */
 
 .work-card--wrapper {
-  &.is-intersected {
+  &.in-view {
     .work-card__description {
       clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
 

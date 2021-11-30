@@ -285,11 +285,11 @@ table {
 /* ----------------------------------------
   WRAPPER FOR INTERSECTION OBSERVER
 ---------------------------------------- */
-.work-card--wrapper.is-intersected .work-card__description {
+.work-card--wrapper.in-view .work-card__description {
   clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
 }
-.work-card--wrapper.is-intersected .work-card__description .brand,
-.work-card--wrapper.is-intersected .work-card__description .roles {
+.work-card--wrapper.in-view .work-card__description .brand,
+.work-card--wrapper.in-view .work-card__description .roles {
   opacity: 1;
   transform: translateY(0);
 }
@@ -309,7 +309,9 @@ table {
   font-family: "noto-serif", serif;
   font-size: 4rem;
   font-style: italic;
+  font-weight: 300;
   margin-bottom: 2rem;
+  color: white;
 }
 .card--about p {
   font-size: 14px;
@@ -318,12 +320,31 @@ table {
   color: #20585B;
   line-height: 2rem;
   font-style: italic;
+  font-weight: 200;
   color: #fff;
+  margin-left: 2rem;
+  width: 80%;
 }
 @media (min-width: 600px) {
   .card--about p {
     font-size: 16px;
   }
+}
+.card--about.developer h2 {
+  font-family: "Inter", sans;
+  color: #EEB6EF;
+  font-style: normal;
+  font-weight: 800;
+}
+.card--about.seeder h2 {
+  font-family: "Playfair Display", serif;
+  color: #AED0D2;
+  font-style: normal;
+  font-weight: 800;
+  margin-left: 2rem;
+}
+.card--about.seeder p {
+  margin-left: 0;
 }
 .card--about .wp-block-media-text__media {
   position: relative;
@@ -342,10 +363,16 @@ table {
   top: 0;
   right: auto;
   bottom: auto;
+  transition: all 0.3s cubic-bezier(0, 0.325, 0.375, 0.915) 0.2s;
   box-shadow: 0px 0px 23px rgba(0, 0, 0, 0.25);
   object-fit: cover;
   width: 100%;
   height: 100%;
+  clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+}
+.card--about.in-view img {
+  opacity: 1;
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
 }
 
 .btn {
@@ -677,7 +704,7 @@ table {
 }
 
 .hero {
-  min-height: 100vh;
+  height: 100vh;
   width: 100vw;
   background: #AED0D2;
   display: flex;
@@ -687,7 +714,7 @@ table {
   top: 0;
   right: auto;
   bottom: auto;
-  transition: height 0.5s cubic-bezier(0, 0.325, 0.375, 0.915) 2s;
+  transition: all 0.5s cubic-bezier(0, 0.325, 0.375, 0.915) 0s;
 }
 .hero.make-visible {
   height: calc(100vh - 9rem);
@@ -946,6 +973,28 @@ table {
 }
 .logo-detail--xl svg {
   width: 100%;
+  height: auto;
+}
+
+.logo-detail-about--xl {
+  padding: 0;
+  max-height: 710px;
+  overflow: hidden;
+}
+.logo-detail-about--xl svg {
+  width: 103%;
+  margin-left: -3%;
+  height: auto;
+}
+
+.llogo-detail-about--xl {
+  background: white;
+}
+.llogo-detail-about--xl figure {
+  margin-bottom: 0;
+}
+.llogo-detail-about--xl svg {
+  max-width: 100%;
   height: auto;
 }
 

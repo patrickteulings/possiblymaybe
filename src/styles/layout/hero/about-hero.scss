@@ -74,3 +74,26 @@
     height: auto;
   }
 }
+
+.logo-detail-about--xl {
+  padding: 0;
+  max-height: 710px;
+  overflow: hidden;
+
+  svg {
+    width: 103%;
+    margin-left: -3%;
+    height: auto;
+  }
+}
+
+.llogo-detail-about--xl {
+  background: white;
+  figure {
+    margin-bottom: 0;
+  }
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+}

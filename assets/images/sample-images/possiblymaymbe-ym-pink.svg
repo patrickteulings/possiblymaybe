@@ -1,25 +1,3 @@
-<div class="hero hero--about">
-  <div class="hero--about__inner">
-    <div class="hero--about__content">
-      <div class="hero--about__subtitle">
-        <?php the_field('main_subtitle'); ?>
-      </div>
-      <div class="hero--about__title">
-        <h1><?php the_field('main_title'); ?></h1>
-      </div>
-      <div class="hero--about__content">
-        <?php the_field('intro_content'); ?>
-      </div>
-      <div class="hero--about__actions">
-        <? $link = get_field('website_url'); ?>
-        <?=
-
-          possiblymaybe_button('mailto:patrickteulings@gmail.com', 'Drop me a line', 'btn--small'); ?>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="llogo-detail--xl llogo-detail-about--xl" role="presentation">
 <svg width="1440" height="750" viewBox="0 0 1440 750" fill="none" xmlns="http://www.w3.org/2000/svg">
 <mask id="mask0_0_3" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1440" height="750">
 <rect width="1440" height="750" fill="#C4C4C4"/>
@@ -30,4 +8,3 @@
 <rect x="598" y="8" width="834" height="734" stroke="white" stroke-width="16"/>
 </g>
 </svg>
-</div>
