@@ -656,6 +656,22 @@ add_action( 'wp_footer', 'possiblymaybe_add_ie_class' );
 require get_template_directory() . '/inc/custom-post-types/portfolio-post.php';
 require get_template_directory() . '/inc/ui/buttons.php';
 
+
+/**
+ * GET SVG ICON
+ *
+ */
+
+function possiblymaybe_get_icon ($icon) {
+  return include(get_template_directory() .'/assets/icons/feather-icons/'. $icon .'.svg');
+}
+
+
+/**
+ * PORTFOLIO SHORTCODES
+ *
+ */
+
 function possiblymaybe_create_shortcode_portfolio_highlight(){
   $result = '';
   $args = array(

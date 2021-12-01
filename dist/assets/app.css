@@ -152,6 +152,12 @@ table {
   Usage: @include pseudo();
 
 ---------------------------------------- */
+/* ----------------------------------------
+  WHEN INCLUDING A BUTTON IN WORDPRESS
+---------------------------------------- */
+/* ----------------------------------------
+  SMAAL HELPER FOR SLANTED TEXT
+---------------------------------------- */
 /* hide scrollbar but allow scrolling */
 .homepage-portfolio-list__inner,
 #sb_instagram {
@@ -180,6 +186,7 @@ table {
   font-size: 12px;
   font-family: "noto-serif", serif;
   font-weight: 300;
+  color: #AED0D2;
   padding-left: 0.5rem;
   margin-bottom: 2rem;
   position: relative;
@@ -197,10 +204,10 @@ table {
   bottom: auto;
   height: 1px;
   width: 24px;
-  background: #20585B;
+  background: #AED0D2;
 }
 .page-template-page-about .title-element--with-subtitle h6:before {
-  background-color: #000;
+  background-color: #AED0D2;
 }
 .title-element--with-subtitle h2 {
   color: #AED0D2;
@@ -617,10 +624,6 @@ table {
   margin-top: 0rem;
 }
 
-.site-footer {
-  background: radial-gradient(75.84% 91.75% at 72.08% 111.92%, #20585B 5.31%, #3F797C 31.9%, #20585B 58.85%, #20585B 100%);
-}
-
 .footer-navigation-container {
   padding: 2rem;
   display: flex;
@@ -655,11 +658,14 @@ table {
   color: #EA79EC;
 }
 
+.site-footer {
+  background: radial-gradient(75.84% 91.75% at 72.08% 111.92%, #20585B 5.31%, #3F797C 31.9%, #20585B 58.85%, #20585B 100%);
+}
+
 /* ----------------------------------------
   THE FOOTER CONTENT COLUMNS
 ---------------------------------------- */
 .site-footer .site-footer__inner {
-  display: flex;
   max-width: 71rem;
   padding: 4rem 1rem;
   margin: 0 auto;
@@ -672,21 +678,33 @@ table {
 @media (min-width: 600px) {
   .site-footer .site-footer__inner {
     padding-top: 4rem;
+    padding-bottom: 0;
   }
 }
+.site-footer .site-footer__inner .footer-flex-wrapper {
+  display: flex;
+}
 .site-footer .footer-column {
+  max-width: 50%;
   color: white;
 }
 .site-footer .footer-column:not(:last-child) {
   margin-right: 4rem;
 }
 .site-footer .footer-column__title {
-  font-family: "Inter", sans;
   font-size: 20px;
   font-weight: 900;
   margin-bottom: 3rem;
 }
-.site-footer .footer-column__content {
+.site-footer .footer-column .cta__title {
+  font-family: "Playfair Display", serif;
+  font-size: 48px;
+  font-weight: 900;
+  font-style: italic;
+  color: #AED0D2;
+  margin-bottom: 3rem;
+}
+.site-footer .footer-column .cta__content {
   font-size: 14px;
   font-family: "noto-serif", serif;
   font-weight: 400;
@@ -696,11 +714,112 @@ table {
   font-size: 14px !important;
   font-weight: 300 !important;
   color: #fff;
+  margin-left: 4rem;
+  width: 70%;
 }
 @media (min-width: 600px) {
-  .site-footer .footer-column__content {
+  .site-footer .footer-column .cta__content {
     font-size: 16px;
   }
+}
+.site-footer .footer-column.contact-details .contact-details__title {
+  font-family: "noto-serif", serif;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 2rem;
+  line-height: 1rem;
+  font-size: 18px;
+  color: white;
+  margin-bottom: 3rem;
+  margin-top: 2rem;
+}
+.site-footer .footer-column.contact-details .contact-details__content,
+.site-footer .footer-column.contact-details .contact-details__content a {
+  font-family: "noto-serif", serif;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 2rem;
+  font-size: 14px;
+  color: #AED0D2;
+  text-decoration: none;
+  position: relative;
+  left: 0;
+  top: 0;
+  right: auto;
+  bottom: auto;
+}
+.site-footer .footer-column.contact-details .contact-details__content a:before {
+  position: absolute;
+  left: 20%;
+  top: auto;
+  right: auto;
+  bottom: 0;
+  content: "";
+  height: 1px;
+  width: 20%;
+  opacity: 0;
+  background: #AED0D2;
+  transition: width 0.4s cubic-bezier(0, 0.325, 0.375, 0.915), left 0.3s cubic-bezier(0, 0.325, 0.375, 0.915);
+}
+.site-footer .footer-column.contact-details .contact-details__content a:hover:before {
+  position: absolute;
+  left: 0%;
+  top: auto;
+  right: auto;
+  bottom: 0;
+  left: 0%;
+  opacity: 1;
+  width: 100%;
+}
+.site-footer .footer-column.contact-details li {
+  position: relative;
+  left: 0;
+  top: 0;
+  right: auto;
+  bottom: auto;
+}
+.site-footer .footer-column.contact-details .icon {
+  display: inline;
+  margin-right: 1rem;
+  position: relative;
+  left: 0;
+  top: 2px;
+  right: auto;
+  bottom: auto;
+}
+.site-footer .footer-column.contact-details .icon svg {
+  width: 16px;
+  height: auto;
+  stroke-width: 1px;
+  stroke: #AED0D2;
+}
+
+/* ----------------------------------------
+  SITE FOOTER TERMS CONDITIONS
+---------------------------------------- */
+.site-footer__terms {
+  max-width: 71rem;
+  padding: 4rem 1rem;
+  margin: 0 auto;
+  font-family: "noto-serif", serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 14px;
+}
+@media (min-width: 600px) {
+  .site-footer__terms {
+    padding: 8rem 2rem;
+  }
+}
+@media (min-width: 600px) {
+  .site-footer__terms {
+    padding-top: 4rem;
+    padding-bottom: 1rem;
+  }
+}
+.site-footer__terms a {
+  color: white;
+  text-decoration: none;
 }
 
 .hero {
@@ -1150,6 +1269,85 @@ table {
 }
 @media (min-width: 600px) {
   .hero--prices__content > p {
+    font-size: 16px;
+  }
+}
+
+.hero--services {
+  background: white;
+}
+.hero--services__inner {
+  max-width: 71rem;
+  padding: 4rem 1rem;
+  margin: 0 auto;
+  width: 100%;
+}
+@media (min-width: 600px) {
+  .hero--services__inner {
+    padding: 8rem 2rem;
+  }
+}
+.hero--services__content {
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  left: 0;
+  top: 0;
+  right: auto;
+  bottom: auto;
+  color: white;
+  z-index: 3;
+}
+.hero--services__content > div {
+  margin-bottom: 3rem;
+}
+.hero--services__title h1,
+.hero--services__title h1 p {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-weight: 900;
+  color: #EA79EC;
+  font-size: 42px;
+  line-height: 140%;
+}
+.hero--services__subtitle {
+  font-family: "noto-serif", serif;
+  font-size: 12px;
+  font-weight: 300;
+  font-style: italic;
+  color: #3E7679;
+  font-size: 12px;
+  position: relative;
+  left: 0;
+  top: 0;
+  right: auto;
+  bottom: auto;
+}
+.hero--services__subtitle:before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 50%;
+  height: 1px;
+  width: 16px;
+  background-color: #3E7679;
+  margin-top: -1px;
+}
+.hero--services__content > p {
+  font-size: 14px;
+  font-family: "noto-serif", serif;
+  font-weight: 400;
+  color: #20585B;
+  line-height: 2rem;
+  font-style: italic;
+  color: white;
+  font-weight: 300;
+  width: 75%;
+}
+@media (min-width: 600px) {
+  .hero--services__content > p {
     font-size: 16px;
   }
 }

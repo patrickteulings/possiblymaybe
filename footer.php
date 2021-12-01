@@ -50,17 +50,22 @@
 		  <?php endif; ?>
 		</div>
     <div class="site-footer__inner">
-      <div class="footer-column">
-        <h4 class="footer-column__title">About</h4>
-        <p class="footer-column__content">MINE MARK is a Explosive Ordnance Risk Education project which aims to protect children, youngsters and other vulnerable groups from harm by landmines, cluster ammunition and explosive remnants of war.</p>
+      <div class="footer-flex-wrapper">
+        <div class="footer-column cta">
+          <h4 class="cta__title">Let's talk</h4>
+          <p class="cta__content">We zijn altijd op zoek naar nieuwe klanten die, net als wij, het beste voor hebben met de wereld. Bel gerust om te kijken wat we samen kunnen doen!</p>
+        </div>
+        <div class="footer-column contact-details">
+          <h4 class="contact-details__title">The details</h4>
+          <ul class="contact-details__content">
+              <li class="email"><i class="icon"><?php include(get_stylesheet_directory() .'/assets/icons/feather-icons/send.svg') ?></i><a href="mailto:patrickteulings@gmail.com">patrickteulings@gmail.com<a></li>
+              <li class="phone"><i class="icon"><?php possiblymaybe_get_icon('smartphone'); ?></i><a href="tel:0031614479205">0031 (0)6 144 79 205</a></li>
+              <li class="kvk"><i class="icon"><?php possiblymaybe_get_icon('hash'); ?></i>345-6TR-892</li>
+          </ul>
+        </div>
       </div>
-      <div class="footer-column">
-        <h4 class="footer-column__title">About</h4>
-        <p class="footer-column__content">MINE MARK is a Explosive Ordnance Risk Education project which aims to protect children, youngsters and other vulnerable groups from harm by landmines, cluster ammunition and explosive remnants of war.</p>
-      </div>
-      <div class="footer-column">
-        <h4 class="footer-column__title">About</h4>
-        <p class="footer-column__content">MINE MARK is a Explosive Ordnance Risk Education project which aims to protect children, youngsters and other vulnerable groups from harm by landmines, cluster ammunition and explosive remnants of war.</p>
+      <div class="site-footer__terms">
+        <a href="">voorwaarden</a>
       </div>
     </div>
 	</footer><!-- #colophon -->

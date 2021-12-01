@@ -1,0 +1,43 @@
+.footer-navigation-container {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .footer-branding {
+    width: 165px;
+
+    svg {
+      max-width: 100%;
+    }
+  }
+
+  .footer-navigation-wrapper {
+    display: flex;
+
+    .menu-item {
+      &:not(:last-child){
+        margin-right: 2rem;
+      }
+      a {
+        font-family: $playfair;
+        font-weight: 600;
+        font-size: 14px;
+        color: white;
+        text-decoration: none;
+        text-transform: lowercase;
+        @include transition;
+
+        &:hover {
+          color: $pink;
+        }
+      }
+
+      &.current-menu-item {
+        a {
+          color: $pink;
+        }
+      }
+    }
+  }
+}

@@ -24,14 +24,30 @@
   }
 }
 
+/* ----------------------------------------
+  WHEN INCLUDING A BUTTON IN WORDPRESS
+---------------------------------------- */
+
 @mixin paragraph-as-button (){
   @include position;
   padding-left: 2rem;
   &:before {
+
   }
 
   a {
     color: $blue-dark-fresh;
     text-decoration: none;
   }
+}
+
+/* ----------------------------------------
+  SMAAL HELPER FOR SLANTED TEXT
+---------------------------------------- */
+
+@mixin slanted-content () {
+  font-family: $noto;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 2rem;
 }

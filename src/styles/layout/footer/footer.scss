@@ -1,50 +1,10 @@
+@import 'footer-navigation';
+
+
 .site-footer {
   background: radial-gradient(75.84% 91.75% at 72.08% 111.92%, #20585B 5.31%, #3F797C 31.9%, #20585B 58.85%, #20585B 100%);
 }
 
-.footer-navigation-container {
-  padding: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  .footer-branding {
-    width: 165px;
-
-    svg {
-      max-width: 100%;
-    }
-  }
-
-  .footer-navigation-wrapper {
-    display: flex;
-
-    .menu-item {
-      &:not(:last-child){
-        margin-right: 2rem;
-      }
-      a {
-        font-family: $playfair;
-        font-weight: 600;
-        font-size: 14px;
-        color: white;
-        text-decoration: none;
-        text-transform: lowercase;
-        @include transition;
-
-        &:hover {
-          color: $pink;
-        }
-      }
-
-      &.current-menu-item {
-        a {
-          color: $pink;
-        }
-      }
-    }
-  }
-}
 
 /* ----------------------------------------
   THE FOOTER CONTENT COLUMNS
@@ -52,15 +12,20 @@
 
 .site-footer {
   .site-footer__inner {
-    display: flex;
     @include inner-container;
 
     @include mq('tablet','min') {
       padding-top: 4rem;
+      padding-bottom: 0;
+    }
+
+    .footer-flex-wrapper {
+      display: flex;
     }
   }
 
   .footer-column {
+    max-width: 50%;
     color: white;
 
     &:not(:last-child) {
@@ -68,18 +33,113 @@
     }
 
     &__title {
-      font-family: $inter;
       font-size: 20px;
       font-weight: 900;
       margin-bottom: 3rem;
     }
 
+    .cta__title {
+      font-family: $playfair;
+      font-size: 48px;
+      font-weight: 900;
+      font-style: italic;
+      color: $blue-light;
+      margin-bottom: 3rem;
+    }
 
-    &__content {
+    .cta__content {
       @include paragraph;
       font-size: 14px !important;
       font-weight: 300 !important;
       color: #fff;
+      margin-left: 4rem;
+      width: 70%;
     }
+
+    &.contact-details {
+
+      .contact-details__title {
+        @include slanted-content;
+        line-height: 1rem;
+        font-size: 18px;
+        color: white;
+        margin-bottom: 3rem;
+        margin-top: 2rem;
+      }
+
+      .contact-details__content,
+      .contact-details__content a {
+        @include slanted-content;
+        font-size: 14px;
+        color: $blue-light;
+        text-decoration: none;
+        @include position;
+      }
+
+      .contact-details__content {
+        a {
+          &:before {
+            @include position(absolute, 20%, auto, auto, 0);
+            content: "";
+            height: 1px;
+            width: 20%;
+            opacity: 0;
+            background: $blue-light;
+            transition: width 0.4s $default-easing, left 0.3s $default-easing;
+            // @include transition();
+          }
+
+          &:hover {
+            &:before {
+              @include position(absolute, 0%, auto, auto, 0);
+              left: 0%;
+              opacity: 1;
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      li {
+        @include position;
+        // margin-bottom: 1rem;
+      }
+
+      .icon {
+        display: inline;
+        margin-right: 1rem;
+        @include position(relative, 0, 2px);
+
+        svg {
+          width: 16px;
+          height: auto;
+          stroke-width: 1px;
+          stroke: $blue-light;
+        }
+      }
+    }
+  }
+}
+
+/* ----------------------------------------
+  SITE FOOTER TERMS CONDITIONS
+---------------------------------------- */
+
+.site-footer__terms {
+  @include inner-container;
+
+  @include mq('tablet', min) {
+    padding-top: 4rem;
+    padding-bottom: 1rem;
+  }
+
+  font-family: $noto;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 14px;
+
+  a {
+    color: white;
+    text-decoration: none;
   }
 }
