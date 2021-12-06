@@ -13,7 +13,6 @@
 
 get_template_part( 'template-parts/header/portfolio-item-header' );
 get_template_part( 'template-parts/hero/portfolio-item-hero' );
-get_template_part( 'template-parts/header/site-nav--secondary' );
 ?>
 
 <?php

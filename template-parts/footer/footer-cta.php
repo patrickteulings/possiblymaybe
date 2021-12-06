@@ -4,8 +4,8 @@
     <div class="site-cta__inner">
       <div class="cta__content">
         <div class="wrapper">
-          <h2>Let's
-            <span style="color:#ea79ec" class="has-inline-color">create</span> something digital together</h2>
+          <h2 data-module="italic">Maybe
+            <span style="color:#ea79ec" class="has-inline-color">everything's</span> possible</h2>
           <p>Benieuwd naar wat voor iets moois we samen kunnen maken? Ik in ieder geval!</p>
           <p>Stuur een e-mailje of bel me voor een kopje koffie of een goed gesprek over digitaal!</p>
         </div>

@@ -4,6 +4,10 @@
     margin-top: 6rem;
     margin-bottom: 6rem;
 
+    .page-template-page-prices & {
+      background: $pink;
+    }
+
     .wp-block-group__inner-container {
       @include inner-container;
 
@@ -19,12 +23,20 @@
         @include mq('tablet','min') {
           width: 50%;
         }
+
+        .page-template-page-prices & {
+          display: none;
+        }
       }
     }
 
     h2 {
       color: #fff;
       @include heading-h2;
+
+      .page-template-page-prices & {
+        display: none;
+      }
     }
   }
 }
@@ -104,12 +116,15 @@
     .pricing__example {
       @include paragraph;
       font-size: 12px !important;
-      color: $blue-dark;
+      color: white;
       @include position(absolute, 0, auto, auto, -64px);
-      padding-left: 2rem;
+      width: 100%;
+      // padding-left: 2rem;
+      text-align: center;
 
       a {
         color: $blue-dark;
+        color: white;
       }
     }
   }

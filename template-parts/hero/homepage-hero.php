@@ -3,7 +3,7 @@
   <div class="hero__inner">
     <div class="hero__text">
       <div class="animated-text--static">maybe</div>
-      <div class="animated-text--animated">you need an app</div>
+      <div class="animated-text--animated">you need a little digitalism</div>
     </div>
     <div class="hero__actions">
       <a href="" class="btn btn--light">tell me more</a>

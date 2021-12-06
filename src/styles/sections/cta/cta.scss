@@ -12,6 +12,7 @@
 
       h2 {
         @include heading-h2;
+        font-family: $playfair;
         color: $blue-dark-fresh;
       }
 

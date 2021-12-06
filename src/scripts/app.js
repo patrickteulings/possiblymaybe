@@ -5,6 +5,8 @@ import NavigationToggle from './utilities/NavigationToggle'
 import IntersectTest from './utilities/Intersection'
 import InstaFeedExtended from './utilities/InstaExtention'
 import ImageLoader from './utilities/ImageLoader'
+import Hero from './components/Hero'
+import Italic from './utilities/Italic'
 
 const navigationToggles = document.querySelectorAll('[data-module="NavigationToggle"]')
 
@@ -25,44 +27,22 @@ if (instaFeed) {
 const el = new IntersectTest()
 
 /**
- * IMAGELOADER
+ * PORTFOLIO ITEM HERO
+ *
  */
 
-const imageProgress = (e) => {
-  const { received, length, loading } = e.detail
-  setProgressbarValue(e.detail)
-}
 
-const imageLoaded = (e) => {
-  setProgressbarValue(e.detail)
-  console.log('ImageLoaded', e)
-}
+const portfolioHero = (document.querySelector('[data-module="hero"]')) ? new Hero(document.querySelector('[data-module="hero"]')) : ''
 
-const { json } = new ImageLoader('afb1', imageProgress, imageLoaded)
 
-const addActions = () => {
-  const progressbutton = document.getElementById('fetch-button')
+/**
+ * Italic words in headers
+ */
 
-  if (!progressbutton) return
+const italicHeaders = document.querySelectorAll('[data-module="italic"]')
 
-  // Bind the fetch function to the button's click event
-  progressbutton.addEventListener('click', async () => {
-    const theBlob = await json('http://possiblymaybe.local/wp-content/uploads/2021/11/minemark-portfolio-header-image.jpg')
-    const elem = document.querySelector('.the_image')
-    elem.src = theBlob
-    elem.dataset.src = theBlob
-  })
-}
-
-addActions()
-
-const setProgressbarValue = (payload) => {
-  const { received, length, loading } = payload
-  const value = ((received / length) * 100).toFixed(2)
-  const loadBar = document.querySelector('.hero--portfolio-item__image-progress')
-  loadBar.style.width = `${value}%`
-  console.log(loading)
-  console.log(value)
+for (let item of italicHeaders) {
+  item = new Italic(item)
 }
 
 console.log(el)

@@ -5,7 +5,7 @@
       <div class="hero--services__subtitle">
         <?php the_field('main_subtitle'); ?>
       </div>
-      <div class="hero--services__title">
+      <div class="hero--services__title" data-module="italic">
         <h1><?php the_field('main_title'); ?></h1>
       </div>
       <div class="hero--services__content">

@@ -757,3 +757,9 @@ function possiblymaybe_create_shortcode_portfolio_list(){
 }
 
 add_shortcode( 'portfolio-list', 'possiblymaybe_create_shortcode_portfolio_list' );
+
+
+function possiblymaybe_get_site_language() {
+  $site_language = "nl-NL";
+  return 'lang='. $site_language;
+}

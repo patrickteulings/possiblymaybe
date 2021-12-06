@@ -9,6 +9,10 @@
 
   &.make-visible {
     height: calc(100vh - 9rem);
+
+    .single-portfolio & {
+      height: calc(100vh);
+    }
   }
 
 

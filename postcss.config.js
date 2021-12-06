@@ -11,3 +11,4 @@ module.exports = {
 		require('postcss-discard-duplicates')
 	]
 };
+``

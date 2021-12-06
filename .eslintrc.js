@@ -12,6 +12,7 @@ module.exports = {
   },
   ignorePatterns: ['node_modules/'],
   rules: {
-    'no-unused-vars': 'off'
+    'no-unused-vars': 'off',
+    'no-multiple-empty-lines': [2, { max: 2 }]
   }
 }

@@ -5,7 +5,7 @@
         <?php the_field('main_subtitle'); ?>
       </div>
       <div class="hero--about__title">
-        <h1><?php the_field('main_title'); ?></h1>
+        <h1 data-module="italic"><?php the_field('main_title'); ?></h1>
       </div>
       <div class="hero--about__content">
         <?php the_field('intro_content'); ?>

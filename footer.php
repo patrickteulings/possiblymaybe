@@ -60,7 +60,7 @@
           <ul class="contact-details__content">
               <li class="email"><i class="icon"><?php include(get_stylesheet_directory() .'/assets/icons/feather-icons/send.svg') ?></i><a href="mailto:patrickteulings@gmail.com">patrickteulings@gmail.com<a></li>
               <li class="phone"><i class="icon"><?php possiblymaybe_get_icon('smartphone'); ?></i><a href="tel:0031614479205">0031 (0)6 144 79 205</a></li>
-              <li class="kvk"><i class="icon"><?php possiblymaybe_get_icon('hash'); ?></i>345-6TR-892</li>
+              <li class="kvk"><i class="icon"><?php possiblymaybe_get_icon('hash'); ?></i>840 60 999</li>
           </ul>
         </div>
       </div>

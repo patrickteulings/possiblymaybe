@@ -1,18 +1,19 @@
-export default function ImageLoader (rootUrl, _progressCallback, _finishedCallback) {
+export default function ImageLoader (rootUrl, _progressCallback, _finishedCallback, _scope) {
   let results = null
   let error = null
   let loading = true
   const chunks = []
+  const scope = _scope
   const progressCallBack = _progressCallback
   const finishedCallback = _finishedCallback
   // let controller = null; // We will get to this variable in a second
 
-  const json = async (path, options) => {
+  const loadImage = async (path, options) => {
     try {
       const response = await fetch(path, { ...options })
 
       if (response.status >= 200 && response.status < 300) {
-        results = await _readBody(response)
+        results = await readBodyResponse(response)
 
         const bb = new Blob([new Uint8Array(results)])
         const objectURL = URL.createObjectURL(bb)
@@ -30,7 +31,7 @@ export default function ImageLoader (rootUrl, _progressCallback, _finishedCallba
     }
   }
 
-  const _readBody = async (response) => {
+  const readBodyResponse = async (response) => {
     const reader = response.body.getReader()
     const length = +response.headers.get('content-length')
     // Declare received as 0 initially
@@ -39,31 +40,26 @@ export default function ImageLoader (rootUrl, _progressCallback, _finishedCallba
     // Loop through the response stream and extract data chunks
     while (loading) {
       const { done, value } = await reader.read()
-      const payload = { detail: { received, length, loading, rootUrl } }
-      // const onProgress = new CustomEvent('fetch-progress', payload)
-      // const onFinished = new CustomEvent('fetch-finished', payload)
+      const payload = { detail: { received, length, loading, rootUrl }, scope }
 
       if (done) {
         // Finish loading
         loading = false
 
         // Fired when reading the response body finishes
-        // window.dispatchEvent(onFinished)
         finishedCallback(payload)
       } else {
-        console.log('value.length', value.length)
         // Push values to the chunk array
         chunks.push(value)
         received += value.length
 
         // Fired on each .read() - progress tick
-        // window.dispatchEvent(onProgress)
-        progressCallBack(payload)
+        progressCallBack(payload, scope)
       }
     }
 
     // Concat the chinks into a single array
-    let body = new Uint8Array(received) // eslint-disable-line
+    const body = new Uint8Array(received)
     let position = 0
 
     // Order the chunks by their respective position
@@ -76,5 +72,5 @@ export default function ImageLoader (rootUrl, _progressCallback, _finishedCallba
     return body
   }
 
-  return { json }
+  return { loadImage }
 }

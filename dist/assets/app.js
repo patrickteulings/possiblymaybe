@@ -1323,6 +1323,82 @@ anime.random = function (min, max) { return Math.floor(Math.random() * (max - mi
 
 /***/ }),
 
+/***/ "./src/scripts/components/Hero.js":
+/*!****************************************!*\
+  !*** ./src/scripts/components/Hero.js ***!
+  \****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ Hero; }
+/* harmony export */ });
+/* harmony import */ var _utilities_ImageLoader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../utilities/ImageLoader */ "./src/scripts/utilities/ImageLoader.js");
+
+class Hero {
+  constructor(_elem) {
+    this.elem = _elem;
+    this.config = JSON.parse(this.elem.dataset.config);
+    this.imagePath = this.config.imagePath;
+    this.loadBar = document.querySelector('.hero--portfolio-item-loader__progress');
+    this.loadContainer = document.querySelector('.hero--portfolio-item-loader');
+    this.imageContainer = document.querySelector('.hero--portfolio-item__image');
+    this.image = this.elem.querySelector('.the_image');
+    this.loadImage();
+  }
+
+  handleProgress(e) {
+    const {
+      received,
+      length,
+      loading
+    } = e.detail;
+    const {
+      scope
+    } = e;
+    scope.setProgressbarValue(e.detail);
+  }
+
+  handleLoaded(e) {
+    const {
+      scope
+    } = e;
+    scope.setProgressbarValue(e.detail);
+    scope.hideLoader(e);
+  }
+
+  hideLoader(e) {
+    setTimeout(() => {
+      this.loadContainer.classList.add('is-loaded');
+    }, 500);
+    setTimeout(() => {
+      this.imageContainer.classList.add('is-loaded');
+    }, 1000);
+  }
+
+  setProgressbarValue(payload) {
+    const {
+      received,
+      length,
+      loading
+    } = payload;
+    const progress = (received / length * 100).toFixed(2);
+    this.loadBar.style.width = `${progress}%`;
+  }
+
+  async loadImage() {
+    const {
+      loadImage
+    } = new _utilities_ImageLoader__WEBPACK_IMPORTED_MODULE_0__["default"](this.imagePath, this.handleProgress, this.handleLoaded, this);
+    const theBlob = await loadImage(this.imagePath);
+    const elem = document.querySelector('.the_image');
+    this.image.src = theBlob;
+  }
+
+}
+
+/***/ }),
+
 /***/ "./src/scripts/utilities/ImageLoader.js":
 /*!**********************************************!*\
   !*** ./src/scripts/utilities/ImageLoader.js ***!
@@ -1333,21 +1409,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ ImageLoader; }
 /* harmony export */ });
-function ImageLoader(rootUrl, _progressCallback, _finishedCallback) {
+function ImageLoader(rootUrl, _progressCallback, _finishedCallback, _scope) {
   let results = null;
   let error = null;
   let loading = true;
   const chunks = [];
+  const scope = _scope;
   const progressCallBack = _progressCallback;
   const finishedCallback = _finishedCallback; // let controller = null; // We will get to this variable in a second
 
-  const json = async (path, options) => {
+  const loadImage = async (path, options) => {
     try {
       const response = await fetch(path, { ...options
       });
 
       if (response.status >= 200 && response.status < 300) {
-        results = await _readBody(response);
+        results = await readBodyResponse(response);
         const bb = new Blob([new Uint8Array(results)]);
         const objectURL = URL.createObjectURL(bb);
         console.log(objectURL);
@@ -1364,7 +1441,7 @@ function ImageLoader(rootUrl, _progressCallback, _finishedCallback) {
     }
   };
 
-  const _readBody = async response => {
+  const readBodyResponse = async response => {
     const reader = response.body.getReader();
     const length = +response.headers.get('content-length'); // Declare received as 0 initially
 
@@ -1381,30 +1458,26 @@ function ImageLoader(rootUrl, _progressCallback, _finishedCallback) {
           length,
           loading,
           rootUrl
-        }
-      }; // const onProgress = new CustomEvent('fetch-progress', payload)
-      // const onFinished = new CustomEvent('fetch-finished', payload)
+        },
+        scope
+      };
 
       if (done) {
         // Finish loading
         loading = false; // Fired when reading the response body finishes
-        // window.dispatchEvent(onFinished)
 
         finishedCallback(payload);
       } else {
-        console.log('value.length', value.length); // Push values to the chunk array
-
+        // Push values to the chunk array
         chunks.push(value);
         received += value.length; // Fired on each .read() - progress tick
-        // window.dispatchEvent(onProgress)
 
-        progressCallBack(payload);
+        progressCallBack(payload, scope);
       }
     } // Concat the chinks into a single array
 
 
-    let body = new Uint8Array(received); // eslint-disable-line
-
+    const body = new Uint8Array(received);
     let position = 0; // Order the chunks by their respective position
 
     for (const chunk of chunks) {
@@ -1417,7 +1490,7 @@ function ImageLoader(rootUrl, _progressCallback, _finishedCallback) {
   };
 
   return {
-    json
+    loadImage
   };
 }
 
@@ -1566,6 +1639,33 @@ class IntersectTest {
     aboutEl.forEach(item => {
       aboutObserver.observe(item);
     }); // console.log(workObserver)
+  }
+
+}
+
+/***/ }),
+
+/***/ "./src/scripts/utilities/Italic.js":
+/*!*****************************************!*\
+  !*** ./src/scripts/utilities/Italic.js ***!
+  \*****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ Italic; }
+/* harmony export */ });
+class Italic {
+  constructor(_elem) {
+    this.elem = _elem;
+    this.italicElements = this.elem.getElementsByTagName('span');
+    this.setItalic();
+  }
+
+  setItalic() {
+    for (const item of this.italicElements) {
+      item.style.fontStyle = 'italic';
+    }
   }
 
 }
@@ -1745,6 +1845,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utilities_Intersection__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utilities/Intersection */ "./src/scripts/utilities/Intersection.js");
 /* harmony import */ var _utilities_InstaExtention__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utilities/InstaExtention */ "./src/scripts/utilities/InstaExtention.js");
 /* harmony import */ var _utilities_ImageLoader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./utilities/ImageLoader */ "./src/scripts/utilities/ImageLoader.js");
+/* harmony import */ var _components_Hero__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Hero */ "./src/scripts/components/Hero.js");
+/* harmony import */ var _utilities_Italic__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./utilities/Italic */ "./src/scripts/utilities/Italic.js");
+
+
 
 
 
@@ -1769,53 +1873,20 @@ if (instaFeed) {
 
 const el = new _utilities_Intersection__WEBPACK_IMPORTED_MODULE_2__["default"]();
 /**
- * IMAGELOADER
+ * PORTFOLIO ITEM HERO
+ *
  */
 
-const imageProgress = e => {
-  const {
-    received,
-    length,
-    loading
-  } = e.detail;
-  setProgressbarValue(e.detail);
-};
+const portfolioHero = document.querySelector('[data-module="hero"]') ? new _components_Hero__WEBPACK_IMPORTED_MODULE_5__["default"](document.querySelector('[data-module="hero"]')) : '';
+/**
+ * Italic words in headers
+ */
 
-const imageLoaded = e => {
-  setProgressbarValue(e.detail);
-  console.log('ImageLoaded', e);
-};
+const italicHeaders = document.querySelectorAll('[data-module="italic"]');
 
-const {
-  json
-} = new _utilities_ImageLoader__WEBPACK_IMPORTED_MODULE_4__["default"]('afb1', imageProgress, imageLoaded);
-
-const addActions = () => {
-  const progressbutton = document.getElementById('fetch-button');
-  if (!progressbutton) return; // Bind the fetch function to the button's click event
-
-  progressbutton.addEventListener('click', async () => {
-    const theBlob = await json('http://possiblymaybe.local/wp-content/uploads/2021/11/minemark-portfolio-header-image.jpg');
-    const elem = document.querySelector('.the_image');
-    elem.src = theBlob;
-    elem.dataset.src = theBlob;
-  });
-};
-
-addActions();
-
-const setProgressbarValue = payload => {
-  const {
-    received,
-    length,
-    loading
-  } = payload;
-  const value = (received / length * 100).toFixed(2);
-  const loadBar = document.querySelector('.hero--portfolio-item__image-progress');
-  loadBar.style.width = `${value}%`;
-  console.log(loading);
-  console.log(value);
-};
+for (let item of italicHeaders) {
+  item = new _utilities_Italic__WEBPACK_IMPORTED_MODULE_6__["default"](item);
+}
 
 console.log(el);
 }();
