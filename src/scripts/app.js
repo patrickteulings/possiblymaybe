@@ -6,6 +6,7 @@ import IntersectTest from './utilities/Intersection'
 import InstaFeedExtended from './utilities/InstaExtention'
 import ImageLoader from './utilities/ImageLoader'
 import Hero from './components/Hero'
+import { Iets } from './components/HomepageHero'
 import Italic from './utilities/Italic'
 
 const navigationToggles = document.querySelectorAll('[data-module="NavigationToggle"]')
@@ -45,4 +46,15 @@ for (let item of italicHeaders) {
   item = new Italic(item)
 }
 
-console.log(el)
+
+/**
+ * HOMEPAGE ANIMATED TEXT
+ */
+const homepageHero = document.querySelector('.js-homepage-hero')
+
+console.log(homepageHero)
+if (homepageHero) {
+  const heroAnimation = new Iets(homepageHero)
+  heroAnimation.initialize()
+}
+

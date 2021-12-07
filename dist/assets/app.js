@@ -1399,6 +1399,52 @@ class Hero {
 
 /***/ }),
 
+/***/ "./src/scripts/components/HomepageHero.js":
+/*!************************************************!*\
+  !*** ./src/scripts/components/HomepageHero.js ***!
+  \************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Iets": function() { return /* binding */ Iets; }
+/* harmony export */ });
+const Iets = function HomepageHero(_elem) {
+  console.log(_elem);
+  const containerEl = document.querySelector('.animated-text--container');
+  const textElements = containerEl.getElementsByTagName('span');
+  let animInterval = 0;
+  let count = 0;
+
+  const setActiveItem = index => {
+    console.log(index);
+    containerEl.style.transform = `translateY(${index * 100}px)`;
+    console.log(textElements, textElements[index]);
+
+    for (const item of textElements) {
+      item.classList.remove('active');
+    }
+
+    textElements[index].classList.add('active');
+    count = count > 2 ? 0 : count + 1;
+  };
+
+  const initialize = () => {
+    console.log('hi there', containerEl);
+    animInterval = setInterval(() => {
+      setActiveItem(count);
+    }, 2000);
+  };
+
+  return {
+    initialize
+  };
+};
+
+
+
+/***/ }),
+
 /***/ "./src/scripts/utilities/ImageLoader.js":
 /*!**********************************************!*\
   !*** ./src/scripts/utilities/ImageLoader.js ***!
@@ -1846,7 +1892,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utilities_InstaExtention__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utilities/InstaExtention */ "./src/scripts/utilities/InstaExtention.js");
 /* harmony import */ var _utilities_ImageLoader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./utilities/ImageLoader */ "./src/scripts/utilities/ImageLoader.js");
 /* harmony import */ var _components_Hero__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Hero */ "./src/scripts/components/Hero.js");
-/* harmony import */ var _utilities_Italic__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./utilities/Italic */ "./src/scripts/utilities/Italic.js");
+/* harmony import */ var _components_HomepageHero__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/HomepageHero */ "./src/scripts/components/HomepageHero.js");
+/* harmony import */ var _utilities_Italic__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./utilities/Italic */ "./src/scripts/utilities/Italic.js");
+
 
 
 
@@ -1885,10 +1933,20 @@ const portfolioHero = document.querySelector('[data-module="hero"]') ? new _comp
 const italicHeaders = document.querySelectorAll('[data-module="italic"]');
 
 for (let item of italicHeaders) {
-  item = new _utilities_Italic__WEBPACK_IMPORTED_MODULE_6__["default"](item);
+  item = new _utilities_Italic__WEBPACK_IMPORTED_MODULE_7__["default"](item);
 }
+/**
+ * HOMEPAGE ANIMATED TEXT
+ */
 
-console.log(el);
+
+const homepageHero = document.querySelector('.js-homepage-hero');
+console.log(homepageHero);
+
+if (homepageHero) {
+  const heroAnimation = new _components_HomepageHero__WEBPACK_IMPORTED_MODULE_6__.Iets(homepageHero);
+  heroAnimation.initialize();
+}
 }();
 /******/ })()
 ;

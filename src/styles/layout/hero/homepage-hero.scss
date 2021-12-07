@@ -1,4 +1,11 @@
 .hero--homepage {
+  overflow: hidden;
+
+  .hero__background {
+    height: 100vh;
+    overflow: hidden;
+  }
+
   .hero__actions {
     margin-left: 9rem;
     margin-top: 3rem;
@@ -32,40 +39,40 @@
     letter-spacing: -2px;
     color: lighten($blue-dark, 10%);
   }
-}
 
-/* ----------------------------------------
-  TEST - DELETE AFTER USE
----------------------------------------- */
-
-.intersect {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 400px;
-  @include position;
-
-  &__background {
-    @include position(absolute);
-    width: 100%;
-    height: 100%;
-    transform: scale(0.6);
-    transform-origin: center;
-    background: $blue-dark;
-    color: #fff;
-    @include transition(all, 1s)
-  }
-
-  .center {
+  .animated-text--container {
     @include position;
-    z-index: 3;
-    color: #fff;
-  }
+    @include transition(all, 1s, $default-ease-in-out);
+    padding-top: 3px;
 
+    span {
+      @include position(absolute);
+      min-width: 600px;
+      font-family: $inter;
+      font-weight: 900;
+      letter-spacing: -2px;
+      color: lighten($blue-dark, 10%);
+      @include transition(all, 1s, $default-ease-in-out);
+      opacity: 0.01;
+      transform: scale(0.8);
+      transform-origin: left center;
 
-  &.bigger {
-    .intersect__background {
-      transform: scale(1);
+      &.active {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      &.italic {
+        font-family: $playfair;
+        font-style: italic;
+      }
+
+    }
+
+    @for $i from 1 through 50 {
+      span:nth-child(#{$i}) {
+        top: 100px +$i * -100px;
+      }
     }
   }
 }
