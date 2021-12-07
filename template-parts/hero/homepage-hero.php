@@ -1,5 +1,9 @@
 <div class="hero hero--homepage">
-  <div class="hero__background" style="background-image: url(<?= get_the_post_thumbnail_url(); ?>)"></div>
+  <div class="hero__background" style="background-image: url(<?= get_the_post_thumbnail_url(); ?>)" data-module="hero" data-config='{"imagePath":"<?= get_the_post_thumbnail_url(); ?>"}'>
+  <div class="hero--portfolio-item__image js-hero-loader__image-wrapper">
+    <img src="" data-url="<?= get_the_post_thumbnail_url(); ?>" class="js-hero-loader__image">
+  </div>
+  </div>
   <div class="hero__inner">
     <div class="hero__text">
       <div class="animated-text--static">maybe</div>
@@ -13,6 +17,13 @@
     </div>
     <div class="hero__actions">
       <a href="" class="btn btn--light">tell me more</a>
+    </div>
+  </div>
+  <div class="hero--portfolio-item-loader js-hero-loader">
+    <div class="hero--portfolio-item-loader__base js-hero-loader__base">
+    <div class="hero--portfolio-item-loader__progress-wrapper js-hero-loader__progress-wrapper">
+        <div class="hero--portfolio-item-loader__progress js-hero-loader__progress"></div>
+      </div>
     </div>
   </div>
 </div>

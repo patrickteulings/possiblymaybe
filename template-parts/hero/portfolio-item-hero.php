@@ -3,15 +3,15 @@
 ?>
 <div class="hero hero--portfolio-item" data-module="hero" data-config='{"imagePath":"<?= $header_image ?>"}'>
   <!-- <div class="hero--portfolio-item__image" style="background-image: url(<?= get_field('header_image'); ?>)"> -->
-  <div class="hero--portfolio-item-loader">
-    <div class="hero--portfolio-item-loader__base">
-    <div class="hero--portfolio-item-loader__progress-wrapper">
-        <div class="hero--portfolio-item-loader__progress"></div>
+  <div class="hero--portfolio-item-loader js-hero-loader">
+    <div class="hero--portfolio-item-loader__base js-hero-loader__base">
+    <div class="hero--portfolio-item-loader__progress-wrapper js-hero-loader__progress-wrapper">
+        <div class="hero--portfolio-item-loader__progress js-hero-loader__progress"></div>
       </div>
     </div>
   </div>
-  <div class="hero--portfolio-item__image">
-    <img src="" data-url="<?= get_field('header_image'); ?>" class="the_image">
+  <div class="hero--portfolio-item__image js-hero-loader__image-wrapper">
+    <img src="" data-url="<?= get_field('header_image'); ?>" class="js-hero-loader__image">
   </div>
   <div class="hero--portfolio-item__image-border"></div>
   <div class="hero--portfolio-item__inner">

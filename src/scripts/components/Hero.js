@@ -3,13 +3,14 @@ import ImageLoader from './../utilities/ImageLoader'
 
 export default class Hero {
   constructor (_elem) {
+    console.log(_elem)
     this.elem = _elem
     this.config = JSON.parse(this.elem.dataset.config)
     this.imagePath = this.config.imagePath
-    this.loadBar = document.querySelector('.hero--portfolio-item-loader__progress')
-    this.loadContainer = document.querySelector('.hero--portfolio-item-loader')
-    this.imageContainer = document.querySelector('.hero--portfolio-item__image')
-    this.image = this.elem.querySelector('.the_image')
+    this.loadBar = document.querySelector('.js-hero-loader__progress')
+    this.loadContainer = document.querySelector('.js-hero-loader')
+    this.imageContainer = document.querySelector('.js-hero-loader__image-wrapper')
+    this.image = this.elem.querySelector('.js-hero-loader__image')
     this.loadImage()
   }
 

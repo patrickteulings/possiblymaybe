@@ -6,7 +6,7 @@ import IntersectTest from './utilities/Intersection'
 import InstaFeedExtended from './utilities/InstaExtention'
 import ImageLoader from './utilities/ImageLoader'
 import Hero from './components/Hero'
-import { Iets } from './components/HomepageHero'
+import { HomepageHero } from './components/HomepageHero'
 import Italic from './utilities/Italic'
 
 const navigationToggles = document.querySelectorAll('[data-module="NavigationToggle"]')
@@ -34,7 +34,7 @@ const el = new IntersectTest()
 
 
 const portfolioHero = (document.querySelector('[data-module="hero"]')) ? new Hero(document.querySelector('[data-module="hero"]')) : ''
-
+console.log(document.querySelector('[data-module="hero"]'))
 
 /**
  * Italic words in headers
@@ -52,9 +52,9 @@ for (let item of italicHeaders) {
  */
 const homepageHero = document.querySelector('.js-homepage-hero')
 
-console.log(homepageHero)
+
 if (homepageHero) {
-  const heroAnimation = new Iets(homepageHero)
+  const heroAnimation = new HomepageHero(homepageHero)
   heroAnimation.initialize()
 }
 

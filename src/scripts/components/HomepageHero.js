@@ -1,9 +1,18 @@
-const Iets = function HomepageHero (_elem) {
+import ImageLoader from './../utilities/ImageLoader'
+
+const HomepageHero = function (_elem) {
   console.log(_elem)
   const containerEl = document.querySelector('.animated-text--container')
   const textElements = containerEl.getElementsByTagName('span')
   let animInterval = 0
   let count = 0
+
+  // const config = JSON.parse(this.elem.dataset.config)
+  // const imagePath = this.config.imagePath
+  // const loadBar = document.querySelector('.hero--portfolio-item-loader__progress')
+  // const loadContainer = document.querySelector('.hero--portfolio-item-loader')
+  // const imageContainer = document.querySelector('.hero--portfolio-item__image')
+  // const image = this.elem.querySelector('.the_image')
 
   const setActiveItem = (index) => {
     console.log(index)
@@ -31,4 +40,4 @@ const Iets = function HomepageHero (_elem) {
   }
 }
 
-export { Iets }
+export { HomepageHero }

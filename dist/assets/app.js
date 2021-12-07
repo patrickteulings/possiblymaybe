@@ -1337,13 +1337,14 @@ __webpack_require__.r(__webpack_exports__);
 
 class Hero {
   constructor(_elem) {
+    console.log(_elem);
     this.elem = _elem;
     this.config = JSON.parse(this.elem.dataset.config);
     this.imagePath = this.config.imagePath;
-    this.loadBar = document.querySelector('.hero--portfolio-item-loader__progress');
-    this.loadContainer = document.querySelector('.hero--portfolio-item-loader');
-    this.imageContainer = document.querySelector('.hero--portfolio-item__image');
-    this.image = this.elem.querySelector('.the_image');
+    this.loadBar = document.querySelector('.js-hero-loader__progress');
+    this.loadContainer = document.querySelector('.js-hero-loader');
+    this.imageContainer = document.querySelector('.js-hero-loader__image-wrapper');
+    this.image = this.elem.querySelector('.js-hero-loader__image');
     this.loadImage();
   }
 
@@ -1407,14 +1408,22 @@ class Hero {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Iets": function() { return /* binding */ Iets; }
+/* harmony export */   "HomepageHero": function() { return /* binding */ HomepageHero; }
 /* harmony export */ });
-const Iets = function HomepageHero(_elem) {
+/* harmony import */ var _utilities_ImageLoader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../utilities/ImageLoader */ "./src/scripts/utilities/ImageLoader.js");
+
+
+const HomepageHero = function (_elem) {
   console.log(_elem);
   const containerEl = document.querySelector('.animated-text--container');
   const textElements = containerEl.getElementsByTagName('span');
   let animInterval = 0;
-  let count = 0;
+  let count = 0; // const config = JSON.parse(this.elem.dataset.config)
+  // const imagePath = this.config.imagePath
+  // const loadBar = document.querySelector('.hero--portfolio-item-loader__progress')
+  // const loadContainer = document.querySelector('.hero--portfolio-item-loader')
+  // const imageContainer = document.querySelector('.hero--portfolio-item__image')
+  // const image = this.elem.querySelector('.the_image')
 
   const setActiveItem = index => {
     console.log(index);
@@ -1926,6 +1935,7 @@ const el = new _utilities_Intersection__WEBPACK_IMPORTED_MODULE_2__["default"]()
  */
 
 const portfolioHero = document.querySelector('[data-module="hero"]') ? new _components_Hero__WEBPACK_IMPORTED_MODULE_5__["default"](document.querySelector('[data-module="hero"]')) : '';
+console.log(document.querySelector('[data-module="hero"]'));
 /**
  * Italic words in headers
  */
@@ -1941,10 +1951,9 @@ for (let item of italicHeaders) {
 
 
 const homepageHero = document.querySelector('.js-homepage-hero');
-console.log(homepageHero);
 
 if (homepageHero) {
-  const heroAnimation = new _components_HomepageHero__WEBPACK_IMPORTED_MODULE_6__.Iets(homepageHero);
+  const heroAnimation = new _components_HomepageHero__WEBPACK_IMPORTED_MODULE_6__.HomepageHero(homepageHero);
   heroAnimation.initialize();
 }
 }();
