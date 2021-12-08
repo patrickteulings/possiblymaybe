@@ -53,7 +53,7 @@
       <div class="footer-flex-wrapper">
         <div class="footer-column cta">
           <h4 class="cta__title">Let's talk</h4>
-          <p class="cta__content">We zijn altijd op zoek naar nieuwe klanten die, net als wij, het beste voor hebben met de wereld. Bel gerust om te kijken wat we samen kunnen doen!</p>
+          <p class="cta__content">We zijn altijd op zoek naar nieuwe samenwerkingen om geweldige dingen te maken. Bel gerust om te kijken wat we samen kunnen doen!</p>
         </div>
         <div class="footer-column contact-details">
           <h4 class="contact-details__title">The details</h4>
@@ -65,7 +65,7 @@
         </div>
       </div>
       <div class="site-footer__terms">
-        <a href="">voorwaarden</a>
+        <a href="<? get_site_url(); ?>/algemene-voorwaarden/">voorwaarden</a>
       </div>
     </div>
 	</footer><!-- #colophon -->

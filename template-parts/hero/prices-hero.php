@@ -1,5 +1,5 @@
 <div class="hero hero--prices">
-<div class="hero__background" style="background-image: url(<?= get_template_directory_uri() ?>/assets/images/sample-images/prices.jpg"></div>
+<div class="hero__background" style="background-image: url(<?= get_the_post_thumbnail_url() ?>"></div>
   <div class="hero--prices__inner">
     <div class="hero--prices__content">
       <div class="hero--prices__subtitle">
