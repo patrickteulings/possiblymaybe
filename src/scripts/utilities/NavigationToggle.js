@@ -2,7 +2,7 @@ import anime from 'animejs/lib/anime.es.js'
 
 export default class NavigationToggle {
   // Constructor always gets called, pass initial params here
-  constructor (_elem) {
+  constructor (_elem):any {
     this.elem = _elem
     this.config = JSON.parse(_elem.dataset.config)
     this.trigger = ''

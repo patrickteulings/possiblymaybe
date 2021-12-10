@@ -1,8 +1,12 @@
 
-import ImageLoader from './../utilities/ImageLoader'
+import ImageLoader from '../utilities/ImageLoader'
+
+interface Hero {
+  
+}
 
 export default class Hero {
-  constructor (_elem) {
+  constructor (_elem:any) {
     console.log(_elem)
     this.elem = _elem
     this.config = JSON.parse(this.elem.dataset.config)
@@ -18,6 +22,7 @@ export default class Hero {
   handleProgress (e) {
     const { received, length, loading } = e.detail
     const { scope } = e
+    console.log('dd')
 
     scope.setProgressbarValue(e.detail)
   }

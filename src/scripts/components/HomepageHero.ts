@@ -1,4 +1,4 @@
-import ImageLoader from './../utilities/ImageLoader'
+import ImageLoader from '../utilities/ImageLoader'
 
 const HomepageHero = function (_elem) {
   console.log(_elem)
