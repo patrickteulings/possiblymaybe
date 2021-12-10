@@ -59,10 +59,13 @@
 .portfolio-item {
   &--shadowed-image {
     .wp-block-group__inner-container {
-      @include inner-container;
+      //@include inner-container;
+      max-width: none;
+      padding-top: 8rem;
 
       img {
-        box-shadow: 0px 0px 26px rgba(0, 0, 0, 0.14);
+        width: 100%;
+        box-shadow: 0px -20px 26px rgba(0, 0, 0, 0.14);
         height: auto;
       }
     }
@@ -99,6 +102,15 @@
     text-align: left;
     min-width: 50%;
     margin-left: 0 !important;
+
+    &.content {
+      padding: 8rem 0;
+    }
+
+    figcaption {
+      display: none;
+    }
+
   }
 
   figure {
@@ -121,6 +133,7 @@
     color: white;
     width: 80%;
     margin-bottom: 3rem;
+    line-height: 120%;
   }
 
   p {

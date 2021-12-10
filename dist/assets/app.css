@@ -981,7 +981,7 @@ table {
   right: auto;
   bottom: auto;
   transition: transform 0.5s cubic-bezier(0, 0.325, 0.375, 0.915) 0s;
-  min-width: 100vw;
+  min-width: calc(100vw + 6rem);
   min-height: 100vh;
   object-fit: cover;
   object-position: left center;
@@ -1365,7 +1365,7 @@ table {
 .hero--services__title h1 p {
   font-family: "Playfair Display", serif;
   font-weight: 900;
-  color: white;
+  color: #2F353A;
   font-size: 42px;
   line-height: 140%;
 }
@@ -1374,7 +1374,7 @@ table {
   font-size: 12px;
   font-weight: 300;
   font-style: italic;
-  color: #3E7679;
+  color: #2F353A;
   font-size: 12px;
   position: relative;
   left: 0;
@@ -1391,6 +1391,7 @@ table {
   width: 16px;
   background-color: #3E7679;
   margin-top: -1px;
+  background-color: #2F353A;
 }
 .hero--services__content > p {
   font-size: 14px;
@@ -1399,7 +1400,7 @@ table {
   color: #20585B;
   line-height: 2rem;
   font-style: italic;
-  color: white;
+  color: #2F353A;
   font-weight: 300;
   width: 75%;
 }
@@ -2355,17 +2356,12 @@ table {
   TEXT ON PORTFOLIO DETAILS PAGES
 ---------------------------------------- */
 .portfolio-item--shadowed-image .wp-block-group__inner-container {
-  max-width: 71rem;
-  padding: 4rem 1rem;
-  margin: 0 auto;
-}
-@media (min-width: 600px) {
-  .portfolio-item--shadowed-image .wp-block-group__inner-container {
-    padding: 8rem 2rem;
-  }
+  max-width: none;
+  padding-top: 8rem;
 }
 .portfolio-item--shadowed-image .wp-block-group__inner-container img {
-  box-shadow: 0px 0px 26px rgba(0, 0, 0, 0.14);
+  width: 100%;
+  box-shadow: 0px -20px 26px rgba(0, 0, 0, 0.14);
   height: auto;
 }
 
@@ -2392,6 +2388,12 @@ table {
   min-width: 50%;
   margin-left: 0 !important;
 }
+.portfolio-item--image-media .wp-block-column.content {
+  padding: 8rem 0;
+}
+.portfolio-item--image-media .wp-block-column figcaption {
+  display: none;
+}
 .portfolio-item--image-media figure {
   margin: 0;
   width: 100%;
@@ -2413,6 +2415,7 @@ table {
   color: white;
   width: 80%;
   margin-bottom: 3rem;
+  line-height: 120%;
 }
 .portfolio-item--image-media p {
   font-size: 14px;

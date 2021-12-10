@@ -67,7 +67,7 @@
     img {
       @include position(absolute);
       @include transition(transform, 0.5s);
-      min-width: 100vw;
+      min-width: calc(100vw + 6rem);
       min-height: 100vh;
       object-fit: cover;
       object-position: left center;

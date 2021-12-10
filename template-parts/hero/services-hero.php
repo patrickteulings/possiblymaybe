@@ -1,5 +1,5 @@
 <div class="hero hero--services">
-<div class="hero__background" style="background-image: url(<?= get_template_directory_uri() ?>/assets/images/sample-images/coffee.jpg"></div>
+<div class="hero__background" style="background-image: url(<?= get_the_post_thumbnail_url(); ?>)"></div>
   <div class="hero--services__inner">
     <div class="hero--services__content">
       <div class="hero--services__subtitle">
