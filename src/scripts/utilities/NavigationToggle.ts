@@ -1,35 +1,33 @@
 
-interface gvd {
-  config: DOMStringMap | ''
+interface Config {
+  activeClass: string;
+  trigger: string;
+  target: string;
+  initialState: string;
 }
 
 interface NavigationToggle {
-  elem: HTMLElement {
-    dataset: DOMStringMap
-  },
-  config: any,
-  trigger: HTMLElement | '',
-  target: HTMLElement | '',
-  activeClass: HTMLElement | '',
-  isOpen: Boolean,
-  test: any
+  elem: HTMLElement;
+  config: Config;
+  trigger: HTMLElement | undefined;
+  target: HTMLElement | '';
+  activeClass: HTMLElement | '';
+  isOpen: Boolean;
+  test: DOMStringMap;
+  nogiets: DOMStringMap
 }
 
-interface MyObj {
-  config: String {
-    iets: String
-  };
-  myNumber: number;
-}
 
-const NavigationToggle = (_elem: HTMLElement) => {
+const NavigationToggle = ((_elem: HTMLElement) => {
   // Constructor always gets called, pass initial params here
 
   let elem = _elem
-  let test = (_elem.dataset instanceof HTMLElement)
-  let config = JSON.parse(test.config)
-  let trigger = ''
-  let target = ''
+  //let test = (_elem.dataset instanceof HTMLElement) ? (JSON.parse(_elem.dataset)) ? _elem.dataset.config : {config: {}} : {config: {}}
+  let test = _elem.dataset
+  let nogiets = (test.config) ? test.config : ''
+  let config = JSON.parse(nogiets) as Config
+  let trigger: HTMLElement
+  let target: HTMLElement
   let activeClass = (config.activeClass) ? config.activeClass : ''
   let isOpen = false
 
@@ -37,54 +35,48 @@ const NavigationToggle = (_elem: HTMLElement) => {
 
 
   const initialize = () => {
-    isOpen = (this.config.initialState && !this.config.initialState === 'open')
-    trigger = this.elem.querySelector(this.config.trigger)
-    this.target = this.elem.querySelector(this.config.target)
-    this.addEvents()
+    isOpen = false
+    trigger = elem.querySelector(config.trigger)!
+    target = elem.querySelector(config.target)!
+    console.log(config.trigger)
+    addEvents()
   }
 
   const addEvents = () => {
     // const image = document.querySelector('.hero--portfolio-item__image')
-    this.trigger.onclick = (e) => this.toggleElement(e)
+    trigger.onclick = (e) => toggleElement(e)
 
     window.addEventListener('keydown', (e) => {
       if (e.key.toLowerCase() === 'escape') {
-        this.closeElement()
+        closeElement()
       }
     })
-
-    // image.addEventListener('mouseover', () => {
-    //   this.handleHover()
-    // })
-
-    // image.addEventListener('mouseleave', () => {
-    //   this.handleLeave()
-    // })
   }
 
-  toggleElement () {
-    if (this.isOpen) {
-      this.closeElement()
+  const toggleElement = (e: MouseEvent) => {
+    if (isOpen) {
+      closeElement()
     } else {
-      this.openElement()
+      openElement()
     }
   }
 
-  openElement () {
-    this.trigger.classList.add('is-open')
-    this.target.classList.add('is-open')
-    this.trigger.ariaExpanded = true
-    this.isOpen = true
+  const openElement = () => {
+    console.log('hmm', trigger)
+    trigger.classList.add('is-open')
+    target.classList.add('is-open')
+    trigger.ariaExpanded = 'true'
+    isOpen = true
   }
 
-  closeElement () {
-    this.trigger.classList.remove('is-open')
-    this.target.classList.remove('is-open')
-    this.trigger.ariaExpanded = false
-    this.isOpen = false
+  const closeElement = () => {
+    trigger.classList.remove('is-open')
+    target.classList.remove('is-open')
+    trigger.ariaExpanded = 'false'
+    isOpen = false
   }
 
   initialize()
-}
+})
 
 export { NavigationToggle }

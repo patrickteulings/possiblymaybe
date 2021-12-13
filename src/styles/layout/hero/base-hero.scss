@@ -8,7 +8,8 @@
   @include transition(all, 0.5s, $default-easing);
 
   &.make-visible {
-    height: calc(100vh - 9rem);
+    height: calc(100vh - 2rem);
+    overflow: hidden;
 
     .single-portfolio & {
       height: calc(100vh);
@@ -31,6 +32,8 @@
     width: 100%;
     padding: 0 2rem;
     margin: 0 auto;
+    height: 610px;
+
 
     @include mq('tablet','min') {
       padding: 0;

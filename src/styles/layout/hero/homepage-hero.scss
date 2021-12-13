@@ -1,9 +1,19 @@
-.hero--homepage {
+.hero.hero--homepage {
   overflow: hidden;
 
   .hero__background {
     height: 100vh;
     overflow: hidden;
+  }
+
+  .hero__inner {
+    @include position(absolute);
+    height: 100vh;
+    @include flex-center;
+
+    .hero-content-wrapper {
+      @include position;
+    }
   }
 
   .hero__actions {
@@ -13,6 +23,15 @@
 
   .hero__text {
     padding-top: 6rem;
+  }
+
+  .hero--portfolio-item__image.is-loaded {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%) !important;
+
+    img {
+      transform: translateX(0);
+      @include objectFit;
+    }
   }
 }
 
@@ -71,7 +90,7 @@
 
     @for $i from 1 through 50 {
       span:nth-child(#{$i}) {
-        top: 100px +$i * -100px;
+        top: 100px + $i * -100px;
       }
     }
   }

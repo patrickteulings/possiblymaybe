@@ -1412,6 +1412,7 @@ table {
 
 .hero--homepage {
   overflow: hidden;
+  opacity: 0.2;
 }
 .hero--homepage .hero__background {
   height: 100vh;
@@ -1423,6 +1424,10 @@ table {
 }
 .hero--homepage .hero__text {
   padding-top: 6rem;
+}
+.hero--homepage .hero--portfolio-item__image.is-loaded {
+  opacity: 0.2;
+  clip-path: polygon(0 0, 0 100%, 100% 100%, 0 100%) !important;
 }
 
 /* ----------------------------------------

@@ -1,14 +1,14 @@
-export default function ImageLoader (rootUrl, _progressCallback, _finishedCallback, _scope) {
+export default function ImageLoader (rootUrl: string, _progressCallback: Function, _finishedCallback: Function, _scope: any) {
   let results = null
   let error = null
   let loading = true
-  const chunks = []
+  const chunks:any = []
   const scope = _scope
   const progressCallBack = _progressCallback
   const finishedCallback = _finishedCallback
-  // let controller = null; // We will get to this variable in a second
+  // let controller = null; // We will get to this variable in a secondd
 
-  const loadImage = async (path, options) => {
+  const loadImage = async (path: string, options: object) => {
     try {
       const response = await fetch(path, { ...options })
 
@@ -20,7 +20,7 @@ export default function ImageLoader (rootUrl, _progressCallback, _finishedCallba
         console.log(objectURL)
         return objectURL
       } else {
-        throw new Error('error', response.statusText)
+        throw new Error('error')
       }
     } catch (err) {
       error = err
@@ -31,7 +31,7 @@ export default function ImageLoader (rootUrl, _progressCallback, _finishedCallba
     }
   }
 
-  const readBodyResponse = async (response) => {
+  const readBodyResponse = async (response: any) => {
     const reader = response.body.getReader()
     const length = +response.headers.get('content-length')
     // Declare received as 0 initially

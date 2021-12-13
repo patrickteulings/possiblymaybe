@@ -1,11 +1,18 @@
 
-export default class HeroLoader {
-  constructor (_elem) {
+interface HeroLoader {
+  elem: HTMLImageElement
+  loadedClass: string
+  imageURL: string
+  isLoaded: Boolean
+}
+
+class HeroLoader {
+  constructor (_elem: HTMLElement) {
     if (!_elem) return
     console.log(_elem)
-    this.elem = _elem.querySelector('.the_image')
+    this.elem = _elem.querySelector('.the_image')!
     this.loadedClass = 'imageIsLoaded'
-    this.imageURL = this.elem.dataset.url
+    this.imageURL = this.elem.dataset.url as string
     this.isLoaded = false
 
     this.initialize()
@@ -29,3 +36,5 @@ export default class HeroLoader {
       })
   }
 }
+
+export { HeroLoader }

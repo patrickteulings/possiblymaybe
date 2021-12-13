@@ -2,7 +2,7 @@ import anime from 'animejs/lib/anime.es.js'
 
 export default class NavigationToggle {
   // Constructor always gets called, pass initial params here
-  constructor (_elem):any {
+  constructor (_elem) {
     this.elem = _elem
     this.config = JSON.parse(_elem.dataset.config)
     this.trigger = ''
@@ -22,7 +22,7 @@ export default class NavigationToggle {
   handleHover () {
     console.log(anime)
     return false
-    // anime({
+    // anime({}
     //   targets: '.hero--portfolio-item__image',
     //   translateX: 0,
     //   width: '100%',

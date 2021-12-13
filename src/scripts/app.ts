@@ -2,17 +2,16 @@
 import './../styles/app.scss'
 
 import { NavigationToggle } from './utilities/NavigationToggle'
-import IntersectTest from './utilities/Intersection'
-import InstaFeedExtended from './utilities/InstaExtention'
-import ImageLoader from './utilities/ImageLoader'
-import Hero from './components/Hero'
+import { IntersectTest } from './utilities/Intersection'
+import { InstaFeedExtended } from './utilities/InstaExtention'
+import { Hero } from './components/Hero'
 import { HomepageHero } from './components/HomepageHero'
-import Italic from './utilities/Italic'
+import { Italic } from './utilities/Italic'
 
-const navigationToggles:NodeList = document.querySelectorAll('[data-module="NavigationToggle"]')
+const navigationToggles:NodeListOf<HTMLElement> = document.querySelectorAll('[data-module="NavigationToggle"]')
 
 for (let navigationToggle of navigationToggles) {
-  navigationToggle = new NavigationToggle(navigationToggle)
+  let item = NavigationToggle(navigationToggle)
 }
 
 /**
@@ -37,24 +36,24 @@ const portfolioHero = (document.querySelector('[data-module="hero"]')) ? new Her
 console.log(document.querySelector('[data-module="hero"]'))
 
 /**
- * Italic words in headers
+ * Italic words in headerss
  */
 
-const italicHeaders = document.querySelectorAll('[data-module="italic"]')
+const italicHeaders: NodeListOf<HTMLElement> = document.querySelectorAll('[data-module="italic"]')
 
 for (let item of italicHeaders) {
-  item = new Italic(item)
+  let italicItem = new Italic(item)
 }
 
 
 /**
- * HOMEPAGE ANIMATED TEXT
+ * HOMEPAGE ANIMATED TEXTT
  */
-const homepageHero = document.querySelector('.js-homepage-hero')
+const homepageHero: HTMLElement = document.querySelector('.js-homepage-hero')!
 
 
 if (homepageHero) {
-  const heroAnimation = new HomepageHero(homepageHero)
+  const heroAnimation = (HomepageHero as any)(homepageHero)
   heroAnimation.initialize()
 }
 

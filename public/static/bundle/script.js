@@ -21,49 +21,17 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Hero": function() { return /* binding */ Hero; }
+/* harmony export */ });
 /* harmony import */ var _utilities_ImageLoader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utilities/ImageLoader */ "./src/scripts/utilities/ImageLoader.ts");
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
 
-var Hero = /** @class */ (function () {
-    function Hero(_elem) {
+class Hero {
+    constructor(_elem) {
         console.log(_elem);
         this.elem = _elem;
-        this.config = JSON.parse(this.elem.dataset.config);
+        this.data = _elem.dataset;
+        this.config = JSON.parse(this.data.config);
         this.imagePath = this.config.imagePath;
         this.loadBar = document.querySelector('.js-hero-loader__progress');
         this.loadContainer = document.querySelector('.js-hero-loader');
@@ -71,51 +39,38 @@ var Hero = /** @class */ (function () {
         this.image = this.elem.querySelector('.js-hero-loader__image');
         this.loadImage();
     }
-    Hero.prototype.handleProgress = function (e) {
-        var _a = e.detail, received = _a.received, length = _a.length, loading = _a.loading;
-        var scope = e.scope;
+    handleProgress(e) {
+        const { received, length, loading } = e.detail;
+        const { scope } = e;
         console.log('dd');
         scope.setProgressbarValue(e.detail);
-    };
-    Hero.prototype.handleLoaded = function (e) {
-        var scope = e.scope;
+    }
+    handleLoaded(e) {
+        const { scope } = e;
         scope.setProgressbarValue(e.detail);
         scope.hideLoader(e);
-    };
-    Hero.prototype.hideLoader = function (e) {
-        var _this = this;
-        setTimeout(function () {
-            _this.loadContainer.classList.add('is-loaded');
+    }
+    hideLoader(e) {
+        setTimeout(() => {
+            this.loadContainer.classList.add('is-loaded');
         }, 500);
-        setTimeout(function () {
-            _this.imageContainer.classList.add('is-loaded');
+        setTimeout(() => {
+            this.imageContainer.classList.add('is-loaded');
         }, 1000);
-    };
-    Hero.prototype.setProgressbarValue = function (payload) {
-        var received = payload.received, length = payload.length, loading = payload.loading;
-        var progress = ((received / length) * 100).toFixed(2);
-        this.loadBar.style.width = "".concat(progress, "%");
-    };
-    Hero.prototype.loadImage = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var loadImage, theBlob, elem;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        loadImage = new _utilities_ImageLoader__WEBPACK_IMPORTED_MODULE_0__["default"](this.imagePath, this.handleProgress, this.handleLoaded, this).loadImage;
-                        return [4 /*yield*/, loadImage(this.imagePath)];
-                    case 1:
-                        theBlob = _a.sent();
-                        elem = document.querySelector('.the_image');
-                        this.image.src = theBlob;
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    return Hero;
-}());
-/* harmony default export */ __webpack_exports__["default"] = (Hero);
+    }
+    setProgressbarValue(payload) {
+        const { received, length, loading } = payload;
+        const progress = ((received / length) * 100).toFixed(2);
+        this.loadBar.style.width = `${progress}%`;
+    }
+    async loadImage() {
+        const { loadImage } = new _utilities_ImageLoader__WEBPACK_IMPORTED_MODULE_0__["default"](this.imagePath, this.handleProgress, this.handleLoaded, this);
+        const theBlob = await loadImage(this.imagePath);
+        const elem = document.querySelector('.the_image');
+        this.image.src = theBlob;
+    }
+}
+
 
 
 /***/ }),
@@ -130,37 +85,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "HomepageHero": function() { return /* binding */ HomepageHero; }
 /* harmony export */ });
-var HomepageHero = function (_elem) {
-    console.log(_elem);
-    var containerEl = document.querySelector('.animated-text--container');
-    var textElements = containerEl.getElementsByTagName('span');
-    var animInterval = 0;
-    var count = 0;
-    // const config = JSON.parse(this.elem.dataset.config)
+const HomepageHero = (_elem) => {
+    const containerEl = document.querySelector('.animated-text--container');
+    const textElements = containerEl.getElementsByTagName('span');
+    let animInterval;
+    let count = 0;
+    if (!containerEl)
+        return;
+    // const config = JSON.parse(this.elem.dataset.config);
     // const imagePath = this.config.imagePath
     // const loadBar = document.querySelector('.hero--portfolio-item-loader__progress')
     // const loadContainer = document.querySelector('.hero--portfolio-item-loader')
     // const imageContainer = document.querySelector('.hero--portfolio-item__image')
-    // const image = this.elem.querySelector('.the_image')
-    var setActiveItem = function (index) {
-        console.log(index);
-        containerEl.style.transform = "translateY(".concat(index * 100, "px)");
-        console.log(textElements, textElements[index]);
-        for (var _i = 0, textElements_1 = textElements; _i < textElements_1.length; _i++) {
-            var item = textElements_1[_i];
+    // const image = this.elem.querySelector('.the_image'
+    const setActiveItem = (index) => {
+        containerEl.style.transform = `translateY(${index * 100}px)`;
+        for (const item of textElements) {
             item.classList.remove('active');
         }
         textElements[index].classList.add('active');
         count = (count > 2) ? 0 : count + 1;
     };
-    var initialize = function () {
-        console.log('hi there', containerEl);
-        animInterval = setInterval(function () {
+    const initialize = () => {
+        console.log('hii there', containerEl);
+        animInterval = setInterval(() => {
             setActiveItem(count);
         }, 2000);
     };
     return {
-        initialize: initialize
+        initialize
     };
 };
 
@@ -178,138 +131,73 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ ImageLoader; }
 /* harmony export */ });
-var __assign = (undefined && undefined.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
 function ImageLoader(rootUrl, _progressCallback, _finishedCallback, _scope) {
-    var _this = this;
-    var results = null;
-    var error = null;
-    var loading = true;
-    var chunks = [];
-    var scope = _scope;
-    var progressCallBack = _progressCallback;
-    var finishedCallback = _finishedCallback;
-    // let controller = null; // We will get to this variable in a second
-    var loadImage = function (path, options) { return __awaiter(_this, void 0, void 0, function () {
-        var response, bb, objectURL, err_1;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    _a.trys.push([0, 5, 6, 7]);
-                    return [4 /*yield*/, fetch(path, __assign({}, options))];
-                case 1:
-                    response = _a.sent();
-                    if (!(response.status >= 200 && response.status < 300)) return [3 /*break*/, 3];
-                    return [4 /*yield*/, readBodyResponse(response)];
-                case 2:
-                    results = _a.sent();
-                    bb = new Blob([new Uint8Array(results)]);
-                    objectURL = URL.createObjectURL(bb);
-                    console.log(objectURL);
-                    return [2 /*return*/, objectURL];
-                case 3: throw new Error('error', response.statusText);
-                case 4: return [3 /*break*/, 7];
-                case 5:
-                    err_1 = _a.sent();
-                    error = err_1;
-                    results = null;
-                    return [2 /*return*/, error];
-                case 6:
-                    loading = false;
-                    return [7 /*endfinally*/];
-                case 7: return [2 /*return*/];
+    let results = null;
+    let error = null;
+    let loading = true;
+    const chunks = [];
+    const scope = _scope;
+    const progressCallBack = _progressCallback;
+    const finishedCallback = _finishedCallback;
+    // let controller = null; // We will get to this variable in a secondd
+    const loadImage = async (path, options) => {
+        try {
+            const response = await fetch(path, { ...options });
+            if (response.status >= 200 && response.status < 300) {
+                results = await readBodyResponse(response);
+                const bb = new Blob([new Uint8Array(results)]);
+                const objectURL = URL.createObjectURL(bb);
+                console.log(objectURL);
+                return objectURL;
             }
-        });
-    }); };
-    var readBodyResponse = function (response) { return __awaiter(_this, void 0, void 0, function () {
-        var reader, length, received, _a, done, value, payload, body, position, _i, chunks_1, chunk;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
-                case 0:
-                    reader = response.body.getReader();
-                    length = +response.headers.get('content-length');
-                    received = 0;
-                    _b.label = 1;
-                case 1:
-                    if (!loading) return [3 /*break*/, 3];
-                    return [4 /*yield*/, reader.read()];
-                case 2:
-                    _a = _b.sent(), done = _a.done, value = _a.value;
-                    payload = { detail: { received: received, length: length, loading: loading, rootUrl: rootUrl }, scope: scope };
-                    if (done) {
-                        // Finish loading
-                        loading = false;
-                        // Fired when reading the response body finishes
-                        finishedCallback(payload);
-                    }
-                    else {
-                        // Push values to the chunk array
-                        chunks.push(value);
-                        received += value.length;
-                        // Fired on each .read() - progress tick
-                        progressCallBack(payload, scope);
-                    }
-                    return [3 /*break*/, 1];
-                case 3:
-                    body = new Uint8Array(received);
-                    position = 0;
-                    // Order the chunks by their respective position
-                    for (_i = 0, chunks_1 = chunks; _i < chunks_1.length; _i++) {
-                        chunk = chunks_1[_i];
-                        body.set(chunk, position);
-                        position += chunk.length;
-                    }
-                    // Decode the response and return it
-                    return [2 /*return*/, body];
+            else {
+                throw new Error('error');
             }
-        });
-    }); };
-    return { loadImage: loadImage };
+        }
+        catch (err) {
+            error = err;
+            results = null;
+            return error;
+        }
+        finally {
+            loading = false;
+        }
+    };
+    const readBodyResponse = async (response) => {
+        const reader = response.body.getReader();
+        const length = +response.headers.get('content-length');
+        // Declare received as 0 initially
+        let received = 0;
+        // Loop through the response stream and extract data chunks
+        while (loading) {
+            const { done, value } = await reader.read();
+            const payload = { detail: { received, length, loading, rootUrl }, scope };
+            if (done) {
+                // Finish loading
+                loading = false;
+                // Fired when reading the response body finishes
+                finishedCallback(payload);
+            }
+            else {
+                // Push values to the chunk array
+                chunks.push(value);
+                received += value.length;
+                // Fired on each .read() - progress tick
+                progressCallBack(payload, scope);
+            }
+        }
+        // Concat the chinks into a single array
+        const body = new Uint8Array(received);
+        let position = 0;
+        // Order the chunks by their respective position
+        for (const chunk of chunks) {
+            body.set(chunk, position);
+            position += chunk.length;
+        }
+        // Decode the response and return it
+        return body;
+    };
+    return { loadImage };
 }
 
 
@@ -322,32 +210,32 @@ function ImageLoader(rootUrl, _progressCallback, _finishedCallback, _scope) {
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "InstaFeedExtended": function() { return /* binding */ InstaFeedExtended; }
+/* harmony export */ });
 /**
  * Extending the SBI Instagram feed plugin
  */
-var InstaFeedExtended = /** @class */ (function () {
-    function InstaFeedExtended(_elem) {
+class InstaFeedExtended {
+    constructor(_elem) {
         this.feedEl = _elem;
         this.imageContainers = this.feedEl.querySelectorAll('.sbi_item');
         this.initialize();
     }
-    InstaFeedExtended.prototype.initialize = function () {
+    initialize() {
         if (!this.imageContainers.length)
             return;
-        for (var _i = 0, _a = this.imageContainers; _i < _a.length; _i++) {
-            var el = _a[_i];
-            var img = el.getElementsByTagName('img')[0];
-            var alt = img.getAttribute('alt');
-            var captionElement = document.createElement('div');
+        for (const el of this.imageContainers) {
+            const img = el.getElementsByTagName('img')[0];
+            const alt = img.getAttribute('alt');
+            const captionElement = document.createElement('div');
             captionElement.className = 'sbi_caption';
-            captionElement.innerHTML = alt;
+            captionElement.innerHTML = (alt) ? alt : '';
             el.appendChild(captionElement);
-            console.log(alt, alt);
         }
-    };
-    return InstaFeedExtended;
-}());
-/* harmony default export */ __webpack_exports__["default"] = (InstaFeedExtended);
+    }
+}
+
 
 
 /***/ }),
@@ -359,17 +247,19 @@ var InstaFeedExtended = /** @class */ (function () {
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-var IntersectTest = /** @class */ (function () {
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "IntersectTest": function() { return /* binding */ IntersectTest; }
+/* harmony export */ });
+class IntersectTest {
     // Constructor always gets called, pass initial params here
-    function IntersectTest(_elem) {
-        this.elem = _elem || '';
+    constructor() {
         this.initialize();
     }
-    IntersectTest.prototype.initialize = function () {
-        var observer = new IntersectionObserver(function (entries, observer) {
-            entries.forEach(function (entry) {
+    initialize() {
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
                 // const ratio = entry.intersectionRatio
-                // entry.target.dataset.test = ratio
+                // entry.target.dataset.test = ratioo
                 // console.log(ratio)
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-intersected');
@@ -379,16 +269,15 @@ var IntersectTest = /** @class */ (function () {
                 }
             });
         }, { rootMargin: '-20px 0px 50px 0px' });
-        var el = document.querySelectorAll('.portfolio-item__image');
-        el.forEach(function (item) {
+        const el = document.querySelectorAll('.portfolio-item__image');
+        el.forEach((item) => {
             observer.observe(item);
         });
-        var navObserver = new IntersectionObserver(function (entries, observer) {
-            entries.forEach(function (entry) {
-                var ratio = entry.intersectionRatio;
-                entry.target.dataset.test = ratio;
+        const navObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                const tt = entry;
                 if (entry.isIntersecting) {
-                    setTimeout(function () {
+                    setTimeout(() => {
                         entry.target.classList.add('make-visible');
                     }, 1000);
                     // entry.target.src = entry.target.dataset.src
@@ -399,17 +288,15 @@ var IntersectTest = /** @class */ (function () {
                 }
             });
         }, { rootMargin: '0px 0px 50px 0px' });
-        var navEl = document.querySelector('.hero');
+        const navEl = document.querySelector('.hero');
         if (!navEl.classList.contains('hero--about')) {
             navObserver.observe(navEl);
         }
         /**
          * WORK OVERVIEW PAGE
          */
-        var workObserver = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                var ratio = entry.intersectionRatio;
-                entry.target.dataset.test = ratio;
+        const workObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('in-view');
                     // entry.target.src = entry.target.dataset.src
@@ -420,8 +307,8 @@ var IntersectTest = /** @class */ (function () {
                 }
             });
         }, { rootMargin: '0% 0px 0% 0px' });
-        var workEl = document.querySelectorAll('.work-card--wrapper');
-        workEl.forEach(function (item) {
+        const workEl = document.querySelectorAll('.work-card--wrapper');
+        workEl.forEach((item) => {
             console.log('item', item);
             workObserver.observe(item);
         });
@@ -429,10 +316,8 @@ var IntersectTest = /** @class */ (function () {
         /**
          * ABOUT PAGE
          */
-        var aboutObserver = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                var ratio = entry.intersectionRatio;
-                entry.target.dataset.test = ratio;
+        const aboutObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('in-view');
                     // entry.target.src = entry.target.dataset.src
@@ -443,15 +328,14 @@ var IntersectTest = /** @class */ (function () {
                 }
             });
         }, { rootMargin: '0% 0px 0% 0px' });
-        var aboutEl = document.querySelectorAll('.card--about');
-        aboutEl.forEach(function (item) {
+        const aboutEl = document.querySelectorAll('.card--about');
+        aboutEl.forEach((item) => {
             aboutObserver.observe(item);
         });
         // console.log(workObserver)
-    };
-    return IntersectTest;
-}());
-/* harmony default export */ __webpack_exports__["default"] = (IntersectTest);
+    }
+}
+
 
 
 /***/ }),
@@ -463,21 +347,22 @@ var IntersectTest = /** @class */ (function () {
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-var Italic = /** @class */ (function () {
-    function Italic(_elem) {
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Italic": function() { return /* binding */ Italic; }
+/* harmony export */ });
+class Italic {
+    constructor(_elem) {
         this.elem = _elem;
         this.italicElements = this.elem.getElementsByTagName('span');
         this.setItalic();
     }
-    Italic.prototype.setItalic = function () {
-        for (var _i = 0, _a = this.italicElements; _i < _a.length; _i++) {
-            var item = _a[_i];
+    setItalic() {
+        for (const item of this.italicElements) {
             item.style.fontStyle = 'italic';
         }
-    };
-    return Italic;
-}());
-/* harmony default export */ __webpack_exports__["default"] = (Italic);
+    }
+}
+
 
 
 /***/ }),
@@ -492,81 +377,60 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "NavigationToggle": function() { return /* binding */ NavigationToggle; }
 /* harmony export */ });
-var _this = undefined;
-{
-    dataset: DOMStringMap;
-}
-config: any,
-    trigger;
-HTMLElement | '',
-    target;
-HTMLElement | '',
-    activeClass;
-HTMLElement | '',
-    isOpen;
-Boolean,
-    test;
-any;
-{
-    iets: String;
-}
-;
-myNumber: number;
-var NavigationToggle = function (_elem) {
+const NavigationToggle = ((_elem) => {
     // Constructor always gets called, pass initial params here
-    var elem = _elem;
-    var test = (_elem.dataset instanceof HTMLElement);
-    var config = JSON.parse(test.config);
-    var trigger = '';
-    var target = '';
-    var activeClass = (config.activeClass) ? config.activeClass : '';
-    var isOpen = false;
-    var initialize = function () {
-        isOpen = (_this.config.initialState && !_this.config.initialState === 'open');
-        trigger = _this.elem.querySelector(_this.config.trigger);
-        _this.target = _this.elem.querySelector(_this.config.target);
-        _this.addEvents();
+    let elem = _elem;
+    //let test = (_elem.dataset instanceof HTMLElement) ? (JSON.parse(_elem.dataset)) ? _elem.dataset.config : {config: {}} : {config: {}}
+    let test = _elem.dataset;
+    let nogiets = (test.config) ? test.config : '';
+    let config = JSON.parse(nogiets);
+    let trigger;
+    let target;
+    let activeClass = (config.activeClass) ? config.activeClass : '';
+    let isOpen = false;
+    const initialize = () => {
+        isOpen = (config.initialState.length >= 0 && config.initialState !== 'open');
+        trigger = (elem.querySelector(config.triggerName)) ?? elem;
+        target = (elem.querySelector(config.targetName)) ?? elem;
+        addEvents();
     };
-    var addEvents = function () {
+    const addEvents = () => {
         // const image = document.querySelector('.hero--portfolio-item__image')
-        _this.trigger.onclick = function (e) { return _this.toggleElement(e); };
-        window.addEventListener('keydown', function (e) {
+        trigger.onclick = (e) => toggleElement(e);
+        window.addEventListener('keydown', (e) => {
             if (e.key.toLowerCase() === 'escape') {
-                _this.closeElement();
+                closeElement();
             }
         });
         // image.addEventListener('mouseover', () => {
-        //   this.handleHover()
+        //   this.handleHover();
         // })
         // image.addEventListener('mouseleave', () => {
-        //   this.handleLeave()
+        //   this.handleLeave();
         // })
     };
-    toggleElement();
-    {
-        if (_this.isOpen) {
-            _this.closeElement();
+    const toggleElement = (e) => {
+        if (isOpen) {
+            closeElement();
         }
         else {
-            _this.openElement();
+            openElement();
         }
-    }
-    openElement();
-    {
-        _this.trigger.classList.add('is-open');
-        _this.target.classList.add('is-open');
-        _this.trigger.ariaExpanded = true;
-        _this.isOpen = true;
-    }
-    closeElement();
-    {
-        _this.trigger.classList.remove('is-open');
-        _this.target.classList.remove('is-open');
-        _this.trigger.ariaExpanded = false;
-        _this.isOpen = false;
-    }
+    };
+    const openElement = () => {
+        trigger.classList.add('is-open');
+        target.classList.add('is-open');
+        trigger.ariaExpanded = 'true';
+        isOpen = true;
+    };
+    const closeElement = () => {
+        trigger.classList.remove('is-open');
+        target.classList.remove('is-open');
+        trigger.ariaExpanded = 'false';
+        isOpen = false;
+    };
     initialize();
-};
+});
 
 
 
@@ -649,40 +513,38 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var navigationToggles = document.querySelectorAll('[data-module="NavigationToggle"]');
-for (var _i = 0, navigationToggles_1 = navigationToggles; _i < navigationToggles_1.length; _i++) {
-    var navigationToggle = navigationToggles_1[_i];
-    navigationToggle = new _utilities_NavigationToggle__WEBPACK_IMPORTED_MODULE_1__.NavigationToggle(navigationToggle);
+const navigationToggles = document.querySelectorAll('[data-module="NavigationToggle"]');
+for (let navigationToggle of navigationToggles) {
+    let item = (0,_utilities_NavigationToggle__WEBPACK_IMPORTED_MODULE_1__.NavigationToggle)(navigationToggle);
 }
 /**
  * EXTENDS THE instafeed plugin to add Captions
  */
-var instaFeed = document.getElementById('sb_instagram');
+const instaFeed = document.getElementById('sb_instagram');
 if (instaFeed) {
-    var instaFeedExtended = new _utilities_InstaExtention__WEBPACK_IMPORTED_MODULE_3__["default"](instaFeed);
+    const instaFeedExtended = new _utilities_InstaExtention__WEBPACK_IMPORTED_MODULE_3__.InstaFeedExtended(instaFeed);
     console.log(instaFeedExtended);
 }
-var el = new _utilities_Intersection__WEBPACK_IMPORTED_MODULE_2__["default"]();
+const el = new _utilities_Intersection__WEBPACK_IMPORTED_MODULE_2__.IntersectTest();
 /**
  * PORTFOLIO ITEM HERO
  *
  */
-var portfolioHero = (document.querySelector('[data-module="hero"]')) ? new _components_Hero__WEBPACK_IMPORTED_MODULE_4__["default"](document.querySelector('[data-module="hero"]')) : '';
+const portfolioHero = (document.querySelector('[data-module="hero"]')) ? new _components_Hero__WEBPACK_IMPORTED_MODULE_4__.Hero(document.querySelector('[data-module="hero"]')) : '';
 console.log(document.querySelector('[data-module="hero"]'));
 /**
- * Italic words in headers
+ * Italic words in headerss
  */
-var italicHeaders = document.querySelectorAll('[data-module="italic"]');
-for (var _a = 0, italicHeaders_1 = italicHeaders; _a < italicHeaders_1.length; _a++) {
-    var item = italicHeaders_1[_a];
-    item = new _utilities_Italic__WEBPACK_IMPORTED_MODULE_6__["default"](item);
+const italicHeaders = document.querySelectorAll('[data-module="italic"]');
+for (let item of italicHeaders) {
+    let italicItem = new _utilities_Italic__WEBPACK_IMPORTED_MODULE_6__.Italic(item);
 }
 /**
- * HOMEPAGE ANIMATED TEXT
+ * HOMEPAGE ANIMATED TEXTT
  */
-var homepageHero = document.querySelector('.js-homepage-hero');
+const homepageHero = document.querySelector('.js-homepage-hero');
 if (homepageHero) {
-    var heroAnimation = new _components_HomepageHero__WEBPACK_IMPORTED_MODULE_5__.HomepageHero(homepageHero);
+    const heroAnimation = new _components_HomepageHero__WEBPACK_IMPORTED_MODULE_5__.HomepageHero(homepageHero);
     heroAnimation.initialize();
 }
 
