@@ -379,6 +379,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 const NavigationToggle = ((_elem) => {
     // Constructor always gets called, pass initial params here
+    console.log(_elem);
     let elem = _elem;
     //let test = (_elem.dataset instanceof HTMLElement) ? (JSON.parse(_elem.dataset)) ? _elem.dataset.config : {config: {}} : {config: {}}
     let test = _elem.dataset;

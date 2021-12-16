@@ -7,7 +7,7 @@
   }
 
   &__content {
-    padding: 0 2rem;
+    padding: 0 2rem 0 0;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -27,7 +27,7 @@
       font-weight: 900;
       color: $blue-very-dark;
       font-size: 42px;
-      // margin-left: 2rem;
+      margin-left: 2rem;
       line-height: 140%;
     }
   }
@@ -52,7 +52,11 @@
       @include paragraph;
       color: $blue-very-dark;
       font-weight: 300;
-      width: 75%;
+      width: 100%;
+
+      @include mq('tablet-wide', 'min') {
+        columns: 2;
+      }
     }
   }
 }

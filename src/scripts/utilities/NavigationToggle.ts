@@ -20,6 +20,7 @@ interface NavigationToggle {
 
 const NavigationToggle = ((_elem: HTMLElement) => {
   // Constructor always gets called, pass initial params here
+  console.log(_elem)
 
   let elem = _elem
   //let test = (_elem.dataset instanceof HTMLElement) ? (JSON.parse(_elem.dataset)) ? _elem.dataset.config : {config: {}} : {config: {}}
