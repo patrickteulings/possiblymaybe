@@ -2315,51 +2315,51 @@ table {
 /* ----------------------------------------
   IMAGE CONTAINERS - POSITIONING
 ---------------------------------------- */
-.wp-block-group.block-service-images {
+.wp-block-group {
   /* ----------------------------------------
     POSITIONING THE IMAGE ROWS
   ---------------------------------------- */
 }
-.wp-block-group.block-service-images.block-service-images .wp-block-group__inner-container {
+.wp-block-group.block-service-images .wp-block-group__inner-container {
   display: flex;
 }
-.wp-block-group.block-service-images.block-service-images .wp-block-group__inner-container .wp-block-columns {
+.wp-block-group.block-service-images .wp-block-group__inner-container .wp-block-columns {
   width: 100%;
 }
 @media (min-width: 900px) {
-  .wp-block-group.block-service-images.block-service-images .wp-block-group__inner-container .wp-block-columns {
+  .wp-block-group.block-service-images .wp-block-group__inner-container .wp-block-columns {
     width: 90%;
   }
 }
-.wp-block-group.block-service-images.block-service-images .wp-block-group__inner-container .wp-block-column:not(:only-child) {
+.wp-block-group.block-service-images .wp-block-group__inner-container .wp-block-column:not(:only-child) {
   flex-basis: calc(50% - 1px) !important;
 }
-.wp-block-group.block-service-images.block-service-images .wp-block-group__inner-container .wp-block-column:not(:first-child) {
+.wp-block-group.block-service-images .wp-block-group__inner-container .wp-block-column:not(:first-child) {
   margin-left: 2px;
   display: none;
 }
 @media (min-width: 600px) {
-  .wp-block-group.block-service-images.block-service-images .wp-block-group__inner-container .wp-block-column:nth-child(2) {
+  .wp-block-group.block-service-images .wp-block-group__inner-container .wp-block-column:nth-child(2) {
     display: block;
   }
 }
 @media (min-width: 1200px) {
-  .wp-block-group.block-service-images.block-service-images .wp-block-group__inner-container .wp-block-column:not(:first-child) {
+  .wp-block-group.block-service-images .wp-block-group__inner-container .wp-block-column:not(:first-child) {
     display: block;
   }
 }
-.wp-block-group.block-service-images.block-service-images .wp-block-group__inner-container img {
+.wp-block-group.block-service-images .wp-block-group__inner-container img {
   object-fit: cover;
   width: 100%;
   max-height: 360px;
 }
-.wp-block-group.block-service-images.block-service-images .wp-block-group__inner-container figcaption {
+.wp-block-group.block-service-images .wp-block-group__inner-container figcaption {
   display: none;
 }
-.wp-block-group.block-service-images.block-service-images--left .wp-block-group__inner-container {
+.wp-block-group.block-service-images--left .wp-block-group__inner-container {
   justify-content: flex-start;
 }
-.wp-block-group.block-service-images.block-service-images--right .wp-block-group__inner-container {
+.wp-block-group.block-service-images--right .wp-block-group__inner-container {
   justify-content: flex-end;
 }
 
