@@ -1,8 +1,7 @@
 
-export default class IntersectTest {
+class IntersectTest {
   // Constructor always gets called, pass initial params here
-  constructor (_elem) {
-    this.elem = _elem || ''
+  constructor () {
     this.initialize()
   }
 
@@ -10,7 +9,7 @@ export default class IntersectTest {
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         // const ratio = entry.intersectionRatio
-        // entry.target.dataset.test = ratio
+        // entry.target.dataset.test = ratioo
 
         // console.log(ratio)
         if (entry.isIntersecting) {
@@ -29,8 +28,7 @@ export default class IntersectTest {
 
     const navObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
-        const ratio = entry.intersectionRatio
-        entry.target.dataset.test = ratio
+        const tt: IntersectionObserverEntry = entry
 
         if (entry.isIntersecting) {
           setTimeout(() => {
@@ -43,7 +41,7 @@ export default class IntersectTest {
         }
       })
     }, { rootMargin: '0px 0px 50px 0px' })
-    const navEl = document.querySelector('.hero')
+    const navEl:HTMLElement = document.querySelector('.hero')!
 
     if (!navEl.classList.contains('hero--about')) {
       navObserver.observe(navEl)
@@ -55,8 +53,6 @@ export default class IntersectTest {
 
     const workObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        const ratio = entry.intersectionRatio
-        entry.target.dataset.test = ratio
 
         if (entry.isIntersecting) {
           entry.target.classList.add('in-view')
@@ -82,8 +78,6 @@ export default class IntersectTest {
 
     const aboutObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        const ratio = entry.intersectionRatio
-        entry.target.dataset.test = ratio
 
         if (entry.isIntersecting) {
           entry.target.classList.add('in-view')
@@ -103,3 +97,5 @@ export default class IntersectTest {
     // console.log(workObserver)
   }
 }
+
+export { IntersectTest }

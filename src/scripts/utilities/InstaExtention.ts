@@ -2,9 +2,15 @@
  * Extending the SBI Instagram feed plugin
  */
 
-export default class InstaFeedExtended {
-  constructor (_elem) {
-    this.feedEl = _elem
+
+interface InstaFeedExtended {
+  feedEl: HTMLElement
+  imageContainers: NodeListOf<HTMLElement>
+}
+
+class InstaFeedExtended {
+  constructor (_elem: HTMLElement) {
+    this.feedEl = _elem!
     this.imageContainers = this.feedEl.querySelectorAll('.sbi_item')
     this.initialize()
   }
@@ -17,9 +23,10 @@ export default class InstaFeedExtended {
       const alt = img.getAttribute('alt')
       const captionElement = document.createElement('div')
       captionElement.className = 'sbi_caption'
-      captionElement.innerHTML = alt
+      captionElement.innerHTML = (alt) ? alt : ''
       el.appendChild(captionElement)
-      console.log(alt, alt)
     }
   }
 }
+
+export { InstaFeedExtended }

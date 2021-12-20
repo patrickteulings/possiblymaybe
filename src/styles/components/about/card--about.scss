@@ -22,8 +22,28 @@
     width: 80%;
   }
 
+  .wp-block-quote {
+    margin-left: 2rem;
+    border-left: 1px solid #fff;
+    padding-left: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+
+    p {
+      margin-left: 1rem;
+      font-style: normal;
+      font-family: $inter;
+      font-size: 18px;
+    }
+  }
+
 
   // Variants
+  &.designer {
+    .wp-block-media-text__content {
+      align-self: start;
+    }
+  }
   &.developer {
     h2 {
       font-family: $inter;

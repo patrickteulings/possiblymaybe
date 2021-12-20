@@ -1,5 +1,10 @@
-export default class Italic {
-  constructor (_elem) {
+interface Italic {
+  elem: HTMLElement,
+  italicElements: HTMLCollectionOf<HTMLSpanElement>
+}
+
+class Italic {
+  constructor (_elem: HTMLElement) {
     this.elem = _elem
     this.italicElements = this.elem.getElementsByTagName('span')
     this.setItalic()
@@ -11,3 +16,5 @@ export default class Italic {
     }
   }
 }
+
+export { Italic }

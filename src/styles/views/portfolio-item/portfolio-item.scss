@@ -57,6 +57,18 @@
 ---------------------------------------- */
 
 .portfolio-item {
+  &--image {
+    .wp-block-group__inner-container {
+      max-width: none;
+      padding-top: 8rem;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
   &--shadowed-image {
     .wp-block-group__inner-container {
       //@include inner-container;
@@ -86,6 +98,34 @@
 
     h3, p {
       color: $blue-very-dark;
+    }
+  }
+
+  &.daniel-dark {
+    .wp-block-group__inner-container {
+      background: #9EA190;
+    }
+  }
+
+  &.tst {
+    .wp-block-group__inner-container {
+      background: darken(#152228, 2%);
+    }
+  }
+
+  &.minemark-donate {
+    .wp-block-group__inner-container {
+      background: $blue-very-dark;
+    }
+  }
+
+  &.minemark-logo {
+    .wp-block-group__inner-container {
+      background-color: white;
+
+      h3, p {
+        color: $blue-very-dark;
+      }
     }
   }
 
@@ -143,10 +183,45 @@
     width: 80%;
     display: inline-block;
     margin-left: 4rem;
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+    }
+
   }
 }
 
+.single-portfolio {
+  .portfolio-item__summary {
+    .wp-block-group__inner-container {
+      @include inner-container;
+      max-width: 35rem;
 
+      h2 {
+        @include heading-h2;
+        font-family: $playfair;
+        font-style: italic;
+        color: $blue-very-dark;
+        margin-left: -4rem;
+      }
+
+      p {
+        @include paragraph;
+        margin-bottom: 2ch;
+
+        a {
+          color: inherit;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+/* ----------------------------------------
+  TITLE ELEMENT (MOVE TO GENERIC ITEM
+---------------------------------------- */
 .single-portfolio {
   .title-element--with-subtitle {
     h2, h6 {

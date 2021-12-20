@@ -22,7 +22,7 @@ export default class NavigationToggle {
   handleHover () {
     console.log(anime)
     return false
-    // anime({
+    // anime({}
     //   targets: '.hero--portfolio-item__image',
     //   translateX: 0,
     //   width: '100%',

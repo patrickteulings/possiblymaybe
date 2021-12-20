@@ -10,10 +10,11 @@
 ?>
 
 <?php if ( has_nav_menu( 'primary' ) ) : ?>
-	<nav id="site-navigation" class="navigation" role="navigation" data-module="NavigationToggle" data-config='{"trigger":".navigation__trigger", "target":".primary-menu-container"}' aria-label="<?php esc_attr_e( 'Primary menu', 'possiblymaybe' ); ?>">
+	<nav id="site-navigation" class="navigation" role="navigation" data-module="NavigationToggle" data-config='{"trigger":".navigation__trigger", "target":".menu-container-wrapper"}' aria-label="<?php esc_attr_e( 'Primary menu', 'possiblymaybe' ); ?>">
     <button class="navigation__trigger" name="Toggle menu" aria-label="Toggle menu" aria-controls="primary-menu-list" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
+    <div class="menu-container-wrapper">
 		<?php
 		wp_nav_menu(
 			array(
@@ -22,8 +23,11 @@
 				'container_class' => 'primary-menu-container',
 				'items_wrap'      => '<ul id="primary-menu-list" class="%2$s">%3$s</ul>',
 				'fallback_cb'     => false,
+        'walker'          => new POSSIBLYMAYBE_Menu_Walker()
 			)
 		);
 		?>
+    <div class="socials-wrapper">fdsfs</div>
+    </div>
 	</nav><!-- #site-navigation -->
 <?php endif; ?>

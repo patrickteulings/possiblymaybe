@@ -658,6 +658,13 @@ require get_template_directory() . '/inc/ui/buttons.php';
 
 
 /**
+ * MENU WALKER
+ *
+ */
+
+require get_template_directory() . '/classes/class-possiblymaybe-custom-menu-walker.php';
+
+/**
  * GET SVG ICON
  *
  */

@@ -3,13 +3,15 @@
   'abstract/reset',
   'abstract/fonts',
   'abstract/colors',
+  'abstract/mixins/headings',
   'abstract/breakpoints',
   'abstract/layout',
   'abstract/mixins/a11y',
+  'abstract/mixins/images',
   'abstract/mixins/mq',
   'abstract/mixins/position',
   'abstract/mixins/pseudo',
-  'abstract/mixins/headings',
+  'abstract/mixins/flex',
   'abstract/mixins/paragraph',
   'abstract/mixins/scrollbar',
   'abstract/mixins/transitions';
@@ -31,6 +33,7 @@
   'layout/hero/about-hero',
   'layout/hero/work-hero',
   'layout/hero/prices-hero',
+  'layout/hero/contact-hero',
   'layout/hero/services-hero',
   'layout/hero/homepage-hero';
 
@@ -45,8 +48,10 @@
   'sections/gigantic/gigantic';
 
   @import
+    'views/homepage/homepage',
     'views/about/about',
     'views/work/work',
+    'views/services/services',
     'views/portfolio-item/portfolio-item';
 
 html, body {

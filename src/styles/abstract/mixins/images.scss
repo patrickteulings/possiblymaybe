@@ -1,0 +1,6 @@
+@mixin objectFit($type:cover){
+  object-fit: $type;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
