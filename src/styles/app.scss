@@ -33,6 +33,7 @@
   'layout/hero/about-hero',
   'layout/hero/work-hero',
   'layout/hero/prices-hero',
+  'layout/hero/contact-hero',
   'layout/hero/services-hero',
   'layout/hero/homepage-hero';
 
@@ -47,6 +48,7 @@
   'sections/gigantic/gigantic';
 
   @import
+    'views/homepage/homepage',
     'views/about/about',
     'views/work/work',
     'views/services/services',

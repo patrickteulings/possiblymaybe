@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="hero__actions">
-        <a href="" class="btn btn--light">tell me more</a>
+        <a href="/services" class="btn btn--light">tell me more</a>
       </div>
     </div>
   </div>

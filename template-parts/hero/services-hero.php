@@ -1,7 +1,7 @@
 <div class="hero hero--services">
 <div class="hero__background" style="background-image: url(<?= get_the_post_thumbnail_url(); ?>)"></div>
   <div class="hero--services__inner">
-    <div class="hero--services__content">
+    <div class="hero--services__content-wrapper">
       <div class="hero--services__subtitle">
         <?php the_field('main_subtitle'); ?>
       </div>

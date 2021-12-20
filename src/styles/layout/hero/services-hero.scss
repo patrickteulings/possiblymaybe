@@ -6,7 +6,7 @@
     width: 100%;
   }
 
-  &__content {
+  &__content-wrapper {
     padding: 0 2rem 0 0;
     display: flex;
     justify-content: center;
@@ -39,6 +39,9 @@
     font-style: italic;
     color: $blue-very-dark;
     font-size: 12px;
+    transform: translateY(20px);
+    opacity: 0;
+    @include transition;
     @include position;
 
     &:before {
@@ -48,15 +51,41 @@
   }
 
   &__content {
+    opacity: 0;
+    transform: translateY(40px);
+    @include transition(all, 0.3s, $default-easing, 0.1s);
+
     > p {
       @include paragraph;
       color: $blue-very-dark;
       font-weight: 300;
       width: 100%;
 
+
       @include mq('tablet-wide', 'min') {
         columns: 2;
       }
+
+      .hero--services__content{
+      }
     }
+  }
+}
+
+/* ----------------------------------------
+  ANIMATION ON LOADED
+---------------------------------------- */
+
+.hero--services.make-visible {
+  height: 100vh;
+
+  .hero--services__subtitle {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .hero--services__content {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

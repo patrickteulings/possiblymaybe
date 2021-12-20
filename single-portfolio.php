@@ -44,12 +44,12 @@ while ( have_posts() ) :
 	$possiblymaybe_next_label     = esc_html__( 'Next post', 'possiblymaybe' );
 	$possiblymaybe_previous_label = esc_html__( 'Previous post', 'possiblymaybe' );
 
-	the_post_navigation(
-		array(
-			'next_text' => '<p class="meta-nav">' . $possiblymaybe_next_label . $possiblymaybe_next . '</p><p class="post-title">%title</p>',
-			'prev_text' => '<p class="meta-nav">' . $possiblymaybe_prev . $possiblymaybe_previous_label . '</p><p class="post-title">%title</p>',
-		)
-	);
+	// the_post_navigation(
+	// 	array(
+	// 		'next_text' => '<p class="meta-nav">' . $possiblymaybe_next_label . $possiblymaybe_next . '</p><p class="post-title">%title</p>',
+	// 		'prev_text' => '<p class="meta-nav">' . $possiblymaybe_prev . $possiblymaybe_previous_label . '</p><p class="post-title">%title</p>',
+	// 	)
+	// );
 endwhile; // End of the loop.
 
 get_footer();

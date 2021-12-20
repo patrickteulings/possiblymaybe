@@ -1,0 +1,64 @@
+.hero--contact {
+  background: white;
+
+  &__inner {
+    @include inner-container;
+    width: 100%;
+  }
+
+  &__content {
+    padding: 0 2rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    @include position;
+    z-index: 3;
+
+    & > div {
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__title {
+    h1,
+    h1 p {
+      font-family: $playfair;
+      font-style: italic;
+      font-weight: 900;
+      color: $pink;
+      font-size: 42px;
+      // margin-left: 2rem;
+      line-height: 140%;
+    }
+  }
+
+  &__subtitle {
+    font-family: $noto;
+    font-size: 12px;
+    font-weight: 300;
+    font-style: italic;
+    color: white;
+    font-size: 12px;
+    @include position;
+
+    &:before {
+      @include before-line-small;
+      background-color: white;
+    }
+  }
+
+  &__content {
+    > p {
+      @include paragraph;
+      color: $blue-dark-fresh;
+      font-weight: 300;
+      width: 75%;
+    }
+  }
+
+  .hero__background {
+    background-color: #2f353a;
+    background-size: inherit;
+    background-position: right bottom;
+  }
+}

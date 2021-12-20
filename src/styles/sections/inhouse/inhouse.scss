@@ -1,14 +1,19 @@
 .wp-block-group {
   &.inhouse {
     margin-top: 6rem;
-    margin-bottom: 6rem;
+    margin-bottom: 2rem;
 
     .wp-block-group__inner-container {
       @include inner-container;
+      padding-bottom: 0 !important;
 
       & > h2 {
         margin-left: 6rem; // section heading
         margin-right: 6rem;
+
+        span {
+          font-family: $playfair;
+        }
       }
 
       .intro-columns.wp-block-columns {

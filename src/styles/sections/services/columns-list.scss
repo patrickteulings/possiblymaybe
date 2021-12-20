@@ -18,10 +18,20 @@
 
       p {
         @include paragraph;
+        font-style: normal;
         color: $blue-dark-fresh;
         font-weight: 300;
         width: 75%;
         // columns: 2;
+
+        em {
+          font-style: italic;
+          color: $blue-very-dark;
+        }
+
+        strong, b {
+          font-weight: 600;
+        }
       }
 
       @include mq('tablet-wide','min') {
@@ -34,6 +44,12 @@
         padding-left: 8rem;
       }
     }
+  }
+}
+
+.entry-content {
+  &:last-child {
+    margin-bottom: 6rem;
   }
 }
 
