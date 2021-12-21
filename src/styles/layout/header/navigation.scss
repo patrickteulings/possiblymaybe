@@ -70,6 +70,7 @@
     @include position(fixed);
     background: $pink;
     transform: translateY(-100%);
+    @include transition;
 
     /* ----------------------------------------
       OPEN STATE
@@ -197,9 +198,9 @@
         .item__inner {
           display: block;
           transform: translateY(4rem);
-          @include transition(all, 0.2s, $default-easing);
+          @include transition(all, 0.3s, $default-easing);
 
-          transition-delay: 0s + ($i * 0.05s);
+          transition-delay: 0.2s + ($i * 0.05s);
         }
       }
     }

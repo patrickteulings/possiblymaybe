@@ -40,6 +40,10 @@
     font-weight: 900;
     padding-left: 3rem;
 
+    span {
+      font-family: $playfair;
+    }
+
     .page-template-page-about & {
       font-family: $playfair;
       font-style: italic;

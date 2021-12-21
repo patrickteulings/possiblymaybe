@@ -14,7 +14,7 @@
     <button class="navigation__trigger" name="Toggle menu" aria-label="Toggle menu" aria-controls="primary-menu-list" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
-    <div class="menu-container-wrapper is-open">
+    <div class="menu-container-wrapper">
       <div>
         <?php
         wp_nav_menu(
