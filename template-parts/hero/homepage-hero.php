@@ -10,10 +10,10 @@
         <div class="animated-text--static">maybe</div>
         <!-- <div class="animated-text--animated">you need a little digitalism</div> -->
         <div class="animated-text--container js-homepage-hero">
-          <span class="">you need a new website</span>
-          <span class="">a new app</span>
-          <span class="">just a little digitalism</span>
-          <span class="italic">everything's possible</span>
+          <div class="splt">you need a new website</div>
+          <div class="splt">a new app</div>
+          <div class="splt">just a little digitalism</div>
+          <div class="splt">everything's possible</div>
         </div>
       </div>
       <div class="hero__actions">

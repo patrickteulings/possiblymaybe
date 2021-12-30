@@ -49,7 +49,9 @@
 
     &.is-open {
       mix-blend-mode: normal;
-
+      span {
+        background-color: white;
+      }
       span:nth-child(3) {
         transform: rotate(45deg);
         top: 10px;
@@ -175,10 +177,19 @@
       height: 3rem;
       overflow: hidden;
 
+
       &:hover {
+
         .item__inner {
-          transform: translateY(1rem) !important;
-          opacity: 0.8;
+          a {
+
+            transform: translateY(1rem) !important;
+            opacity: 0.8;
+
+          }
+
+
+
         }
       }
 
@@ -186,10 +197,11 @@
       a{
         color: #fff;
         font-family: $playfair;
-        // font-style: italic;
+        display: block;
         text-decoration: none;
         font-weight: 900;
         font-size: 48px;
+        @include transition;
       }
     }
 
@@ -201,6 +213,10 @@
           @include transition(all, 0.3s, $default-easing);
 
           transition-delay: 0.2s + ($i * 0.05s);
+
+          &:hover {
+            transition-delay: 0;
+          }
         }
       }
     }

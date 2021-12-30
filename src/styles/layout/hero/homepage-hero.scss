@@ -14,6 +14,7 @@
     height: 100vh;
     @include flex-center;
     justify-content: flex-start;
+    padding: 0 2rem;
 
     .hero-content-wrapper {
       @include position;
@@ -68,18 +69,22 @@
     @include position;
     @include transition(all, 1s, $default-ease-in-out);
     padding-top: 3px;
+    width: 600px;
 
-    span {
+    div {
       @include position(absolute);
       min-width: 600px;
+      min-height: 100px;
+      display: block;
       font-family: $inter;
       font-weight: 900;
-      letter-spacing: -2px;
       color: lighten($blue-dark, 10%);
       @include transition(all, 1s, $default-ease-in-out);
-      opacity: 0.01;
-      transform: scale(0.8);
-      transform-origin: left center;
+      opacity: 0.0;
+
+      .char {
+        height: 80px!important;
+      }
 
       &.active {
         opacity: 1;
@@ -88,14 +93,28 @@
 
       &.italic {
         font-family: $playfair;
-        font-style: italic;
+        opacity: 1;
+
+        span {
+          height: 80px;
+        }
       }
 
+      &:last-child {
+        font-family: $playfair;
+        font-style: italic;
+      }
     }
 
     @for $i from 1 through 50 {
       span:nth-child(#{$i}) {
-        top: 100px + $i * -100px;
+        // top: 100px + $i * -100px;
+
+        span {
+          top: auto;
+          left: auto;
+          height: 80px;
+        }
       }
     }
   }
