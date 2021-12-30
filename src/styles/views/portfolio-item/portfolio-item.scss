@@ -93,7 +93,7 @@
   &.logos {
     .wp-block-group__inner-container {
       // background: darken(#E5E5E5, 30%);
-      background: #E5E5E5;
+      background: #a4d9d3;
     }
 
     h3, p {
@@ -103,7 +103,7 @@
 
   &.daniel-dark {
     .wp-block-group__inner-container {
-      background: #9EA190;
+      background: darken(#152228, 2%);
     }
   }
 
@@ -125,6 +125,16 @@
 
       h3, p {
         color: $blue-very-dark;
+      }
+    }
+  }
+
+  &.hvv-pink {
+    .wp-block-group__inner-container {
+      background-color: #F2DDF4;
+
+      h3, p {
+        color: $blue-very-dark; //#65466A;
       }
     }
   }

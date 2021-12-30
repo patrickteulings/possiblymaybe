@@ -1,0 +1,45 @@
+.wp-block-group.nutshell-list {
+  font-family: $noto;
+  font-weight: 300;
+  font-style: italic;
+
+  h3 {
+    font-weight: 900;
+    font-size: 24px;
+    font-family: $playfair;
+    margin-left: -3rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  ul {
+    columns: 2;
+    margin-left: 26px;
+  }
+  li {
+    font-family: $noto;
+    color: $blue-dark-fresh;
+    font-weight: 400;
+    font-style: italic;
+    // letter-spacing: -1px;
+    margin-bottom: 1rem;
+    line-height: 140%;
+    @include position;
+
+    &:before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 6px;
+      border: 1px solid $blue-dark-fresh;
+      @include position(absolute, -20px, 5px);
+    }
+  }
+
+  .wp-block-group__inner-container {
+    padding: 0 !important;
+  }
+}
+
+.content-list {
+
+}

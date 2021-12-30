@@ -312,6 +312,52 @@ table {
   transform: translateY(0);
 }
 
+.wp-block-group.nutshell-list {
+  font-family: "noto-serif", serif;
+  font-weight: 300;
+  font-style: italic;
+}
+.wp-block-group.nutshell-list h3 {
+  font-weight: 900;
+  font-size: 24px;
+  font-family: "Playfair Display", serif;
+  margin-left: -3rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.wp-block-group.nutshell-list ul {
+  columns: 2;
+  margin-left: 26px;
+}
+.wp-block-group.nutshell-list li {
+  font-family: "noto-serif", serif;
+  color: #3E7679;
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: 1rem;
+  line-height: 140%;
+  position: relative;
+  left: 0;
+  top: 0;
+  right: auto;
+  bottom: auto;
+}
+.wp-block-group.nutshell-list li:before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 6px;
+  border: 1px solid #3E7679;
+  position: absolute;
+  left: -20px;
+  top: 5px;
+  right: auto;
+  bottom: auto;
+}
+.wp-block-group.nutshell-list .wp-block-group__inner-container {
+  padding: 0 !important;
+}
+
 .card--about-wrapper .wp-block-group__inner-container {
   max-width: 71rem;
   padding: 4rem 1rem;
@@ -468,6 +514,11 @@ table {
   right: auto;
   bottom: auto;
   z-index: 2;
+}
+
+.wp-block-image {
+  margin: 0;
+  font-size: 0;
 }
 
 .site-header {
@@ -2936,13 +2987,13 @@ div.wpforms-container-full .wpforms-form button[type=submit].btn .text {
   background: #999999;
 }
 .portfolio-item--image-media.logos .wp-block-group__inner-container {
-  background: #E5E5E5;
+  background: #a4d9d3;
 }
 .portfolio-item--image-media.logos h3, .portfolio-item--image-media.logos p {
   color: #2F353A;
 }
 .portfolio-item--image-media.daniel-dark .wp-block-group__inner-container {
-  background: #9EA190;
+  background: #111c21;
 }
 .portfolio-item--image-media.tst .wp-block-group__inner-container {
   background: #111c21;
@@ -2954,6 +3005,12 @@ div.wpforms-container-full .wpforms-form button[type=submit].btn .text {
   background-color: white;
 }
 .portfolio-item--image-media.minemark-logo .wp-block-group__inner-container h3, .portfolio-item--image-media.minemark-logo .wp-block-group__inner-container p {
+  color: #2F353A;
+}
+.portfolio-item--image-media.hvv-pink .wp-block-group__inner-container {
+  background-color: #F2DDF4;
+}
+.portfolio-item--image-media.hvv-pink .wp-block-group__inner-container h3, .portfolio-item--image-media.hvv-pink .wp-block-group__inner-container p {
   color: #2F353A;
 }
 .portfolio-item--image-media .wp-block-columns {
