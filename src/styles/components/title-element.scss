@@ -14,7 +14,7 @@
     font-family: $noto;
     font-weight: 300;
     color: $blue-light;
-    padding-left: 0.5rem;
+    padding-left: 1rem;
     margin-bottom: 2rem;
     @include position;
 
@@ -24,6 +24,10 @@
       height: 1px;
       width: 24px;
       background: $blue-light;
+    }
+
+    @include mq('tablet', 'min') {
+      padding-left: 0.5rem;
     }
 
     .page-template-page-about & {

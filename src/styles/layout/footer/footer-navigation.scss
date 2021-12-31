@@ -5,7 +5,12 @@
   justify-content: space-between;
 
   .footer-branding {
+    display: none;
     width: 165px;
+
+    @include mq('tablet','min') {
+      display: block;
+    }
 
     svg {
       max-width: 100%;

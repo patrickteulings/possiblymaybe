@@ -11,7 +11,12 @@
     font-style: italic;
     font-weight: 300;
     margin-bottom: 2rem;
+    margin-top: 3rem;
     color: white;
+
+    @include mq('tablet','min') {
+      margin-top: 0;
+    }
   }
 
   p {

@@ -20,16 +20,22 @@
     }
 
     .footer-flex-wrapper {
-      display: flex;
+      @include mq('tablet', 'min'){
+        display: flex;
+      }
     }
   }
 
   .footer-column {
-    max-width: 50%;
+    @include mq('tablet','min'){
+      max-width: 50%;
+    }
     color: white;
 
     &:not(:last-child) {
-      margin-right: 4rem;
+      @include mq('tablet','min'){
+        margin-right: 4rem;
+      }
     }
 
     &__title {
@@ -52,11 +58,18 @@
       font-size: 14px !important;
       font-weight: 300 !important;
       color: #fff;
-      margin-left: 4rem;
       width: 70%;
+      @include mq('tablet','min'){
+        margin-left: 4rem;
+      }
     }
 
     &.contact-details {
+      margin-top: 4rem;
+
+      @include mq('tablet','min') {
+        margin-top: 0;
+      }
 
       .contact-details__title {
         @include slanted-content;

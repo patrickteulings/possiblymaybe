@@ -12,7 +12,11 @@
     overflow: hidden;
 
     .single-portfolio & {
-      height: calc(100vh);
+      height: calc(200vh);
+
+      @include mq('tablet', 'min') {
+        height: calc(100vh);
+      }
     }
   }
 

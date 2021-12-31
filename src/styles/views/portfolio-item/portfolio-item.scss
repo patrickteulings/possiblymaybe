@@ -69,6 +69,7 @@
     }
   }
 
+
   &--shadowed-image {
     .wp-block-group__inner-container {
       //@include inner-container;
@@ -88,6 +89,14 @@
   .wp-block-group__inner-container {
     background: $pink;
     background: darken(#E5E5E5, 30%);
+  }
+
+  .wp-block-media-text__content {
+    padding: 4rem 3rem;
+
+    @include mq('tablet','min') {
+      padding: 0;
+    }
   }
 
   &.logos {
@@ -178,21 +187,29 @@
 
   h3 {
     @include slanted-content;
-    font-size: 48px;
+    font-size: 40px;
     font-weight: 900;
     color: white;
-    width: 80%;
+    width: 100%;
     margin-bottom: 3rem;
     line-height: 120%;
+
+    @include mq('tablet', 'min') {
+      width: 80%;
+      font-size: 48px;
+    }
   }
 
   p {
     @include paragraph;
     color: white;
-    max-width: 80%;
-    width: 80%;
     display: inline-block;
-    margin-left: 4rem;
+
+
+    @include mq('tablet', 'min') {
+      margin-left: 4rem;
+      max-width: 80%;
+    }
 
     a {
       color: inherit;
@@ -213,12 +230,24 @@
         font-family: $playfair;
         font-style: italic;
         color: $blue-very-dark;
-        margin-left: -4rem;
+        margin-left: 1rem;
+
+        @include mq('tablet', 'min') {
+          margin-left: -4rem;
+          margin-left: -4rem;
+        }
       }
 
       p {
         @include paragraph;
         margin-bottom: 2ch;
+        margin-left: 2rem;
+        margin-right: 2rem;
+
+        @include mq('tablet', 'min') {
+          margin-left: 0;
+          margin-right: 0;
+        }
 
         a {
           color: inherit;

@@ -27,7 +27,7 @@ const HomepageHero = (_elem: HTMLElement) => {
       opacity: [0, 1],
       // direction: 'alternate',
       loop: 1,
-      delay: anime.stagger(10),
+      delay: anime.stagger(30),
       easing: 'easeOutExpo'
     });
 

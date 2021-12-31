@@ -14,6 +14,7 @@
 
     p {
       @include paragraph;
+      width: 90%;
     }
 
     .wpforms-container-full {
@@ -28,8 +29,11 @@
         background: darken(white, 5%);
         border-radius: 3px;
         padding: 1.5rem;
-        margin-left: 3rem;
         width: 620px;
+
+        @include mq('tablet','min') {
+          margin-left: 3rem;
+        }
 
         &::placeholder {
           font-family: $noto;
@@ -82,5 +86,77 @@ div.wpforms-container-full .wpforms-form button[type=submit].btn {
   .text {
     @include position;
     top: 1px;
+  }
+}
+
+/* ----------------------------------------
+  DETAILS COLUMN
+---------------------------------------- */
+
+.contact-details-column {
+  padding: 3rem;
+
+  @include mq('tablet','min') {
+    padding: 0;
+  }
+
+  h4 {
+    font-style: italic;
+    font-family: $noto;
+    color: $pink;
+    line-height: 200%;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  ul {
+    font-style: italic;
+    font-weight: 300;
+    color: lighten(black, 50%);
+    font-family: $noto;
+
+    li {
+      margin-bottom: 1rem;
+      @include position;
+
+      a {
+        color: lighten(black, 40%);
+        text-decoration: none;
+
+        &:hover {
+          color: lighten(black, 10%);
+        }
+      }
+
+      &.telephone {
+        &:before {
+          background-image: url('./../../assets/icons/feather-icons/phone.svg');
+        }
+      }
+
+      &.mail {
+        &:before {
+          background-image: url('./../../assets/icons/feather-icons/mail.svg');
+        }
+      }
+
+      &.hash {
+        &:before {
+          background-image: url('./../../assets/icons/feather-icons/hash.svg');
+        }
+      }
+
+
+      &:before {
+
+        @include position(absolute, -24px, 2px);
+        content: "";
+        width: 24px;
+        height: 24px;
+        background-size: 50%;
+        opacity: 0.6;
+        background-repeat: no-repeat;
+      }
+    }
   }
 }

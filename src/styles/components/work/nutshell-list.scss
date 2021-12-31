@@ -7,14 +7,24 @@
     font-weight: 900;
     font-size: 24px;
     font-family: $playfair;
-    margin-left: -3rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
+    margin-left: 1rem;
+
+    @include mq('tablet', 'min') {
+      margin-left: -3rem;
+    }
   }
+
   ul {
-    columns: 2;
-    margin-left: 26px;
+    margin-left: 3rem;
+
+    @include mq('tablet', 'min') {
+      margin-left: 26px;
+      columns: 2;
+    }
   }
+
   li {
     font-family: $noto;
     color: $blue-dark-fresh;

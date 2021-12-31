@@ -6,8 +6,12 @@
       @include position;
       @include inner-container;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 2rem;
+
+      @include mq('tablet', 'min') {
+        grid-template-columns: 1fr 1fr;
+      }
     }
   }
 }

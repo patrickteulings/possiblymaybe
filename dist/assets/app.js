@@ -1445,7 +1445,7 @@ const HomepageHero = (_elem) => {
             opacity: [0, 1],
             // direction: 'alternate',
             loop: 1,
-            delay: animejs__WEBPACK_IMPORTED_MODULE_1__["default"].stagger(10),
+            delay: animejs__WEBPACK_IMPORTED_MODULE_1__["default"].stagger(30),
             easing: 'easeOutExpo'
         });
         textElements[index].classList.add('active');
