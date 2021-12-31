@@ -96,9 +96,9 @@
   .wp-block-media-text__content {
     padding: 4rem 3rem;
 
-    @include mq('tablet','min') {
-      padding: 0;
-    }
+    // @include mq('tablet','min') {
+    //   padding: 0;
+    // }
   }
 
   &.logos {
