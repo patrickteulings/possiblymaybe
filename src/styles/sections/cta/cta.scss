@@ -14,6 +14,7 @@
         @include heading-h2;
         font-family: $playfair;
         color: $blue-dark-fresh;
+        line-height: 160%;
       }
 
       p {
@@ -34,7 +35,13 @@
       display: flex;
       justify-content: center;
       margin-top: 3rem;
+      a {
 
+        &:not(:last-child) {
+          margin-bottom: 1.5rem;
+        }
+
+      }
       a:first-child {
         margin-right: 2rem;
       }

@@ -1,5 +1,6 @@
 .hero--work {
   background: white;
+  min-height: 100vh;
 
   &__inner {
     @include inner-container;
@@ -36,6 +37,7 @@
     font-size: 12px;
     font-weight: 300;
     font-style: italic;
+    line-height: 160%;
     color: $blue-dark-fresh;
     font-size: 12px;
     @include position;
@@ -46,11 +48,19 @@
   }
 
   &__content {
+    padding: 0 1rem;
+
     > p {
       @include paragraph;
       color: $blue-dark-fresh;
       font-weight: 300;
-      width: 75%;
+
+      @include mq('tablet', 'min') {
+        width: 80%;
+      }
+    }
+    @include mq('tablet', 'min') {
+      padding: 0 2rem;
     }
   }
 

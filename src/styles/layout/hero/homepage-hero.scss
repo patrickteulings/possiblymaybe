@@ -1,6 +1,7 @@
 .hero.hero--homepage {
   overflow: hidden;
   background: white;
+  padding-top: 0;
 
   .hero__background {
     height: 100vh;
@@ -12,11 +13,21 @@
     max-width: 72rem;
     margin: 0 auto;
     height: 100vh;
-    @include flex-center;
+    display: flex;
+    align-items: flex-end;
     justify-content: flex-start;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
 
     .hero-content-wrapper {
       @include position;
+    }
+
+    @include mq('tablet','min') {
+      @include flex-center;
+      padding-top: 0rem;
+      padding-bottom: 0rem;
+      justify-content: flex-start;
     }
   }
 
@@ -45,8 +56,12 @@
 ---------------------------------------- */
 .hero--homepage {
   .hero__text {
-    display: flex;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
+
+    @include mq('tablet-wide', 'min') {
+      font-size: 2.5rem;
+      display: flex;
+    }
   }
 
   .animated-text--static {
@@ -55,6 +70,7 @@
     font-style: italic;
     color: $blue-light;
     margin-right: 0.3ch;
+    margin-bottom: 1ch;
   }
 
   .animated-text--animated {

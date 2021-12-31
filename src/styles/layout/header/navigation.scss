@@ -239,7 +239,11 @@
 
   // The actual UL-list
   .secondary-menu-wrapper {
-    display: flex;
+    display: none;
+
+    @include mq('tablet-wide', 'min') {
+      display: flex;
+    }
 
     .menu-item {
       &:not(:last-child){
@@ -269,6 +273,11 @@
 
   .logo {
     @include position;
+
+    svg {
+      width: 100%;
+    }
+
     &:after {
       @include pseudo;
       left: auto;
@@ -277,6 +286,11 @@
       height: 1px;
       width: 115px;
       background-color: #fff;
+      display: none;
+
+      @include mq('tablet','min') {
+        display: block;
+      }
     }
   }
 }

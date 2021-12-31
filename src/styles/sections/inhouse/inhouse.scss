@@ -1,15 +1,26 @@
 .wp-block-group {
   &.inhouse {
-    margin-top: 6rem;
+    margin-top: 4rem;
     margin-bottom: 2rem;
+
+    @include mq('tablet', 'min') {
+      margin-top: 6rem;
+      margin-bottom: 2rem;
+    }
 
     .wp-block-group__inner-container {
       @include inner-container;
       padding-bottom: 0 !important;
 
       & > h2 {
-        margin-left: 6rem; // section heading
-        margin-right: 6rem;
+        font-family: $playfair;
+        margin-left: 2rem; // section heading
+        margin-right: 0;
+
+        @include mq('tablet-wide', 'min') {
+          margin-left: 6rem; // section heading
+          margin-right: 6rem;
+        }
 
         span {
           font-family: $playfair;
@@ -17,8 +28,12 @@
       }
 
       .intro-columns.wp-block-columns {
-        padding-right: 6rem;
+        // padding-right: 6rem;
         align-items: center;
+
+        @include mq('tablet-wide', 'min') {
+          padding-right: 6rem;
+        }
 
         .wp-block-column {
           &:last-child {
@@ -28,6 +43,10 @@
               margin: 0;
               @include paragraph-as-button;
 
+              &.btn--small {
+                margin-top: 2rem;
+              }
+
             }
           }
           &:first-child {
@@ -35,11 +54,11 @@
           }
         }
         p {
-          margin: 0 6rem;
+          margin: 0;
           @include paragraph('italic');
 
           @include mq('tablet','min') {
-            // width: 50%;
+            margin: 0 6rem;
           }
         }
       }
@@ -69,7 +88,11 @@
   &.inhouse {
 
     .wp-block-columns {
-      margin-top: 5rem;
+      margin: 3rem 2rem 0rem;
+
+      @include mq('tablet', 'min') {
+        margin: 5rem 2rem 0rem;
+      }
 
       .wp-block-column {
         img {

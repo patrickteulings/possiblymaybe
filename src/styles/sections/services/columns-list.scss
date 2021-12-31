@@ -4,6 +4,10 @@
 ---------------------------------------- */
 
 .wp-block-group{
+  .wp-block-columns {
+    margin-bottom: 0;
+  }
+
   &.block-service {
     .wp-block-group__inner-container {
       @include inner-container;
@@ -21,8 +25,10 @@
         font-style: normal;
         color: $blue-dark-fresh;
         font-weight: 300;
-        width: 75%;
-        // columns: 2;
+
+        @include mq('tablet', 'min') {
+          width: 75%;
+        }
 
         em {
           font-style: italic;
@@ -44,12 +50,6 @@
         padding-left: 8rem;
       }
     }
-  }
-}
-
-.entry-content {
-  &:last-child {
-    margin-bottom: 6rem;
   }
 }
 

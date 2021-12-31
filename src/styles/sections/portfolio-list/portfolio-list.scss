@@ -1,9 +1,13 @@
 .homepage-portfolio-list {
   &__inner {
-    display: flex;
+    display: block;
     width: 100%;
     padding-bottom: 2rem;
     overflow: scroll;
+
+    @include mq('tablet-wide', 'min') {
+      display: flex;
+    }
   }
 }
 
@@ -14,6 +18,15 @@
   .portfolio-item {
     min-width: 60%;
     margin-right: 2rem;
+    margin-left: 2rem;
+
+    @include mq('tablet-wide','min') {
+      margin-left: 0;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 4rem;
+    }
 
     &__image {
       @include transition(all, 0.5s, $default-easing, 0.2s);
@@ -66,11 +79,16 @@
       }
     }
     &__content {
-      display: flex;
+      display: block;
       align-items: center;
-      width: calc(100% - 10rem);
+      width: calc(100% - 2rem);
       margin: 0 auto;
       margin-top: 3rem;
+
+      @include mq('tablet-wide','min') {
+        display: flex;
+        width: calc(100% - 10rem);
+      }
     }
     &__desc {
       font-family: $noto;
@@ -85,7 +103,14 @@
     &__action {
       min-width: 190px;
       display: flex;
-      justify-content: right;
+      margin-top: 2rem;
+      margin-left: 1rem;
+
+      @include mq('tablet','min') {
+        margin-top: 0;
+        margin-left: 0;
+        justify-content: right;
+      }
     }
   }
 }

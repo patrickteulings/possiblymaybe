@@ -17,11 +17,12 @@
       }
 
       & > p {
-        margin: 0 6rem;
+        margin: 0 2rem;
         @include paragraph('italic');
 
         @include mq('tablet','min') {
           width: 50%;
+          margin: 0 6rem;
         }
 
         .page-template-page-prices & {
@@ -54,6 +55,7 @@
         padding: 4rem 2rem 2rem 2rem;
         background: radial-gradient(91.55% 63.07% at 75.7% 86.1%, #FFFFFF 0%, rgba(255, 243, 255, 0.854167) 29.44%, #FFFFFF 50.09%);
         box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+        margin-bottom: 1rem;
         @include position;
 
         .wp-block-column {

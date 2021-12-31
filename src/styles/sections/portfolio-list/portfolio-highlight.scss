@@ -8,11 +8,18 @@
   }
 
   .portfolio-item {
+    padding: 0 2rem;
+
+    @include mq('tablet-wide', 'min') {
+      padding: 0;
+    }
+
     &__image {
-      height: 500px;
       display: flex;
+      height: 500px;
       justify-content: center;
       align-items: center;
+      padding: 0 1rem;
       @include transition(all, 0.5s, $default-easing, 0.3s);
       clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
 
@@ -33,10 +40,14 @@
 
     &-content__inner {
       display: grid;
-      grid-template-columns: 1fr 1.3fr 1fr;
+      grid-template-columns: 1fr;
       align-items: center;
       margin-top: 2rem;
       padding-left: 2rem;
+
+      @include mq('tablet-wide', 'min') {
+        grid-template-columns: 1fr 1.3fr 1fr;
+      }
     }
 
     &__title {
@@ -60,8 +71,12 @@
     }
 
     &__content {
-      width: calc(100% - 10rem);
+      width: 100%;
       margin: 0 auto;
+
+      @include mq('tablet-wide', 'min') {
+        width: calc(100% - 10rem);
+      }
     }
 
     &__desc,
@@ -76,12 +91,23 @@
     }
 
     &__subtitle {
-      min-width: 40%;
+      display: none;
+
+      @include mq('tablet-wide', 'min') {
+        min-width: 40%;
+        display: block;
+      }
     }
 
     &__action {
-      text-align: right;
+      margin: 2rem 0 0 1rem;
       flex-grow: 2;
+
+      @include mq('tablet','min') {
+        text-align: right;
+        flex-grow: 2;
+        margin: 0;
+      }
     }
   }
 }

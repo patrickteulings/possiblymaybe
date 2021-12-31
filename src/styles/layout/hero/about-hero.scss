@@ -45,21 +45,40 @@
     font-size: 12px;
     font-weight: 300;
     font-style: italic;
+    line-height: 160%;
     color: white;
     font-size: 12px;
     @include position;
 
     &:before {
       @include before-line-small;
+      background-color: white;
     }
   }
 
   &__content {
+    padding: 0 2rem;
+
+    .hero--about__content {
+      padding: 0;
+
+      @include mq('tablet', 'min') {
+        padding: 0 2rem;
+      }
+    }
+
     > p {
       @include paragraph;
       color: white;
       font-weight: 300;
-      width: 75%;
+
+
+      @include mq('tablet', 'min') {
+        width: 75%;
+      }
+    }
+    @include mq('tablet', 'min') {
+      padding: 0 2rem;
     }
   }
 }
