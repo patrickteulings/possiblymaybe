@@ -56,6 +56,8 @@
         background: radial-gradient(91.55% 63.07% at 75.7% 86.1%, #FFFFFF 0%, rgba(255, 243, 255, 0.854167) 29.44%, #FFFFFF 50.09%);
         box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
         margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
         @include position;
 
         .wp-block-column {
@@ -88,6 +90,7 @@
         .wp-block-columns.actions {
           align-items: center;
           margin-bottom: 0;
+          margin-top: auto;
 
           .wp-block-column {
             padding: 0;
