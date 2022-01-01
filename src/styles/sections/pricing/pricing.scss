@@ -58,6 +58,7 @@
         margin-bottom: 1rem;
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         @include position;
 
         .wp-block-column {
@@ -90,7 +91,7 @@
         .wp-block-columns.actions {
           align-items: center;
           margin-bottom: 0;
-          margin-top: auto;
+          margin-top: 5rem;
 
           .wp-block-column {
             padding: 0;
