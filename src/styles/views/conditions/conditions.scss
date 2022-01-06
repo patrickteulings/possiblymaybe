@@ -1,0 +1,39 @@
+.wp-block-group {
+  &.wp-group--conditions {
+    h3 {
+      font-family: $noto;
+      font-weight: 300;
+      margin: 3rem 0 1rem;
+      color: $blue-dark-fresh;
+      font-size: 2rem;
+      line-height: 160%;
+    }
+
+    p {
+      @include slanted-content;
+    }
+
+    ol {
+      @include slanted-content;
+      list-style-type: decimal;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+
+      li {
+        padding-left: 0.5rem;
+      }
+    }
+
+    strong {
+      display: inline-block;
+      font-weight: 500;
+      color: $blue-dark-fresh;
+      margin: 2rem 0 1rem;
+    }
+  }
+
+  &__inner-container {
+    @include inner-container;
+    max-width: 41rem;
+  }
+}

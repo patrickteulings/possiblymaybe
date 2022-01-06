@@ -48,7 +48,7 @@
   &__content {
     > p {
       @include paragraph;
-      color: $blue-dark-fresh;
+      color: white;
       font-weight: 300;
       width: 75%;
     }

@@ -1726,7 +1726,7 @@ table {
   color: #20585B;
   line-height: 2rem;
   font-style: italic;
-  color: #3E7679;
+  color: white;
   font-weight: 300;
   width: 75%;
 }
@@ -3382,6 +3382,50 @@ div.wpforms-container-full .wpforms-form button[type=submit].btn .text {
   background-size: 50%;
   opacity: 0.6;
   background-repeat: no-repeat;
+}
+
+.wp-block-group.wp-group--conditions h3 {
+  font-family: "noto-serif", serif;
+  font-weight: 300;
+  margin: 3rem 0 1rem;
+  color: #3E7679;
+  font-size: 2rem;
+  line-height: 160%;
+}
+.wp-block-group.wp-group--conditions p {
+  font-family: "noto-serif", serif;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 2rem;
+}
+.wp-block-group.wp-group--conditions ol {
+  font-family: "noto-serif", serif;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 2rem;
+  list-style-type: decimal;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.wp-block-group.wp-group--conditions ol li {
+  padding-left: 0.5rem;
+}
+.wp-block-group.wp-group--conditions strong {
+  display: inline-block;
+  font-weight: 500;
+  color: #3E7679;
+  margin: 2rem 0 1rem;
+}
+.wp-block-group__inner-container {
+  max-width: 71rem;
+  padding: 4rem 1rem;
+  margin: 0 auto;
+  max-width: 41rem;
+}
+@media (min-width: 600px) {
+  .wp-block-group__inner-container {
+    padding: 8rem 2rem;
+  }
 }
 
 .portfolio-first-block {
