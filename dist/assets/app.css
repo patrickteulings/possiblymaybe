@@ -65,30 +65,35 @@ table {
   src: url("../../assets/fonts/notoserif-bold-webfont.woff2") format("woff2"), url("../../assets/fonts/notoserif-bold-webfont.woff") format("woff");
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "noto-serif";
   src: url("../../assets/fonts/notoserif-extrabold-webfont.woff2") format("woff2"), url("../../assets/fonts/notoserif-extrabold-webfont.woff") format("woff");
   font-weight: 800;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "noto-serif";
   src: url("../../assets/fonts/notoserif-extralight-webfont.woff2") format("woff2"), url("../../assets/fonts/notoserif-extralight-webfont.woff") format("woff");
   font-weight: 200;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "noto-serif";
   src: url("../../assets/fonts/notoserif-light-webfont.woff2") format("woff2"), url("../../assets/fonts/notoserif-light-webfont.woff") format("woff");
   font-weight: 300;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "noto-serif";
   src: url("../../assets/fonts/notoserif-medium-webfont.woff2") format("woff2"), url("../../assets/fonts/notoserif-medium-webfont.woff") format("woff");
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "noto-serif";
@@ -101,12 +106,14 @@ table {
   src: url("../../assets/fonts/notoserif-semibold-webfont.woff2") format("woff2"), url("../../assets/fonts/notoserif-semibold-webfont.woff") format("woff");
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "noto-serif";
   src: url("../../assets/fonts/notoserif-thin-webfont.woff2") format("woff2"), url("../../assets/fonts/notoserif-thin-webfont.woff") format("woff");
   font-weight: 100;
   font-style: normal;
+  font-display: swap;
 }
 /* ----------------------------------------
   Our global breakpoints
