@@ -3392,6 +3392,17 @@ div.wpforms-container-full .wpforms-form button[type=submit].btn .text {
   background-repeat: no-repeat;
 }
 
+.wp-block-group.wp-group--conditions .wp-block-group__inner-container {
+  max-width: 71rem;
+  padding: 4rem 1rem;
+  margin: 0 auto;
+  max-width: 41rem;
+}
+@media (min-width: 600px) {
+  .wp-block-group.wp-group--conditions .wp-block-group__inner-container {
+    padding: 8rem 2rem;
+  }
+}
 .wp-block-group.wp-group--conditions h3 {
   font-family: "noto-serif", serif;
   font-weight: 300;
@@ -3423,17 +3434,6 @@ div.wpforms-container-full .wpforms-form button[type=submit].btn .text {
   font-weight: 500;
   color: #3E7679;
   margin: 2rem 0 1rem;
-}
-.wp-block-group__inner-container {
-  max-width: 71rem;
-  padding: 4rem 1rem;
-  margin: 0 auto;
-  max-width: 41rem;
-}
-@media (min-width: 600px) {
-  .wp-block-group__inner-container {
-    padding: 8rem 2rem;
-  }
 }
 
 .portfolio-first-block {

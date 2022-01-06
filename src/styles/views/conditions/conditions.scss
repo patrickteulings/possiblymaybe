@@ -1,5 +1,11 @@
 .wp-block-group {
   &.wp-group--conditions {
+
+    .wp-block-group__inner-container {
+      @include inner-container;
+      max-width: 41rem;
+    }
+
     h3 {
       font-family: $noto;
       font-weight: 300;
@@ -30,10 +36,5 @@
       color: $blue-dark-fresh;
       margin: 2rem 0 1rem;
     }
-  }
-
-  &__inner-container {
-    @include inner-container;
-    max-width: 41rem;
   }
 }
