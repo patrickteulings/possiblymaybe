@@ -1606,24 +1606,26 @@ class IntersectTest {
         this.initialize();
     }
     initialize() {
-        const observer = new IntersectionObserver((entries, observer) => {
+        const homepageObeserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                // const ratio = entry.intersectionRatio
-                // entry.target.dataset.test = ratioo
-                // console.log(ratio)
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('is-intersected');
+                    entry.target.classList.add('in-view');
+                    // entry.target.src = entry.target.dataset.src
+                    // observer.unobserve(entry.target)
                 }
                 else {
-                    // entry.target.classList.remove('is-intersected')
+                    entry.target.classList.remove('in-view');
                 }
             });
-        }, { rootMargin: '-20px 0px 50px 0px' });
-        const el = document.querySelectorAll('.portfolio-item__image');
-        el.forEach((item) => {
-            observer.observe(item);
+        }, { rootMargin: '0% 0px 0% 0px' });
+        const homeEl = document.querySelectorAll('.portfolio-item__image');
+        homeEl.forEach((item) => {
+            homepageObeserver.observe(item);
+            item.classList.add('is-intersected');
         });
-        const navObserver = new IntersectionObserver((entries, observer) => {
+        console.log(homepageObeserver);
+        // const el:NodeListOf<HTMLElement> = document.querySelectorAll('.portfolio-item__image')
+        const navObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 const tt = entry;
                 if (entry.isIntersecting) {
@@ -1659,7 +1661,6 @@ class IntersectTest {
         }, { rootMargin: '0% 0px 0% 0px' });
         const workEl = document.querySelectorAll('.work-card--wrapper');
         workEl.forEach((item) => {
-            console.log('item', item);
             workObserver.observe(item);
         });
         console.log(workObserver);

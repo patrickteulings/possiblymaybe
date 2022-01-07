@@ -743,9 +743,11 @@ function possiblymaybe_create_shortcode_portfolio_list(){
         $query->the_post() ;
 
     $result .= '<div class="portfolio-item">';
-      $result .= '<div class="portfolio-item__image" style="background-color: '. get_field('color') . ';">' . get_the_post_thumbnail() . '</div>';
-      $result .= '<div class="portfolio-item__title"><h3>' . get_the_title() . '</h3></div>';
-      $result .= '<div class="portfolio-item__content">';
+	$result .= '<a href="'. get_permalink(). '">';
+      	$result .= '<div class="portfolio-item__image" style="background-color: '. get_field('color') . ';">' . get_the_post_thumbnail() . '</div>';
+	  $result .= '</a>'; 
+	  $result .= '<div class="portfolio-item__title"><h3>' . get_the_title() . '</h3></div>';
+	  $result .= '<div class="portfolio-item__content">';
         // $result .= '<div class="portfolio-item__desc">' . get_field('subtitle') . '</div>';
         $result .= '<div class="portfolio-item__desc">' . get_the_excerpt() . '</div>';
         $result .= '<div class="portfolio-item__action">' . possiblymaybe_button(get_permalink(), 'tell me more', 'btn--small') . '</div>';
