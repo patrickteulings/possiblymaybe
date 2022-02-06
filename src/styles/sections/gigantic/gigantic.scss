@@ -9,6 +9,7 @@
     line-height: 48px !important;
     font-weight: 800;
     max-width: 620px;
+    font-size: 2rem !important;
 
     .has-inline-color {
       font-family: $playfair;
@@ -17,7 +18,7 @@
     }
 
     @include mq('tablet', 'min') {
-      font-size: 2rem;
+      font-size: 4rem !important;
       line-height: 58px !important;
     }
   }
